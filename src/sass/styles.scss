@@ -584,7 +584,7 @@ body {
   }
 
   &__grid {
-    padding: 18px;
+    padding: 1%;
 
     @media all and(max-width: $mobile) {
       padding: 10px;
@@ -884,7 +884,7 @@ body {
     z-index: 2;
 
     @media all and(max-width: $mobile) {
-      bottom: 15px;
+      bottom: 55px;
       left: 6%;
     }
 
@@ -1583,6 +1583,20 @@ body {
   top: 5%;
   left: 6%;
 
+  @media all and (max-width: $min) {
+    width: 74%;
+    padding-top: 74%;
+    top: 7%;
+    left: 13%;
+  }
+
+  @media all and (max-width: $mobile) {
+    width: 38%;
+    padding-top: 38%;
+    top: 7%;
+    left: 30%;
+  }
+
   &__sub {
     width: 100%;
     height: 100%;
@@ -1871,7 +1885,7 @@ body {
 .ui-widget-header {
   border: none;
   background: none;
-  font-size: 1.8vw;
+  font-size: 1.6vw;
   text-transform: uppercase;
   font-family: $roboto-m;
   color: #C267A6;
@@ -1905,7 +1919,11 @@ body {
 }
 
 .ui-datepicker table {
-  margin-top: 10px;
+  //margin-top: 10px;
+
+  @media all and (max-width: $min) {
+    margin-top: 2%;
+  }
 }
 
 .ui-datepicker td {
@@ -1939,7 +1957,7 @@ body {
   text-align: center;
   border: 0;
   display: inline-block;
-  line-height: 30px;
+  line-height: 1.8;
   font-size: 1.2vw;
   font-family: $roboto-r;
   background: none;
@@ -1947,7 +1965,7 @@ body {
   font-weight: normal;
 
   @media all and (max-width: $min) {
-    font-size: 2.1vw;
+    font-size: 2.3vw;
   }
 }
 
@@ -1959,19 +1977,20 @@ body {
   &:after {
     display: block;
     content: '';
-    width: 70%;
-    padding-top: 70%;
+    width: 50px;
+    height: 50px;
     background: #fff;
     border-radius: 50%;
     position: absolute;
     left: 0;
     right: 0;
+    top: -2px;
+    bottom: 0;
     margin: auto;
-    top: -10%;
     z-index: -1;
 
-    @media all and (max-width: 1100px) {
-      top: 0;
+    @media all and (max-width: $mid) {
+      top: -4px;
     }
   }
 }
@@ -2018,6 +2037,7 @@ body {
 
 .ui-datepicker .ui-datepicker-title {
   margin: 0 1.3em;
+  margin-top: 5px;
 }
 
 .n-events {

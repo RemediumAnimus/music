@@ -412,7 +412,7 @@ body {
   .n-content--active {
     left: 292px; }
   .n-content__grid {
-    padding: 18px; }
+    padding: 1%; }
     @media all and (max-width: 830px) {
       .n-content__grid {
         padding: 10px;
@@ -637,7 +637,7 @@ body {
     z-index: 2; }
     @media all and (max-width: 830px) {
       .n-item__name {
-        bottom: 15px;
+        bottom: 55px;
         left: 6%; } }
     .n-item__name__header {
       font-size: 3.5vw;
@@ -1123,6 +1123,18 @@ body {
   padding-top: 88%;
   top: 5%;
   left: 6%; }
+  @media all and (max-width: 1300px) {
+    .n-pic-container {
+      width: 74%;
+      padding-top: 74%;
+      top: 7%;
+      left: 13%; } }
+  @media all and (max-width: 830px) {
+    .n-pic-container {
+      width: 38%;
+      padding-top: 38%;
+      top: 7%;
+      left: 30%; } }
   .n-pic-container__sub {
     width: 100%;
     height: 100%;
@@ -1338,7 +1350,7 @@ body {
 .ui-widget-header {
   border: none;
   background: none;
-  font-size: 1.8vw;
+  font-size: 1.6vw;
   text-transform: uppercase;
   font-family: "Roboto-Medium";
   color: #C267A6; }
@@ -1365,8 +1377,9 @@ body {
 .ui-datepicker-calendar {
   height: 76%; }
 
-.ui-datepicker table {
-  margin-top: 10px; }
+@media all and (max-width: 1300px) {
+  .ui-datepicker table {
+    margin-top: 2%; } }
 
 .ui-datepicker td {
   text-align: center;
@@ -1391,7 +1404,7 @@ body {
   text-align: center;
   border: 0;
   display: inline-block;
-  line-height: 30px;
+  line-height: 1.8;
   font-size: 1.2vw;
   font-family: "Roboto-Regular";
   background: none;
@@ -1399,7 +1412,7 @@ body {
   font-weight: normal; }
   @media all and (max-width: 1300px) {
     .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-      font-size: 2.1vw; } }
+      font-size: 2.3vw; } }
 
 .ui-state-hover, .ui-state-active {
   position: relative;
@@ -1408,19 +1421,20 @@ body {
   .ui-state-hover:after, .ui-state-active:after {
     display: block;
     content: '';
-    width: 70%;
-    padding-top: 70%;
+    width: 50px;
+    height: 50px;
     background: #fff;
     border-radius: 50%;
     position: absolute;
     left: 0;
     right: 0;
+    top: -2px;
+    bottom: 0;
     margin: auto;
-    top: -10%;
     z-index: -1; }
-    @media all and (max-width: 1100px) {
+    @media all and (max-width: 1600px) {
       .ui-state-hover:after, .ui-state-active:after {
-        top: 0; } }
+        top: -4px; } }
 
 .ui-datepicker-prev {
   left: 12px !important;
@@ -1455,7 +1469,8 @@ body {
     display: none; }
 
 .ui-datepicker .ui-datepicker-title {
-  margin: 0 1.3em; }
+  margin: 0 1.3em;
+  margin-top: 5px; }
 
 .n-events {
   position: absolute;

@@ -90,7 +90,7 @@ $(document).ready(function(){
             }
         }
 
-        $('.n-sidebar').removeClass('.n-sidebar--active');
+        $('.n-sidebar').removeClass('n-sidebar--active');
     }
 
     normalize();
