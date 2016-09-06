@@ -20,7 +20,7 @@ $(document).ready(function(){
             var paddings = {
                 'x1': 48,
                 'x2': 23.55,
-                'x3': 15.3,
+                'x3': 15.4,
                 'x4': 48.1,
                 'x4mod': 23.6,
                 'x5': 31.8
@@ -89,11 +89,19 @@ $(document).ready(function(){
                 $grid2.packery('destroy');
             }
         }
+
+        $('.n-sidebar').removeClass('.n-sidebar--active');
     }
 
     normalize();
 
     $(window).on('resize',normalize);
+
+    $('.n-header__burger').click(function(e){
+        $('.n-sidebar').toggleClass('menu-active');
+        $('.n-header__burger').toggleClass('n-header__burger--active');
+        $('body').toggleClass('hidden');
+    });
 
     $('.n-menu__burger').click(function(){
         TweenMax.set($('.n-content'), {
@@ -222,6 +230,17 @@ $(document).ready(function(){
         nextButton: '.n-slider__arrowR',
         prevButton: '.n-slider__arrowL',
         speed: 600
+    });
+
+    var dateSlider = new Swiper('#dateSlider', {
+        loop: true,
+        speed: 600
+    });
+
+    $('.n-events li').each(function(index){
+        $(this).hover(function(){
+            dateSlider.slideTo(index);
+        })
     });
 
     var events = [

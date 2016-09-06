@@ -153,6 +153,15 @@ body {
 }
 
 .n-header {
+
+  @media all and(max-width: $mobile) {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background: #1c1c1c;
+    width: 100%;
+  }
+
   &__mob {
     display: none;
     height: 80px;
@@ -163,8 +172,9 @@ body {
 
     &__container {
       display: table;
-      width: 97%;
+      width: 95%;
       height: 100%;
+      margin-left: 2%;
 
       &:after {
         display: block;
@@ -175,30 +185,87 @@ body {
   }
 
   &__burger {
-    display: table-cell;
     vertical-align: middle;
-    cursor: pointer;
+    display: table-cell;
 
-    .n-menu__burger {
+    &__container {
       width: 30px;
       height: 17px;
-
-      .n-menu__burger__line {
-        height: 3px;
-        border-radius: 3px;
-      }
+      margin: 10px auto;
+      position: relative;
+      cursor: pointer;
 
       &:after {
+        display: block;
+        content: '';
+        width: 100%;
         height: 3px;
+        background: #7B7B7C;
         border-radius: 3px;
+        position: absolute;
+        top: 0;
+        @include transition();
       }
 
       &:before {
+        display: block;
+        content: '';
+        width: 100%;
         height: 3px;
+        background: #7B7B7C;
         border-radius: 3px;
+        position: absolute;
+        bottom: 0;
+        @include transition();
+      }
+    }
+
+    &__line {
+      width: 100%;
+      height: 3px;
+      background: #7B7B7C;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      @include transition();
+    }
+
+    &:hover {
+      .n-header__burger__line {
+        background: #fff;
+      }
+      .n-header__burger__container {
+        &:after {
+          background: #fff;
+        }
+
+        &:before {
+          background: #fff;
+        }
+      }
+    }
+
+    &--active {
+      .n-header__burger__line {
+        left: -10px;
+        opacity: 0;
+      }
+      .n-header__burger__container {
+        &:before {
+          transform: rotate(45deg);
+          bottom: 7px;
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+          top: 7px;
+        }
       }
     }
   }
+
 
   &__logo {
     display: table-cell;
@@ -209,10 +276,6 @@ body {
       width: 120px;
       display: block;
       margin: 0px auto;
-
-      @media all and (max-width: 400px) {
-        margin: 0px 0px 0px 20px;
-      }
     }
   }
 
@@ -253,15 +316,15 @@ body {
   }
 
   &__burger {
-    width: 40px;
-    height: 32px;
+    width: 34px;
+    height: 29px;
     margin: 10px auto;
     position: relative;
     cursor: pointer;
     
     &__line {
       width: 100%;
-      height: 6px;
+      height: 3px;
       background: #7B7B7C;
       border-radius: 5px;
       position: absolute;
@@ -275,7 +338,7 @@ body {
       display: block;
       content: '';
       width: 100%;
-      height: 6px;
+      height: 3px;
       background: #7B7B7C;
       border-radius: 5px;
       position: absolute;
@@ -287,7 +350,7 @@ body {
       display: block;
       content: '';
       width: 100%;
-      height: 6px;
+      height: 3px;
       background: #7B7B7C;
       border-radius: 5px;
       position: absolute;
@@ -310,25 +373,69 @@ body {
     }
   }
 }
+body {
+  //overflow: hidden;
+}
 
+.n-7D59B3 {
+  background: #7D59B3 !important;
+  
+  &:hover {
+    background: darken(#7D59B3,10%) !important;
+  }
+}
+
+.n-BF4C5D {
+  background: #BF4C5D !important;
+
+  &:hover {
+    background: darken(#BF4C5D,10%) !important;
+  }
+}
+
+.hidden {
+  overflow: hidden;
+}
 .n-sidebar {
   position: fixed;
   width: 292px;
   height: 100%;
   left: -292px;
-  //@include transition($value: all, $time: 0.95s, $function: linear);
+
+  @media all and (max-width: $mobile) {
+    @include transition($value: all, $time: 0.45s, $function: ease-in-out);
+  }
+
 
   @media all and(max-width: $mobile) {
-    position: relative;
+    position: fixed;
     height: auto;
     width: 100%;
+    background: #1c1c1c;
     left: 0;
-    display: none;
+    top: 70px;
+    z-index: 10;
+    bottom: 0;
+    left: -100%;
+    //display: none;
+  }
+
+  &__logo {
+    @media all and(max-width: $mobile) {
+      display: none;
+    }
   }
 
   &__container {
     padding: 40px 38px;
     position: relative;
+
+    @media all and (max-width: $mobile) {
+      padding: 0px 38px;
+      overflow-y: auto;
+      height: 100%;
+      padding-bottom: 50px;
+    }
   }
 
   &__close {
@@ -338,6 +445,10 @@ body {
     top: 5px;
     left: 5px;
     cursor: pointer;
+
+    @media all and(max-width: $mobile) {
+      display: none;
+    }
     
     &:after {
       display: block;
@@ -387,6 +498,11 @@ body {
     font-size: 24px;
     padding: 70px 0px;
     margin-bottom: 60px;
+
+    @media all and (max-width: $mobile) {
+      padding: 55px 0px;
+      margin-bottom: 10px;
+    }
 
     li {
       margin-bottom: 25px;
@@ -441,6 +557,10 @@ body {
   }
 }//sidebar
 
+.menu-active {
+  left: 0;
+}
+
 .n-content {
   margin-left: 62px;
   position: relative;
@@ -456,6 +576,7 @@ body {
 
   @media all and(max-width: $mobile) {
     margin-left: 0;
+    padding-top: 80px;
   }
 
   &--active {
@@ -599,9 +720,6 @@ body {
   }
 
   &:hover {
-    .n-item__inside__cover {
-      opacity: 0;
-    }
 
     .n-item__inside__pic {
       transform: scale(1.1);
@@ -627,12 +745,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    padding: 35px;
+    padding: 4.5% 6%;
     position: relative;
     overflow: hidden;
 
-    @media all and (max-width: $mid) {
-      padding: 15px;
+    @media all and (max-width: $mobile) {
+      padding: 10px 6%;
     }
 
     &__pic {
@@ -655,6 +773,7 @@ body {
       height: 100%;
       background: #000;
       opacity: 0.3;
+      z-index: 1;
       @include transition($value: all, $time: 0.35s, $function: linear);
     }
   }
@@ -662,8 +781,10 @@ body {
   &__date {
     text-align: center;
     color: #fff;
-    max-width: 120px;
+    //max-width: 120px;
+    display: inline-block;
     position: relative;
+    z-index: 1;
 
     @media all and(max-width: $mobile) {
       max-width: 60px;
@@ -672,21 +793,37 @@ body {
     i {
       font-style: normal;
       display: block;
-      font-size: 78px;
+      font-size: 4vw;
       line-height: 70px;
 
+      @media all and (max-width: $min) {
+        font-size: 6vw;
+      }
+
       @media all and(max-width: $mobile) {
+        font-size: 10vw;
+        line-height: 1.1;
+      }
+
+      @media all and (max-width: 400px) {
         font-size: 44px;
-        line-height: 40px;
       }
     }
 
     span {
       text-transform: uppercase;
-      font-size: 22px;
+      font-size: 1.1vw;
+
+      @media all and (max-width: $min) {
+        font-size: 1.6vw;
+      }
 
       @media all and(max-width: $mobile) {
-        font-size: 13px;
+        font-size: 2.6vw;
+      }
+
+      @media all and (max-width: 400px) {
+        font-size: 12px;
       }
     }
   }
@@ -702,13 +839,15 @@ body {
     padding: 16px 28px;
     top: 35px;
     right: 35px;
-    opacity: 0;
+    opacity: 1;
+    z-index: 2;
     @include transition();
 
     @media all and(max-width: $mobile) {
       opacity: 1;
       top: 15px;
       right: 15px;
+      padding: 14px 21px;
     }
 
     @media all and(max-width: $mobile) {
@@ -727,7 +866,7 @@ body {
     z-index: 2;
     text-align: center;
     width: 100%;
-    top: 40%;
+    top: 44%;
     color: #fff;
     text-transform: uppercase;
 
@@ -739,13 +878,14 @@ body {
 
   &__name {
     position: absolute;
-    left: 35px;
+    left: 6%;
     bottom: 35px;
     right: 35px;
+    z-index: 2;
 
     @media all and(max-width: $mobile) {
       bottom: 15px;
-      left: 15px;
+      left: 6%;
     }
 
     &__header {
@@ -754,6 +894,10 @@ body {
       font-family: $pt75;
       line-height: 1.2;
       color: #fff;
+      
+      &:hover {
+        text-decoration: underline;
+      }
 
       @media all and(max-width: $mobile) {
         font-size: 36px;
@@ -857,14 +1001,6 @@ body {
     height: 520px;
   }
 
-  /*@media all and (max-width: 1600px) {
-    width: 49%;
-  }
-
-  @media all and (max-width: 1200px) {
-    width: 100%;
-  }*/
-
   @media all and (max-width: $mid) {
     width: 38%;
   }
@@ -876,19 +1012,14 @@ body {
   @media all and (max-width: $mobile) {
     width: 100%;
   }
+
+  .n-item__name {
+    bottom: 25px;
+  }
 }
 
 .x2 {
   width: 23%;
-
-
-  /*@media all and (max-width: 1600px) {
-    width: 32.5%;
-  }
-
-  @media all and (max-width: 1200px) {
-    width: 100%;
-  }*/
 
   @media all and (max-width: $mid) {
     width: 30%;
@@ -899,11 +1030,7 @@ body {
   }
 
   .n-item__inside {
-    padding: 10px 35px 35px 35px;
-
-    @media all and (max-width: $mobile) {
-      padding: 18px 35px 35px 15px;
-    }
+    padding: 10px 6% 35px 6%;
   }
 
   .n-item__date {
@@ -917,8 +1044,12 @@ body {
       font-size: 56px;
 
       @media all and (max-width: $mobile) {
+        font-size: 10vw;
+        line-height: 1.1;
+      }
+
+      @media all and (max-width: 400px) {
         font-size: 44px;
-        line-height: 40px;
       }
     }
 
@@ -926,7 +1057,11 @@ body {
       font-size: 20px;
 
       @media all and (max-width: $mobile) {
-        font-size: 13px;
+        font-size: 2.6vw;
+      }
+
+      @media all and (max-width: 400px) {
+        font-size: 12px;
       }
     }
   }
@@ -935,9 +1070,19 @@ body {
     top: 20px;
     font-size: 16px;
     padding: 14px 21px;
+
+    @media all and (max-width: $mobile) {
+      top: 15px;
+    }
   }
 
   .n-item__name {
+    left: 8%;
+
+    @media all and (max-width: $mobile) {
+      left: 6%;
+    }
+
     .n-item__name__header {
       font-size: 1.5vw;
       line-height: 1.2;
@@ -967,6 +1112,25 @@ body {
 
     .n-item__inside__cover {
       opacity: 1;
+      
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        @include transition();
+      }
+    }
+
+    &:hover {
+      .n-item__inside__cover {
+        &:after {
+          opacity: 0.1;
+        }
+      }
     }
 
     .n-item__header {
@@ -1008,13 +1172,6 @@ body {
 .x3 {
   width: 16%;
 
-  /*@media all and (max-width: 1600px) {
-    width: 32.5%;
-  }
-
-  @media all and (max-width: 1200px) {
-    width: 100%;
-  }*/
 
   @media all and (max-width: $mid) {
     width: 18.5%;
@@ -1032,7 +1189,7 @@ body {
     padding: 5px 20px;
 
     @media all and (max-width: $mobile) {
-      padding: 18px 20px;
+      padding: 10px 6%;
     }
   }
 
@@ -1050,10 +1207,15 @@ body {
     position: absolute;
     top: 55px;
     right: -56px;
+    z-index: 1;
   }
 
   .n-item__name {
-    left: 30px;
+    left: 12%;
+
+    @media all and (max-width: $mobile) {
+      left: 6%;
+    }
 
     .n-item__name__header {
       font-size: 1.2vw;
@@ -1070,10 +1232,27 @@ body {
 
     i {
       font-size: 48px;
+
+      @media all and (max-width: $mobile) {
+        font-size: 10vw;
+        line-height: 1.1;
+      }
+
+      @media all and (max-width: 400px) {
+        font-size: 44px;
+      }
     }
 
     span {
       font-size: 15px;
+
+      @media all and (max-width: $mobile) {
+        font-size: 2.6vw;
+      }
+
+      @media all and (max-width: 400px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -1091,11 +1270,34 @@ body {
     padding: 10px 16px;
     top: 20px;
     right: 20px;
+
+    @media all and (max-width: $mobile) {
+      padding: 14px 21px;
+    }
   }
 
   &--news {
     .n-item__inside__cover {
       opacity: 1;
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        @include transition();
+      }
+    }
+
+    &:hover {
+      .n-item__inside__cover {
+        &:after {
+          opacity: 0.1;
+        }
+      }
     }
 
     .n-item__header {
@@ -1153,7 +1355,7 @@ body {
       bottom: 15px;
       left: 15px;
       right: 15px;
-      z-index: 1;
+      z-index: 2;
 
       &:after {
         display: block;
@@ -1167,6 +1369,7 @@ body {
         top: 0;
         bottom: 0;
         border-radius: 50%;
+        @include transition();
       }
       
       &:before {
@@ -1214,8 +1417,9 @@ body {
       }
 
       .n-item__inside__pic {
-        &:before {
-          opacity: 0;
+        //transform: none;
+        &:after {
+          border: 0px solid rgba(173, 19, 128, 0.7);
         }
       }
     }
@@ -1232,7 +1436,7 @@ body {
   &--mod {
     .n-item__header {
       transform: none;
-      left: 35px;
+      left: 12%;
       top: 35px;
       font-size: 1.2vw;
       color: #FFA809;
@@ -1240,6 +1444,7 @@ body {
 
       @media all and(max-width: $mobile) {
         font-size: 28px;
+        left: 6%;
       }
     }
 
@@ -1250,6 +1455,7 @@ body {
     }
 
     .n-item__name {
+      bottom: 30px;
 
       .n-item__name__header {
         text-transform: none;
@@ -1274,9 +1480,6 @@ body {
 .x4 {
   width: 25%;
 
- /* @media all and (max-width: 1600px) {
-    width: 50%;
-  }*/
 
   @media all and (max-width: $mid) {
     width: 30%;
@@ -1293,9 +1496,6 @@ body {
   &--mod {
     width: 25%;
 
-    /*@media all and (max-width: 1600px) {
-      width: 49%;
-    }*/
 
     @media all and (max-width: $mid) {
       width: 30%;
@@ -1312,6 +1512,8 @@ body {
     .n-item__name {
       text-align: center;
       top: 46%;
+      bottom: 30px;
+      left: 8%;
     }
     
     .n-item__name__header {
@@ -1373,6 +1575,32 @@ body {
     }
   }
 }//x5
+
+.n-pic-container {
+  position: absolute;
+  width: 88%;
+  padding-top: 88%;
+  top: 5%;
+  left: 6%;
+
+  &__sub {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    border-radius: 100%;
+    z-index: 2;
+  }
+
+  .n-item__inside__pic {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
 
 .hideFirst {
   @media all and (max-width: $mid) {
@@ -1472,11 +1700,7 @@ body {
 .n-date {
 
   .n-item__inside {
-    padding: 35px;
-
-    @media all and (max-width: $mid) {
-      padding: 15px;
-    }
+    padding: 6% 8%;
   }
 
   .n-item__inside__pic {
@@ -1487,6 +1711,10 @@ body {
     .n-item__inside__cover {
       opacity: 0.3;
     }
+
+    .n-item__inside__pic {
+      transform: none;
+    }
   }
 }
 
@@ -1496,6 +1724,19 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
+  z-index: 2;
+}
+
+.n-dateSlider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  .n-item__inside__pic {
+    position: static;
+  }
 }
 
 .n-footer {
@@ -1623,6 +1864,10 @@ body {
   background: linear-gradient(to bottom, #9E005D 0%, #2E3192 100%);
 }
 
+.ui-corner-all {
+  border-radius: 0;
+}
+
 .ui-widget-header {
   border: none;
   background: none;
@@ -1695,10 +1940,15 @@ body {
   border: 0;
   display: inline-block;
   line-height: 30px;
-  font-size: 22px;
+  font-size: 1.2vw;
   font-family: $roboto-r;
   background: none;
   color: #fff;
+  font-weight: normal;
+
+  @media all and (max-width: $min) {
+    font-size: 2.1vw;
+  }
 }
 
 .ui-state-hover, .ui-state-active {
@@ -1709,16 +1959,20 @@ body {
   &:after {
     display: block;
     content: '';
-    width: 50px;
-    height: 50px;
+    width: 70%;
+    padding-top: 70%;
     background: #fff;
     border-radius: 50%;
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    top: -7px;
+    top: -10%;
     z-index: -1;
+
+    @media all and (max-width: 1100px) {
+      top: 0;
+    }
   }
 }
 
@@ -1784,7 +2038,7 @@ body {
     font-family: $pt75;
     color: #fff;
     overflow: hidden;
-    padding: 15px 35px;
+    padding: 15px 28px;
 
     @media all and (max-width: $min) {
       font-size: 1.7vw;
