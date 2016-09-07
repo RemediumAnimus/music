@@ -301,7 +301,6 @@ body {
   position: fixed;
   text-align: center;
   left: 0;
-  display: none;
   @include transition();
 
   @media all and(max-width: $mobile) {
@@ -402,7 +401,6 @@ body {
   width: 292px;
   height: 100%;
   left: -292px;
-  left: 0;
 
   @media all and (max-width: $mobile) {
     @include transition($value: all, $time: 0.45s, $function: ease-in-out);
@@ -642,7 +640,6 @@ body {
 
 .n-content {
   margin-left: 62px;
-  margin-left: 292px;
   position: relative;
   z-index: 1;
   height: 100%;

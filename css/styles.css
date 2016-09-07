@@ -193,7 +193,6 @@ body {
   position: fixed;
   text-align: center;
   left: 0;
-  display: none;
   transition: all 0.15s linear;
   -webkit-transition: all 0.15s linear;
   -moz-transition: all 0.15s linear; }
@@ -270,8 +269,7 @@ body {
   position: fixed;
   width: 292px;
   height: 100%;
-  left: -292px;
-  left: 0; }
+  left: -292px; }
   @media all and (max-width: 830px) {
     .n-sidebar {
       transition: all 0.45s ease-in-out;
@@ -454,7 +452,6 @@ body {
 
 .n-content {
   margin-left: 62px;
-  margin-left: 292px;
   position: relative;
   z-index: 1;
   height: 100%;
