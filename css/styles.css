@@ -349,20 +349,45 @@ body {
   .n-sidebar__list {
     text-transform: uppercase;
     font-size: 24px;
-    padding: 70px 0px;
-    margin-bottom: 60px; }
+    padding: 0px 0px;
+    margin-top: 70px;
+    margin-bottom: 130px;
+    position: relative;
+    overflow: hidden; }
     @media all and (max-width: 830px) {
       .n-sidebar__list {
         padding: 55px 0px;
         margin-bottom: 10px; } }
-    .n-sidebar__list li {
-      margin-bottom: 25px;
-      color: #7B7B7C;
-      transition: all 0.15s linear;
-      -webkit-transition: all 0.15s linear;
-      -moz-transition: all 0.15s linear; }
-      .n-sidebar__list li:hover {
-        color: #fff; }
+  .n-sidebar__item {
+    margin-bottom: 25px;
+    color: #7B7B7C;
+    transition: all 0.15s linear;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear; }
+    .n-sidebar__item:hover {
+      color: #fff; }
+  .n-sidebar__subitem {
+    margin-bottom: 25px;
+    color: #7B7B7C;
+    transition: all 0.15s linear;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear; }
+    .n-sidebar__subitem:hover {
+      color: #fff; }
+  .n-sidebar__back {
+    cursor: pointer;
+    position: absolute;
+    top: 0; }
+    .n-sidebar__back:hover g {
+      opacity: 1; }
+  .n-sidebar__sublist {
+    position: absolute;
+    background: #1c1c1c;
+    padding: 70px 0px;
+    width: 100%;
+    left: 100%;
+    top: 0;
+    min-height: 350px; }
   .n-sidebar__version {
     color: #7B7B7C;
     font-size: 17px;

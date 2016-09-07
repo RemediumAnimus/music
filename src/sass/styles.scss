@@ -496,23 +496,58 @@ body {
   &__list {
     text-transform: uppercase;
     font-size: 24px;
-    padding: 70px 0px;
-    margin-bottom: 60px;
+    padding: 0px 0px;
+    margin-top: 70px;
+    margin-bottom: 130px;
+    position: relative;
+    overflow: hidden;
 
     @media all and (max-width: $mobile) {
       padding: 55px 0px;
       margin-bottom: 10px;
     }
+  }
 
-    li {
-      margin-bottom: 25px;
-      color: #7B7B7C;
-      @include transition();
-      
-      &:hover {
-        color: #fff;
+  &__item {
+    margin-bottom: 25px;
+    color: #7B7B7C;
+    @include transition();
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__subitem {
+    margin-bottom: 25px;
+    color: #7B7B7C;
+    @include transition();
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__back {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+
+    &:hover {
+      g {
+        opacity: 1;
       }
     }
+  }
+
+  &__sublist {
+    position: absolute;
+    background: #1c1c1c;
+    padding: 70px 0px;
+    width: 100%;
+    left: 100%;
+    top: 0;
+    min-height: 350px;
   }
 
   &__version {
