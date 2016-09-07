@@ -101,12 +101,12 @@
 		</div>
 	</div>
 
-	<div class="n-content">
-		<div class="n-declarations">
+	<div class="n-content n-declarations">
+		<div class="n-declarations__header">
 			<div class="n-declarations__container">
-				<div class="n-content__header__list">
+				<div class="n-declarations__list">
 					<ul>
-						<li><span>Вся афиша</span></li>
+						<li class="active"><span>Вся афиша</span></li>
 						<li><span>Спектакли театра</span></li>
 						<li><span>Гостевые постановки</span></li>
 						<li><span>Детям</span></li>
@@ -114,24 +114,73 @@
 				</div>
 				<div class="n-declarations__checks">
 					<ul>
-						<li></li>
-						<li></li>
+						<li class="n-square active"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="41.438px" height="41.625px" viewBox="0 0 41.438 41.625" enable-background="new 0 0 41.438 41.625" xml:space="preserve">
+							<g>
+							</g>
+							<g>
+								<g>
+									<circle stroke="#EFA0C6" fill="transparent" cx="5.9" cy="35.779" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="5.9" cy="20.86" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="5.9" cy="5.942" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="20.818" cy="35.779" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="20.818" cy="20.86" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="20.818" cy="5.942" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="35.737" cy="35.779" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="35.737" cy="20.86" r="4.973"/>
+									<circle stroke="#EFA0C6" fill="transparent" cx="35.737" cy="5.942" r="4.973"/>
+								</g>
+							</g>
+							</svg>
+						</li>
+						<li class="n-lines">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="41.438px" height="41.625px" viewBox="0 0 41.438 41.625" enable-background="new 0 0 41.438 41.625" xml:space="preserve">
+							<g>
+							</g>
+							<g>
+								<g>
+									<circle fill="none" stroke="#EFA0C6" stroke-miterlimit="10" cx="5.9" cy="35.779" r="4.973"/>
+									<circle fill="none" stroke="#EFA0C6" stroke-miterlimit="10" cx="5.9" cy="20.86" r="4.973"/>
+									<circle fill="none" stroke="#EFA0C6" stroke-miterlimit="10" cx="5.9" cy="5.942" r="4.973"/>
+									<path fill="none" stroke="#EFA0C6" stroke-miterlimit="10" d="M35.692,40.737H20.71c-2.743,0-4.966-2.223-4.966-4.965l0,0
+										c0-2.743,2.223-4.966,4.966-4.966h14.982c2.742,0,4.965,2.223,4.965,4.966l0,0C40.658,38.514,38.435,40.737,35.692,40.737z"/>
+									<path fill="none" stroke="#EFA0C6" stroke-miterlimit="10" d="M35.692,25.862H20.71c-2.743,0-4.966-2.224-4.966-4.966l0,0
+										c0-2.743,2.223-4.966,4.966-4.966h14.982c2.742,0,4.965,2.223,4.965,4.966l0,0C40.658,23.638,38.435,25.862,35.692,25.862z"/>
+									<path fill="none" stroke="#EFA0C6" stroke-miterlimit="10" d="M35.692,10.883H20.71c-2.743,0-4.966-2.223-4.966-4.966l0,0
+										c0-2.743,2.223-4.966,4.966-4.966h14.982c2.742,0,4.965,2.223,4.965,4.966l0,0C40.658,8.66,38.435,10.883,35.692,10.883z"/>
+								</g>
+							</g>
+							</svg>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
 		<div class="n-declarations__wrap">
-			<div class="n-declarations__selects">
-				<div class="n-declarations__select">
+			<div class="n-declarations__container">
+				<div class="n-declarations__selects">
+					<div class="n-declarations__select" id="hollSelect">
+						<select name="" id="holl">
+							<option value="">Все залы</option>
+							<option value="">1 зал</option>
+							<option value="">2 зал</option>
+							<option value="">3 зал</option>
+						</select>
+					</div>
+					<div class="n-declarations__select" id="actionsSelect">
+						<select name="" id="actions">
+							<option value="">Все залы</option>
+							<option value="">1 зал</option>
+							<option value="">2 зал</option>
+							<option value="">3 зал</option>
+						</select>
+					</div>
+				</div>
+				<div class="n-declarations__date">
 
 				</div>
-				<div class="n-declarations__select">
-
-				</div>
-			</div>
-			<div class="n-declarations__date">
-
 			</div>
 		</div>
 

@@ -108,18 +108,18 @@ $(document).ready(function(){
         if (!$(this).find('.n-sidebar__sublist').length) {
             return;
         }
+        $(this).find('.n-sidebar__sublist').show();
         var height = $('.n-sidebar__sublist').outerHeight();
         var prevHeight = $('.n-sidebar__list').outerHeight();
-        console.log(height);
         $(this).find('.n-sidebar__sublist').data('height', prevHeight + 'px');
         TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
                 "height": height + 'px'
             },
         });
-        TweenMax.to($(this).find('.n-sidebar__sublist'),0.5, {
+        TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
-                "left": "0%"
+                "left": "-100%"
             },
         });
     });
@@ -127,16 +127,18 @@ $(document).ready(function(){
     $('.n-sidebar__back').click(function(e){
         e.stopPropagation();
         var height = $(this).parent().data('height');
-        console.log(height);
         TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
                 "height": height
             },
         });
-        TweenMax.to($('.n-sidebar__sublist'),0.5, {
+        TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
-                "left": "100%"
+                "left": "0%"
             },
+            onComplete: function(){
+                $('.n-sidebar__sublist').hide();
+            }
         });
     });
 
@@ -175,7 +177,9 @@ $(document).ready(function(){
 
                             },
                             onUpdate: function(){
-                                mainSlider.update(true);
+                                if (mainSlider) {
+                                    mainSlider.update(true);
+                                }
                             }
                         })
                     }
@@ -198,7 +202,9 @@ $(document).ready(function(){
                 "margin-right":"-232px"
             },
             onUpdate: function(){
-                mainSlider.update(true);
+                if (mainSlider) {
+                    mainSlider.update(true);
+                }
             },
             onComplete: function(){
                 TweenMax.set($('.n-content'), {
@@ -227,7 +233,9 @@ $(document).ready(function(){
                             "-moz-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
                             "margin-left": "62px"
                         });
-                        mainSlider.update(true);
+                        if (mainSlider) {
+                            mainSlider.update(true);
+                        }
                     }
                 });
                 TweenMax.to($('.n-sidebar'),0.5, {
@@ -235,7 +243,9 @@ $(document).ready(function(){
                         "left":"-292px"
                     },
                 });
-                mainSlider.update(true);
+                if (mainSlider) {
+                    mainSlider.update(true);
+                }
             }
         });
 
@@ -261,17 +271,29 @@ $(document).ready(function(){
         packeryInit();
     }
 
-    var mainSlider = new Swiper('#mainSlider', {
-        loop: true,
-        effect: 'coverflow',
-        nextButton: '.n-slider__arrowR',
-        prevButton: '.n-slider__arrowL',
-        speed: 600
+    if ($('#mainSlider').length) {
+        var mainSlider = new Swiper('#mainSlider', {
+            loop: true,
+            effect: 'coverflow',
+            nextButton: '.n-slider__arrowR',
+            prevButton: '.n-slider__arrowL',
+            speed: 600
+        });
+    };
+
+    if ($('#dateSlider').length) {
+        var dateSlider = new Swiper('#dateSlider', {
+            loop: true,
+            speed: 600
+        });
+    };
+
+    $( "#holl" ).selectmenu({
+        appendTo: "#hollSelect"
     });
 
-    var dateSlider = new Swiper('#dateSlider', {
-        loop: true,
-        speed: 600
+    $( "#actions" ).selectmenu({
+        appendTo: "#actionsSelect"
     });
 
     $('.n-events li').each(function(index){
