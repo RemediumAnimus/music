@@ -290,7 +290,7 @@ body {
     .n-sidebar__logo {
       display: none; } }
   .n-sidebar__container {
-    padding: 40px 38px 70px 38px;
+    padding: 40px 38px 50px 38px;
     position: relative; }
     @media all and (max-width: 830px) {
       .n-sidebar__container {
