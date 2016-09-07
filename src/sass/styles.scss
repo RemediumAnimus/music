@@ -497,6 +497,10 @@ body {
     position: absolute;
     bottom: 0;
     left: 38px;
+
+    @media all and (max-width: $mobile) {
+      position: static;
+    }
   }
 
   &__list-container {

@@ -350,6 +350,9 @@ body {
     position: absolute;
     bottom: 0;
     left: 38px; }
+    @media all and (max-width: 830px) {
+      .n-sidebar__bottom {
+        position: static; } }
   .n-sidebar__list-container {
     margin-left: -38px;
     margin-right: -38px; }
