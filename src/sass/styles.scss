@@ -2281,6 +2281,14 @@ body {
   }
 }
 
+.ui-state-default.ui-state-hover {
+  color: #fff;
+  &:after {
+    background: transparent;
+    border: 1px solid #fff;
+  }
+}
+
 .ui-datepicker-prev {
   left: 12px !important;
   top: 12px !important;
@@ -2356,6 +2364,8 @@ body {
 
     &:hover {
       border: 1px solid #fff;
+      background: #fff;
+      color: #1C1C1C;
     }
 
     i {

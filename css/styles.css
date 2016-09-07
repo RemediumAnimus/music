@@ -1620,6 +1620,12 @@ body {
       .ui-state-default.ui-state-hover:after, .ui-state-default.ui-state-active:after {
         top: -4px; } }
 
+.ui-state-default.ui-state-hover {
+  color: #fff; }
+  .ui-state-default.ui-state-hover:after {
+    background: transparent;
+    border: 1px solid #fff; }
+
 .ui-datepicker-prev {
   left: 12px !important;
   top: 12px !important;
@@ -1680,7 +1686,9 @@ body {
       .n-events li {
         font-size: 1.7vw; } }
     .n-events li:hover {
-      border: 1px solid #fff; }
+      border: 1px solid #fff;
+      background: #fff;
+      color: #1C1C1C; }
     .n-events li i {
       font-style: normal;
       float: left;
