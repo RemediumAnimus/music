@@ -1354,6 +1354,9 @@ body {
   text-transform: uppercase;
   font-family: "Roboto-Medium";
   color: #C267A6; }
+  @media all and (max-width: 1300px) {
+    .ui-widget-header {
+      font-size: 2vw; } }
 
 .ui-widget-content {
   border: none; }
@@ -1473,7 +1476,10 @@ body {
 
 .ui-datepicker .ui-datepicker-title {
   margin: 0 1.3em;
-  margin-top: 5px; }
+  margin-top: 2px; }
+  @media all and (max-width: 1300px) {
+    .ui-datepicker .ui-datepicker-title {
+      margin-top: 4px; } }
 
 .n-events {
   position: absolute;
@@ -1510,7 +1516,7 @@ body {
 
 .event-holder {
   position: absolute;
-  bottom: 1px;
+  bottom: -6px;
   left: 5px;
   width: 100%;
   text-align: center; }
@@ -1519,7 +1525,7 @@ body {
       bottom: -8px; } }
   @media all and (max-width: 1300px) {
     .event-holder {
-      bottom: 1px; } }
+      bottom: -4px; } }
 
 .event-continer {
   display: inline-block; }
