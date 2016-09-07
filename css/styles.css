@@ -429,7 +429,8 @@ body {
   left: 0;
   background: -webkit-linear-gradient(top, #ff94b2 1%, #9e005d 18%, #6300bf 35%, #49007f 51%, #3c00aa 68%, #7b0094 85%, #2d003f 100%);
   background: linear-gradient(to bottom, #ff94b2 1%, #9e005d 18%, #6300bf 35%, #49007f 51%, #3c00aa 68%, #7b0094 85%, #2d003f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff94b2', endColorstr='#2d003f',GradientType=0 ); }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff94b2', endColorstr='#2d003f',GradientType=0 );
+  background: #fff; }
   @media all and (max-width: 830px) {
     .n-content {
       margin-left: 0;
