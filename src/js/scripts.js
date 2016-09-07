@@ -109,7 +109,7 @@ $(document).ready(function(){
             return;
         }
         $(this).find('.n-sidebar__sublist').show();
-        var height = $('.n-sidebar__sublist').outerHeight();
+        var height = $(this).find('.n-sidebar__sublist').outerHeight();
         var prevHeight = $('.n-sidebar__list').outerHeight();
         $(this).find('.n-sidebar__sublist').data('height', prevHeight + 'px');
         TweenMax.to($('.n-sidebar__list'),0.5, {
