@@ -1421,18 +1421,21 @@ body {
   .ui-state-hover:after, .ui-state-active:after {
     display: block;
     content: '';
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: #fff;
     border-radius: 50%;
     position: absolute;
     left: 0;
     right: 0;
-    top: -2px;
+    top: -4px;
     bottom: 0;
     margin: auto;
     z-index: -1; }
     @media all and (max-width: 1600px) {
+      .ui-state-hover:after, .ui-state-active:after {
+        top: -8px; } }
+    @media all and (max-width: 1300px) {
       .ui-state-hover:after, .ui-state-active:after {
         top: -4px; } }
 
