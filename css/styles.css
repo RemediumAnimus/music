@@ -362,7 +362,9 @@ body {
     @media all and (max-width: 830px) {
       .n-sidebar__list {
         padding: 55px 0px;
-        margin-bottom: 10px; } }
+        padding-top: 0;
+        margin-bottom: 10px;
+        margin-top: 50px; } }
   .n-sidebar__item {
     color: #7B7B7C;
     transition: all 0.15s linear;
@@ -467,7 +469,8 @@ body {
   .n-content--active {
     left: 292px; }
   .n-content__grid {
-    padding: 1%; }
+    padding: 1%;
+    background: #F4F4F4; }
     @media all and (max-width: 830px) {
       .n-content__grid {
         padding: 10px;

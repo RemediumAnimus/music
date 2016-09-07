@@ -513,7 +513,9 @@ body {
 
     @media all and (max-width: $mobile) {
       padding: 55px 0px;
+      padding-top: 0;
       margin-bottom: 10px;
+      margin-top: 50px;
     }
   }
 
@@ -663,6 +665,7 @@ body {
 
   &__grid {
     padding: 1%;
+    background: #F4F4F4;
 
     @media all and(max-width: $mobile) {
       padding: 10px;
