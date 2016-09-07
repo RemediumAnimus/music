@@ -413,11 +413,10 @@ body {
   .n-sidebar__sublist {
     position: absolute;
     background: #23272B;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 0px 0px 0px;
     width: 100%;
     left: 103%;
     top: 0;
-    min-height: 350px;
     z-index: 1;
     box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5);
     display: none; }
