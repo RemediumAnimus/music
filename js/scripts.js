@@ -91,7 +91,7 @@ $(document).ready(function(){
         }
 
         $('.n-sidebar').removeClass('n-sidebar--active');
-    }
+    };
 
     normalize();
 
@@ -104,14 +104,17 @@ $(document).ready(function(){
     });
 
     $('.n-sidebar__item').click(function(e){
-        e.preventDefault()
+        e.preventDefault();
+
         if (!$(this).find('.n-sidebar__sublist').length) {
             return;
         }
-        $(this).find('.n-sidebar__sublist').show();
         var height = $(this).find('.n-sidebar__sublist').outerHeight();
         var prevHeight = $('.n-sidebar__list').outerHeight();
+
+        $(this).find('.n-sidebar__sublist').show();
         $(this).find('.n-sidebar__sublist').data('height', prevHeight + 'px');
+
         if (height > $('.n-sidebar__list').height()) {
             TweenMax.to($('.n-sidebar__list'),0.5, {
                 css: {
@@ -119,21 +122,26 @@ $(document).ready(function(){
                 },
             });
         }
+
         TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
                 "left": "-100%"
             },
         });
+
     });
 
     $('.n-sidebar__back').click(function(e){
         e.stopPropagation();
+
         var height = $(this).parent().data('height');
+
         TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
                 "height": height
             },
         });
+
         TweenMax.to($('.n-sidebar__list'),0.5, {
             css: {
                 "left": "0%"
@@ -150,11 +158,13 @@ $(document).ready(function(){
             "-webkit-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
             "-moz-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
         });
+
         TweenMax.to($('.n-footer'),0.5, {
             css: {
                 "margin-left": "292px"
             },
         });
+
         TweenMax.to($('.n-content'),0.5, {
             css: {
                 "transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
@@ -186,19 +196,23 @@ $(document).ready(function(){
                         })
                     }
                 });
+
                 mainSlider.update(true);
             }
         });
+
         TweenMax.to($('.n-sidebar'),1, {
             css: {
                 "left":"0px"
             },
         });
+
         $('.n-menu').toggleClass('n-menu--active');
     });
 
     $('.n-sidebar__close').click(function(){
         $('.n-sidebar').toggleClass('n-sidebar--active');
+
         TweenMax.to($('.n-content'),1, {
             css: {
                 "margin-right":"-232px"
@@ -261,7 +275,6 @@ $(document).ready(function(){
             gutter: '.gutter-sizer'
         });
 
-
         $grid2 = $('.grid2').packery({
             itemSelector: '.grid__item',
             percentPosition: true,
@@ -291,11 +304,19 @@ $(document).ready(function(){
     };
 
     $( "#holl" ).selectmenu({
-        appendTo: "#hollSelect"
+        appendTo: "#holl-Select"
     });
 
     $( "#actions" ).selectmenu({
-        appendTo: "#actionsSelect"
+        appendTo: "#actions-Select"
+    });
+
+    $( "#holl2" ).selectmenu({
+        appendTo: "#holl-Select2"
+    });
+
+    $( "#actions2" ).selectmenu({
+        appendTo: "#actions-Select2"
     });
 
     $('.n-events li').each(function(index){
@@ -312,7 +333,61 @@ $(document).ready(function(){
                 'buy buy',
             ]
         },
-    ]
+        {
+            date: '14.9.2016',
+            events: [
+                'hello hello',
+                'buy buy',
+            ]
+        },
+        {
+            date: '10.9.2016',
+            events: [
+                'hello hello',
+                'buy buy',
+                'wtf'
+            ]
+        },
+    ];
+
+    tabby.init({
+        callback: (function() {
+            var loaded = false;
+            return function(){
+               $.ajax({
+                   type: 'GET',
+                   url: 'events.json',
+                   error: function(xml,status,error){
+                       console.log(status);
+                   },
+                   success: function(eventsBigDate) {
+                       if (loaded) { return }
+                       loadEventsBigDate('#bigDate',eventsBigDate);
+                       loadEventsBigDate('#bigDate2',eventsBigDate);
+                       $('#bigDate2 td').each(function(index){
+                           if (!$(this).find('.n-event').length) {
+                               $(this).hide();
+                           }
+                           $(this).find('.ui-state-default').html(
+                               $(this).find('.ui-state-default').html() + $('#bigDate2 .ui-datepicker-month').html()
+                           );
+                       });
+                       loaded = true;
+                   }
+               });
+            }
+        })()
+    });
+
+    function tabbyDetect() {
+        if (isMinWidth()) {
+            tabby.toggleTab( '#tab2' );
+        } 
+    };
+
+    tabbyDetect();
+
+    $(window).on('resize',tabbyDetect);
 
     $('#datepicker').datepicker({
         monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
@@ -330,11 +405,92 @@ $(document).ready(function(){
             });
         }
     });
-    $('#datepicker').datepicker('show');
+
+    $('#bigDate').datepicker({
+        monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+        dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
+        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
+        showOtherMonths: true,
+        autoClose: true,
+        onSelect: function(date){
+            setTimeout(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'events.json',
+                    error: function(xml,status,error){
+                        console.log(status);
+                    },
+                    success: function(eventsBigDate) {
+                        loadEventsBigDate('#bigDate',eventsBigDate);
+                    }
+                });
+            });
+        },
+        onChangeMonthYear: function(){
+            setTimeout(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'events.json',
+                    error: function(xml,status,error){
+                        console.log(status);
+                    },
+                    success: function(eventsBigDate) {
+                        loadEventsBigDate('#bigDate',eventsBigDate);
+                    }
+                });
+            });
+        }
+    });
+
+    $('#bigDate2').datepicker({
+        monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+        dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
+        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
+        showOtherMonths: true,
+        autoClose: true,
+        onSelect: function(date){
+            setTimeout(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'events.json',
+                    error: function(xml,status,error){
+                        console.log(status);
+                    },
+                    success: function(eventsBigDate) {
+                        loadEventsBigDate('#bigDate2',eventsBigDate);
+                        $('#bigDate2 td').each(function(index){
+                            if (!$(this).find('.n-event').length) {
+                                $(this).hide();
+                            }
+                        });
+                    }
+                });
+            });
+        },
+        onChangeMonthYear: function(){
+            setTimeout(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'events.json',
+                    error: function(xml,status,error){
+                        console.log(status);
+                    },
+                    success: function(eventsBigDate) {
+                        loadEventsBigDate('#bigDate2',eventsBigDate);
+                        $('#bigDate2 td').each(function(index){
+                            if (!$(this).find('.n-event').length) {
+                                $(this).hide();
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    });
 
     function loadEvents(events) {
-        $('.ui-datepicker-calendar tbody').find('td').each(function(index){
-            $(this).append('<div class="event-holder"><div class="event-continer"></div></div>')
+        $('.n-date .ui-datepicker-calendar tbody').find('td').each(function(index){
+            $(this).append('<div class="event-holder"><div class="event-container"></div></div>')
             for (var i=0; i<=events.length - 1; i++) {
                 var date = events[i].date.split('.');
                 if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
@@ -345,9 +501,101 @@ $(document).ready(function(){
             };
 
         });
-    }
+    };
+
+    function loadEventsBigDate(elem,events) {
+        $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(index){
+            $(this).append('<div class="event-holder"><div class="event-container"></div></div>')
+            for (var i=0; i<=events.length - 1; i++) {
+                var date = events[i].date.split('.');
+                if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
+                    $(this).find('.event-holder').append('<div class="n-event__bg" style="background-image:url('+ events[i].pic +')"></div><div class="n-event__cover"></div><div class="n-event__cont"></div>');
+                    for (var j=0; j<=events[i].events.length - 1; j++) {
+                        $(this).find('.event-holder .n-event__cont').append('<div class="n-event"><i>'+events[i].events[j]+'</i><b>'+events[i].time[j]+'</b></div><a class="event-btn" href="#">Купить билет</a>');
+                    }
+                }
+            };
+
+        });
+    };
 
     loadEvents(events);
+
+    function getDate(){
+        var month = $('.ui-datepicker-month').html();
+        var year = $('.ui-datepicker-year').html();
+        $('.n-declarations__month span').html(month + ' ' + year);
+        $('.ui-datepicker-other-month span').hide();
+    };
+
+    $('.n-declarations__month__arrL').click(function(){
+        TweenMax.to($('#bigDate'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                $('.ui-datepicker-prev').click();
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+        TweenMax.to($('#bigDate2'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate2'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+    });
+
+    $('.n-declarations__month__arrR').click(function(){
+        TweenMax.to($('#bigDate'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                $('.ui-datepicker-next').click();
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+        TweenMax.to($('#bigDate2'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate2'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+    });
+    getDate();
 
     function initialize() {
 

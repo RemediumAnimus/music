@@ -6,6 +6,7 @@ $tmp-path: '../img/tmp';
 $scada-r: 'Scada-Regular';
 $scada-b: 'Scada-Bold';
 $roboto-t: 'Roboto-Thin';
+$roboto-l: "roboto-light";
 $roboto-r: 'Roboto-Regular';
 $roboto-m: 'Roboto-Medium';
 $pt75: 'PTF75F';
@@ -43,10 +44,22 @@ $mobile: 830px;
   font-family: 'Roboto-Thin';
   src: url('#{$font-path}/Roboto-Thin.woff') format('woff'),
        url('#{$font-path}/Roboto-Thin.ttf') format('truetype'),
-       url('#{$font-path}/Rob oto-Thin.svg#Roboto-Thin') format('svg'),
+       url('#{$font-path}/Roboto-Thin.svg#Roboto-Thin') format('svg'),
        url('#{$font-path}/Roboto-Thin_1.eot'),
        url('#{$font-path}/Roboto-Thin_1.woff2') format('woff2'),
        url('#{$font-path}/Roboto-Thin_1.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'roboto-light';
+  src: url('#{$font-path}/roboto-light.woff') format('woff'),
+  url('#{$font-path}/Roboto-Thin.ttf') format('truetype'),
+  url('#{$font-path}/roboto-light.svg#Roboto-Thin') format('svg'),
+  url('#{$font-path}/roboto-light.eot'),
+  url('#{$font-path}/roboto-light.woff2') format('woff2'),
+  url('#{$font-path}/roboto-light.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -786,10 +799,97 @@ body {
   }
 }//content
 
+#bigDate {
+  opacity: 1;
+}
+
 .n-declarations {
   background: #fff;
   position: relative;
   z-index: 2;
+  
+  &__month {
+    width: 33%;
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 2.9vw;
+    text-transform: uppercase;
+    font-family: $roboto-t;
+    padding: 25px 40px 0px 40px;
+
+    @media all and (max-width: $mid) {
+      width: 40%;
+    }
+
+    &__container {
+      display: inline-block;
+      position: relative;
+      margin-right: 70px;
+      padding-bottom: 10px;
+    }
+
+    &__arrows {
+      position: absolute;
+      height: 48px;
+      width: 32px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      right: -70px;
+      border-radius: 15px;
+      border: 1px solid #BABABA;
+    }
+
+    &__arrL {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      top: 0;
+      left: 0;
+      text-align: center;
+      cursor: pointer;
+
+      svg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 5px;
+      }
+
+      &:hover {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &__arrR {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      transform: rotate(180deg);
+      cursor: pointer;
+
+      svg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 8px;
+      }
+
+      &:hover {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
 
   &__header {
     background: #2e3192; /* Old browsers */
@@ -797,6 +897,8 @@ body {
     background: -webkit-linear-gradient(left, #2e3192 0%,#9e005d 100%);
     background: linear-gradient(to right, #2e3192 0%,#9e005d 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e3192', endColorstr='#9e005d',GradientType=1 );
+    display: table;
+    width: 100%;
 
     &:after {
       display: block;
@@ -806,9 +908,13 @@ body {
 
     .n-declarations__container {
       padding-top: 40px;
-      width: 71%;
-      float: left;
-      margin-left: 29%;
+      width: 67%;
+      display: table-cell;
+      vertical-align: bottom;
+
+      @media all and (max-width: $mid) {
+        width: 60%;
+      }
 
       &:after {
         display: block;
@@ -825,6 +931,7 @@ body {
   &__list {
     width: 73%;
     float: left;
+
     ul {
       display: table;
       width: 100%;
@@ -839,6 +946,30 @@ body {
         color: #fff;
         text-transform: uppercase;
         cursor: pointer;
+        position: relative;
+
+        @media all and (max-width: $mid) {
+          font-size: 18px;
+        }
+
+        a {
+          display: block;
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+
+        span {
+          display: block;
+          padding: 0px 10px;
+        }
+        
+        a.active {
+          background: transparent;
+        }
       }
     }
 
@@ -901,13 +1032,14 @@ body {
   }
 
   &__selects {
-
+    padding: 20px 0px;
+    position: relative;
+    z-index: 5;
   }
 
   &__select {
     display: inline-block;
-    min-width: 220px;
-    height: 50px;
+    width: 230px;
     position: relative;
     z-index: 2;
 
@@ -923,6 +1055,9 @@ body {
       text-transform: uppercase;
       outline: none;
       border-radius: 0 !important;
+      border: 0;
+      background: transparent;
+      font-weight: normal;
     }
 
     .ui-selectmenu-button span.ui-selectmenu-text {
@@ -938,6 +1073,8 @@ body {
 
     .ui-state-default.ui-state-hover {
       color: #1C1C1C;
+      border: 0;
+      background: transparent;
     }
 
     .ui-corner-top .ui-selectmenu-text {
@@ -970,8 +1107,236 @@ body {
   }
 
   &__wrap {
-
+    min-height: 1450px;
   }
+
+  &__date {
+    padding-bottom: 70px;
+
+    .ui-widget-content {
+      width: 100%;
+      background: #fff;
+      border: 0;
+    }
+
+    .ui-datepicker .ui-datepicker-header {
+      //position: absolute;
+    }
+
+    .ui-datepicker .ui-datepicker-header {
+      display: none;
+    }
+
+    .ui-datepicker-calendar {
+      tr {
+        //display: table;
+        width: 100%;
+        
+        &:last-child {
+          text-decoration: none;
+
+          td {
+            border: 1px solid #E8E8E8;
+          }
+        }
+      }
+
+      th {
+        display: table-cell;
+        width: 14.25%;
+        color: #666666;
+        font-size: 14px;
+        font-family: $scada-r;
+        text-transform: uppercase;
+        font-weight: normal;
+        text-align: left;
+        padding-left: 25px;
+      }
+
+      td {
+        width: 14.25%;
+        font-weight: bold;
+        color: #1c94c4;
+        padding: 0px;
+        position: relative;
+        min-height: 260px;
+        border: 1px solid #E8E8E8;
+        border-bottom: 0;
+
+        span {
+          border: 0;
+          background: none;
+          font-weight: normal;
+          color: inherit;
+        }
+
+        & > a {
+          border: 0;
+          background: none;
+          font-weight: normal;
+          color: inherit;
+          position: absolute;
+          left: 12px;
+          top: 10px;
+          font-size: 32px;
+          font-family: $roboto-l;
+          color: #BABABA;
+          z-index: 1;
+        }
+
+        &:hover {
+
+          .n-event__bg {
+            opacity: 1;
+          }
+
+          .n-event__cover {
+            background: rgba(0,0,0,0.4);
+          }
+
+          b {
+            color: #fff;
+          }
+
+          .n-event__cont {
+            color: #fff;
+          }
+
+          .event-btn {
+            opacity: 1;
+          }
+
+          .event-holder {
+
+          }
+
+          .event-container {
+            border: 4px solid #C267A6;
+          }
+        }
+      }
+    }
+
+    .event-holder {
+      //position: relative;
+      top: 0;
+      left: 0px;
+      width: 100%;
+      text-align: center;
+      min-height: 260px;
+    }
+
+    .event-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 4px solid transparent;
+      z-index: 2;
+    }
+
+    .n-event {
+      display: block;
+      margin: 2px;
+      font-style: normal;
+
+      i {
+        font-style: normal;
+        font-size: 16px;
+        font-family: $pt75;
+        display: block;
+        margin-bottom: 14px;
+        margin-top: 5px;
+        line-height: 22px;
+      }
+
+      b {
+        font-weight: normal;
+        display: block;
+        font-size: 14px;
+        font-family: $scada-r;
+        margin-bottom: 10px;
+        color: #878787;
+        @include transition();
+      }
+
+      &__bg {
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        @include transition();
+      }
+
+      &__cont {
+        left: 0;
+        top: 0;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding: 65px 24px 50px 24px;
+        text-align: left;
+        color: #1C1C1C;
+        z-index: 2;
+        @include transition();
+      }
+
+      &__cover {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(0,0,0,0);
+        @include transition();
+      }
+    }
+
+    .event-btn {
+      display: block;
+      text-align: center;
+      background: #7D59B3;
+      font-size: 14px;
+      line-height: 26px;
+      font-family: $roboto-r;
+      font-weight: normal;
+      border-radius: 5px;
+      color: #fff;
+      opacity: 0;
+      @include transition();
+
+      &:hover {
+        border: 0;
+        background: darken(#7D59B3,10%);
+      }
+    }
+
+    &--list {
+
+      .ui-datepicker-other-month {
+        display: none !important;
+      }
+
+      .ui-datepicker-calendar {
+        tr {
+          display: block;
+        }
+
+        td {
+          display: block;
+          width: auto;
+        }
+      }
+    }
+  }//date
+
 }//declarations
 
 .grid:after {
@@ -979,10 +1344,6 @@ body {
   display: block;
   clear: both;
 }
-
-.n-declarations {
-
-}//n-declarations
 
 .n-item {
   float: left;
@@ -1251,6 +1612,228 @@ body {
     }
   }
 
+  .ui-datepicker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(top, #9E005D 0%, #2E3192 100%);
+    background: -webkit-linear-gradient(top, #9E005D 0%, #2E3192 100%);
+    background: linear-gradient(to bottom, #9E005D 0%, #2E3192 100%);
+  }
+
+  .ui-corner-all {
+    border-radius: 0;
+  }
+
+  .ui-widget-header {
+    border: none;
+    background: none;
+    font-size: 1.6vw;
+    text-transform: uppercase;
+    font-family: $roboto-m;
+    color: #C267A6;
+
+    @media all and (max-width: $min) {
+      font-size: 2vw;
+    }
+  }
+
+  .ui-widget-content {
+    border: none;
+  }
+
+  .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+  }
+
+  .ui-widget-header .ui-icon {
+    width: 34px;
+    height: 34px;
+    background-image: none;
+    border: none;
+    border-radius: 50%;
+    left: 0 !important;
+    top: 0 !important;
+    margin-left:0 !important;
+    margin-top: 0 !important;
+  }
+
+
+  .ui-datepicker-calendar {
+    height: 76%;
+  }
+
+  .ui-datepicker table {
+    //margin-top: 10px;
+
+    @media all and (max-width: $min) {
+      margin-top: 2%;
+    }
+  }
+
+  .ui-datepicker td {
+    text-align: center;
+    position: relative;
+  }
+
+  .ui-datepicker td a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .ui-datepicker td span {
+
+  }
+
+  .ui-datepicker-calendar thead {
+    display: none;
+  }
+
+  .ui-datepicker .ui-datepicker-title {
+    line-height: 40px;
+  }
+
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    text-align: center;
+    border: 0;
+    display: inline-block;
+    line-height: 1.8;
+    font-size: 1.2vw;
+    font-family: $roboto-r;
+    background: none;
+    color: #fff;
+    font-weight: normal;
+
+    @media all and (max-width: $min) {
+      font-size: 2.3vw;
+    }
+  }
+
+  .ui-state-default.ui-state-hover, .ui-state-default.ui-state-active {
+    z-index: 1;
+    color: #37247A;
+
+    &:after {
+      display: block;
+      content: '';
+      width: 45px;
+      height: 45px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -4px;
+      bottom: 0;
+      margin: auto;
+      z-index: -1;
+
+      @media all and (max-width: $mid) {
+        top: -8px;
+      }
+
+      @media all and (max-width: $min) {
+        top: -4px;
+      }
+    }
+  }
+
+  .ui-state-default.ui-state-hover {
+    color: #fff;
+    &:after {
+      background: transparent;
+      border: 1px solid #fff;
+    }
+  }
+
+  .ui-datepicker-prev {
+    left: 12px !important;
+    top: 12px !important;
+    background: url(../img/arrows.png);
+  }
+
+  .ui-datepicker-prev-hover {
+    width: 34px !important;
+    height: 34px !important;
+    background: none !important;
+    border: none !important;
+    left: 12px !important;
+    top: 12px !important;
+    background: url(../img/arrows.png) 0px 33px !important;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .ui-datepicker-next {
+    right: 12px !important;
+    top: 12px !important;
+    background: url(../img/arrows.png) 34px 0px;
+  }
+
+  .ui-datepicker-next-hover {
+    width: 34px !important;
+    height: 34px !important;
+    background: none !important;
+    border: none !important;
+    right: 12px !important;
+    top: 12px !important;
+    background: url(../img/arrows.png) 34px 33px !important;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .ui-datepicker .ui-datepicker-title {
+    margin: 0 1.3em;
+    margin-top: 2px;
+
+    @media all and (max-width: $min) {
+      margin-top: 4px;
+    }
+  }
+
+  .event-holder {
+    position: absolute;
+    bottom: -6px;
+    left: 5px;
+    width: 100%;
+    text-align: center;
+
+    @media all and (max-width: $mid) {
+      bottom: -8px;
+    }
+
+    @media all and (max-width: $min) {
+      bottom: -4px;
+    }
+  }
+
+  .event-container {
+    display: inline-block;
+  }
+
+  .n-event {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #7B7B7C;
+    border-radius: 50%;
+    margin: 2px;
+
+    b {
+      display: none;
+    }
+  }
 }//item
 
 .stamp {
@@ -2148,196 +2731,6 @@ body {
   display: none;
 }
 
-.ui-datepicker {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: -moz-linear-gradient(top, #9E005D 0%, #2E3192 100%);
-  background: -webkit-linear-gradient(top, #9E005D 0%, #2E3192 100%);
-  background: linear-gradient(to bottom, #9E005D 0%, #2E3192 100%);
-}
-
-.ui-corner-all {
-  border-radius: 0;
-}
-
-.ui-widget-header {
-  border: none;
-  background: none;
-  font-size: 1.6vw;
-  text-transform: uppercase;
-  font-family: $roboto-m;
-  color: #C267A6;
-
-  @media all and (max-width: $min) {
-    font-size: 2vw;
-  }
-}
-
-.ui-widget-content {
-  border: none;
-}
-
-.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-}
-
-.ui-widget-header .ui-icon {
-  width: 34px;
-  height: 34px;
-  background-image: none;
-  border: none;
-  border-radius: 50%;
-  left: 0 !important;
-  top: 0 !important;
-  margin-left:0 !important;
-  margin-top: 0 !important;
-}
-
-
-.ui-datepicker-calendar {
-  height: 76%;
-}
-
-.ui-datepicker table {
-  //margin-top: 10px;
-
-  @media all and (max-width: $min) {
-    margin-top: 2%;
-  }
-}
-
-.ui-datepicker td {
-  text-align: center;
-  position: relative;
-}
-
-.ui-datepicker td a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  z-index: 1;
-}
-
-.ui-datepicker td span {
-
-}
-
-.ui-datepicker-calendar thead {
-  display: none;
-}
-
-.ui-datepicker .ui-datepicker-title {
-  line-height: 40px;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  text-align: center;
-  border: 0;
-  display: inline-block;
-  line-height: 1.8;
-  font-size: 1.2vw;
-  font-family: $roboto-r;
-  background: none;
-  color: #fff;
-  font-weight: normal;
-
-  @media all and (max-width: $min) {
-    font-size: 2.3vw;
-  }
-}
-
-.ui-state-default.ui-state-hover, .ui-state-default.ui-state-active {
-  z-index: 1;
-  color: #37247A;
-
-  &:after {
-    display: block;
-    content: '';
-    width: 45px;
-    height: 45px;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -4px;
-    bottom: 0;
-    margin: auto;
-    z-index: -1;
-
-    @media all and (max-width: $mid) {
-      top: -8px;
-    }
-
-    @media all and (max-width: $min) {
-      top: -4px;
-    }
-  }
-}
-
-.ui-state-default.ui-state-hover {
-  color: #fff;
-  &:after {
-    background: transparent;
-    border: 1px solid #fff;
-  }
-}
-
-.ui-datepicker-prev {
-  left: 12px !important;
-  top: 12px !important;
-  background: url(../img/arrows.png);
-}
-
-.ui-datepicker-prev-hover {
-  width: 34px !important;
-  height: 34px !important;
-  background: none !important;
-  border: none !important;
-  left: 12px !important;
-  top: 12px !important;
-  background: url(../img/arrows.png) 0px 33px !important;
-
-  &:after {
-    display: none;
-  }
-}
-
-.ui-datepicker-next {
-  right: 12px !important;
-  top: 12px !important;
-  background: url(../img/arrows.png) 34px 0px;
-}
-
-.ui-datepicker-next-hover {
-  width: 34px !important;
-  height: 34px !important;
-  background: none !important;
-  border: none !important;
-  right: 12px !important;
-  top: 12px !important;
-  background: url(../img/arrows.png) 34px 33px !important;
-
-  &:after {
-    display: none;
-  }
-}
-
-.ui-datepicker .ui-datepicker-title {
-  margin: 0 1.3em;
-  margin-top: 2px;
-
-  @media all and (max-width: $min) {
-    margin-top: 4px;
-  }
-}
-
 .n-events {
   position: absolute;
   z-index: 1;
@@ -2384,38 +2777,7 @@ body {
   }
 }
 
-.event-holder {
-  position: absolute;
-  bottom: -6px;
-  left: 5px;
-  width: 100%;
-  text-align: center;
 
-  @media all and (max-width: $mid) {
-    bottom: -8px;
-  }
-
-  @media all and (max-width: $min) {
-    bottom: -4px;
-  }
-}
-
-.event-continer {
-  display: inline-block;
-}
-
-.n-event {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: #7B7B7C;
-  border-radius: 50%;
-  margin: 2px;
-
-  b {
-    display: none;
-  }
-}
 
 
 
