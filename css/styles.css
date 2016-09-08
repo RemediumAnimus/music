@@ -1,3 +1,4 @@
+@charset "UTF-8";
 textarea {
   resize: none; }
 
@@ -575,12 +576,31 @@ body {
     padding: 25px 40px 0px 40px; }
     @media all and (max-width: 1600px) {
       .n-declarations__month {
-        width: 40%; } }
+        width: 34%;
+        padding: 25px 0px 0px 40px; } }
+    @media all and (max-width: 1300px) {
+      .n-declarations__month {
+        width: 26%;
+        font-size: 2.2vw;
+        padding: 25px 0px 0px 40px; } }
+    @media all and (max-width: 830px) {
+      .n-declarations__month {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 32px;
+        padding: 10px 0px 14px 0px;
+        position: relative;
+        z-index: 1; } }
     .n-declarations__month__container {
       display: inline-block;
       position: relative;
       margin-right: 70px;
-      padding-bottom: 10px; }
+      padding-bottom: 5px; }
+      @media all and (max-width: 830px) {
+        .n-declarations__month__container {
+          margin: 0;
+          padding: 0; } }
     .n-declarations__month__arrows {
       position: absolute;
       height: 48px;
@@ -591,6 +611,15 @@ body {
       right: -70px;
       border-radius: 15px;
       border: 1px solid #BABABA; }
+      @media all and (max-width: 830px) {
+        .n-declarations__month__arrows {
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          border: 0;
+          width: auto; } }
     .n-declarations__month__arrL {
       position: absolute;
       width: 100%;
@@ -599,12 +628,32 @@ body {
       left: 0;
       text-align: center;
       cursor: pointer; }
+      @media all and (max-width: 830px) {
+        .n-declarations__month__arrL {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: auto;
+          left: -46px;
+          width: 30px;
+          height: 30px;
+          -webkit-transform: rotate(-90deg);
+                  transform: rotate(-90deg);
+          border: 1px solid #BABABA;
+          border-radius: 50%; }
+          .n-declarations__month__arrL:hover {
+            border: 1px solid #fff; }
+            .n-declarations__month__arrL:hover path {
+              fill: #fff; } }
       .n-declarations__month__arrL svg {
         position: absolute;
         left: 0;
         right: 0;
         margin: auto;
         bottom: 5px; }
+        @media all and (max-width: 830px) {
+          .n-declarations__month__arrL svg {
+            bottom: 9px; } }
       .n-declarations__month__arrL:hover path {
         fill: #fff; }
     .n-declarations__month__arrR {
@@ -617,6 +666,23 @@ body {
       -webkit-transform: rotate(180deg);
               transform: rotate(180deg);
       cursor: pointer; }
+      @media all and (max-width: 830px) {
+        .n-declarations__month__arrR {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          left: auto;
+          right: -46px;
+          width: 30px;
+          height: 30px;
+          -webkit-transform: rotate(90deg);
+                  transform: rotate(90deg);
+          border: 1px solid #BABABA;
+          border-radius: 50%; }
+          .n-declarations__month__arrR:hover {
+            border: 1px solid #fff; }
+            .n-declarations__month__arrR:hover path {
+              fill: #fff; } }
       .n-declarations__month__arrR svg {
         position: absolute;
         left: 0;
@@ -644,16 +710,28 @@ body {
       vertical-align: bottom; }
       @media all and (max-width: 1600px) {
         .n-declarations__header .n-declarations__container {
-          width: 60%; } }
+          width: 66%; } }
+      @media all and (max-width: 1300px) {
+        .n-declarations__header .n-declarations__container {
+          width: 74%; } }
+      @media all and (max-width: 830px) {
+        .n-declarations__header .n-declarations__container {
+          display: none; } }
       .n-declarations__header .n-declarations__container:after {
         display: block;
         content: '';
         clear: both; }
   .n-declarations__container {
     padding: 0px 40px; }
+    @media all and (max-width: 830px) {
+      .n-declarations__container {
+        padding: 0px 15px; } }
   .n-declarations__list {
     width: 73%;
     float: left; }
+    @media all and (max-width: 1600px) {
+      .n-declarations__list {
+        width: 78%; } }
     .n-declarations__list ul {
       display: table;
       width: 100%;
@@ -671,6 +749,9 @@ body {
         @media all and (max-width: 1600px) {
           .n-declarations__list ul li {
             font-size: 18px; } }
+        @media all and (max-width: 1300px) {
+          .n-declarations__list ul li:first-child {
+            display: none; } }
         .n-declarations__list ul li a {
           display: block;
           position: absolute;
@@ -694,9 +775,20 @@ body {
     float: left;
     padding-top: 2px;
     text-align: right; }
+    @media all and (max-width: 1600px) {
+      .n-declarations__checks {
+        width: 22%; } }
     .n-declarations__checks ul li {
       display: inline-block;
       margin: 0px 10px; }
+      @media all and (max-width: 1300px) {
+        .n-declarations__checks ul li {
+          width: 30px;
+          height: 30px;
+          margin: 0px 5px; }
+          .n-declarations__checks ul li svg {
+            width: 100%;
+            height: 100%; } }
       .n-declarations__checks ul li:last-child {
         margin-right: 0; }
     .n-declarations__checks .n-square {
@@ -716,12 +808,29 @@ body {
   .n-declarations__selects {
     padding: 20px 0px;
     position: relative;
-    z-index: 5; }
+    z-index: 5;
+    margin-left: -10px; }
+    .n-declarations__selects:after {
+      display: block;
+      content: '';
+      clear: both; }
+    @media all and (max-width: 830px) {
+      .n-declarations__selects {
+        margin: 0px -2%;
+        padding: 15px 0px;
+        border-bottom: 1px solid #8a8a8a;
+        margin-bottom: 10px; } }
   .n-declarations__select {
     display: inline-block;
     width: 230px;
     position: relative;
     z-index: 2; }
+    @media all and (max-width: 830px) {
+      .n-declarations__select {
+        width: 46%;
+        display: block;
+        float: left;
+        margin: 0px 2%; } }
     .n-declarations__select select {
       width: 100%;
       height: 100%; }
@@ -735,9 +844,18 @@ body {
       border: 0;
       background: transparent;
       font-weight: normal; }
+      @media all and (max-width: 830px) {
+        .n-declarations__select .ui-state-default {
+          font-size: 14px;
+          width: 100% !important;
+          border: 1px solid #BABABA !important;
+          border-radius: 3px !important; } }
     .n-declarations__select .ui-selectmenu-button span.ui-selectmenu-text {
       text-align: left;
       padding: 0.4em 2.1em 0.4em 0.6em; }
+      @media all and (max-width: 830px) {
+        .n-declarations__select .ui-selectmenu-button span.ui-selectmenu-text {
+          padding: 0.7em 2.1em 0.5em 0.6em; } }
     .n-declarations__select .ui-state-default .ui-icon {
       background: url("../img/arrow.svg") no-repeat;
       width: 20px;
@@ -758,6 +876,9 @@ body {
       font-size: 20px;
       font-family: "Scada-Regular";
       padding: 13px 30px; }
+      @media all and (max-width: 830px) {
+        .n-declarations__select .ui-menu .ui-menu-item {
+          font-size: 14px; } }
     .n-declarations__select .ui-state-focus, .n-declarations__select .ui-widget-content .ui-state-focus {
       border: none;
       background: none;
@@ -774,6 +895,8 @@ body {
       border: 0; }
     .n-declarations__date .ui-datepicker .ui-datepicker-header {
       display: none; }
+    .n-declarations__date .ui-datepicker-today .event-container {
+      border: 4px solid #C267A6; }
     .n-declarations__date .ui-datepicker-calendar tr {
       width: 100%; }
       .n-declarations__date .ui-datepicker-calendar tr:last-child {
@@ -789,7 +912,7 @@ body {
       text-transform: uppercase;
       font-weight: normal;
       text-align: left;
-      padding-left: 25px; }
+      padding-left: 22px; }
     .n-declarations__date .ui-datepicker-calendar td {
       width: 14.25%;
       font-weight: bold;
@@ -810,14 +933,31 @@ body {
         font-weight: normal;
         color: inherit;
         position: absolute;
-        left: 12px;
+        left: 14px;
         top: 10px;
         font-size: 32px;
         font-family: "roboto-light";
         color: #BABABA;
         z-index: 1; }
+      .n-declarations__date .ui-datepicker-calendar td .n-event__b {
+        display: none; }
+      .n-declarations__date .ui-datepicker-calendar td .n-event__t {
+        text-align: left; }
+        .n-declarations__date .ui-datepicker-calendar td .n-event__t a {
+          color: #1C1C1C;
+          padding: 0;
+          border: 0;
+          text-align: left;
+          background: none; }
+          .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover {
+            text-decoration: underline; }
+      .n-declarations__date .ui-datepicker-calendar td .n-event {
+        margin: 0; }
       .n-declarations__date .ui-datepicker-calendar td:hover .n-event__bg {
-        opacity: 1; }
+        opacity: 1;
+        background: #785AA2;
+        background-position: center center;
+        background-size: cover; }
       .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cover {
         background: rgba(0, 0, 0, 0.4); }
       .n-declarations__date .ui-datepicker-calendar td:hover b {
@@ -825,9 +965,10 @@ body {
       .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cont {
         color: #fff; }
       .n-declarations__date .ui-datepicker-calendar td:hover .event-btn {
-        opacity: 1; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .event-container {
-        border: 4px solid #C267A6; }
+        opacity: 1;
+        cursor: pointer; }
+      .n-declarations__date .ui-datepicker-calendar td:hover .n-event__t a {
+        color: #fff; }
     .n-declarations__date .event-holder {
       top: 0;
       left: 0px;
@@ -837,15 +978,18 @@ body {
     .n-declarations__date .event-container {
       position: absolute;
       top: 0;
-      left: 0;
+      left: -5px;
       width: 100%;
       height: 100%;
       border: 4px solid transparent;
-      z-index: 2; }
+      z-index: 0; }
     .n-declarations__date .n-event {
       display: block;
       margin: 2px;
-      font-style: normal; }
+      font-style: normal;
+      background-size: 0; }
+      .n-declarations__date .n-event__age {
+        display: none; }
       .n-declarations__date .n-event i {
         font-style: normal;
         font-size: 16px;
@@ -883,7 +1027,7 @@ body {
         width: 100%;
         height: 100%;
         z-index: 1;
-        padding: 65px 24px 50px 24px;
+        padding: 65px 22px 50px 22px;
         text-align: left;
         color: #1C1C1C;
         z-index: 2;
@@ -901,6 +1045,10 @@ body {
         transition: all 0.15s linear;
         -webkit-transition: all 0.15s linear;
         -moz-transition: all 0.15s linear; }
+      .n-declarations__date .n-event__type {
+        display: none; }
+      .n-declarations__date .n-event__time {
+        text-align: left; }
     .n-declarations__date .event-btn {
       display: block;
       text-align: center;
@@ -920,11 +1068,224 @@ body {
         background: #644495; }
     .n-declarations__date--list .ui-datepicker-other-month {
       display: none !important; }
+    .n-declarations__date--list .event-container {
+      color: #785AA2;
+      font-size: 56px;
+      position: relative;
+      text-align: left;
+      font-family: "Scada-Bold";
+      padding: 0; }
+      @media all and (max-width: 830px) {
+        .n-declarations__date--list .event-container {
+          font-size: 26px; } }
+      .n-declarations__date--list .event-container span {
+        display: inline;
+        font-size: 28px;
+        font-family: "Scada-Regular";
+        text-transform: uppercase; }
+        @media all and (max-width: 830px) {
+          .n-declarations__date--list .event-container span {
+            font-size: 14px; } }
+    .n-declarations__date--list thead {
+      display: none; }
     .n-declarations__date--list .ui-datepicker-calendar tr {
       display: block; }
     .n-declarations__date--list .ui-datepicker-calendar td {
       display: block;
-      width: auto; }
+      width: auto;
+      border: none; }
+      .n-declarations__date--list .ui-datepicker-calendar td .n-event {
+        position: relative;
+        padding: 50px 290px 50px 230px; }
+        @media all and (max-width: 1300px) {
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event {
+            padding: 50px 180px 50px 130px; } }
+        @media all and (max-width: 830px) {
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event {
+            padding: 20px 20px 50px 90px; } }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__age {
+          display: block;
+          font-size: 28px;
+          font-family: "Scada-Regular";
+          color: #666666;
+          position: absolute;
+          right: 25px;
+          top: 184px;
+          font-weight: normal;
+          opacity: 0.5;
+          transition: all 0.15s linear;
+          -webkit-transition: all 0.15s linear;
+          -moz-transition: all 0.15s linear; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event__age {
+              right: auto;
+              left: 20px; } }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__subBg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background-size: cover;
+          opacity: 0;
+          background: #785AA2;
+          background-size: cover;
+          transition: all 0.15s linear;
+          -webkit-transition: all 0.15s linear;
+          -moz-transition: all 0.15s linear; }
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event__subBg:after {
+            display: block;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age {
+          opacity: 1; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg {
+          opacity: 1; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont {
+          color: #fff; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .event-btn {
+          opacity: 1; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a {
+          color: #fff; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b {
+          color: #BABABA; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type {
+          color: #BABABA; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after {
+          color: #BABABA; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__cont {
+          padding: 10px 5px 50px 5px; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event__cont {
+              margin: 0px -25px;
+              width: auto; } }
+      .n-declarations__date--list .ui-datepicker-calendar td .ui-state-default {
+        color: #785AA2;
+        font-size: 56px;
+        position: relative;
+        text-align: left;
+        font-family: "Scada-Bold";
+        padding: 0;
+        display: none; }
+        .n-declarations__date--list .ui-datepicker-calendar td .ui-state-default span {
+          display: inline;
+          font-size: 28px;
+          font-family: "Scada-Regular";
+          text-transform: uppercase; }
+      .n-declarations__date--list .ui-datepicker-calendar td b {
+        position: absolute;
+        left: 76px;
+        top: 96px;
+        font-size: 26px;
+        text-transform: uppercase;
+        background: #785AA2;
+        color: #fff;
+        line-height: 20px; }
+        @media all and (max-width: 1300px) {
+          .n-declarations__date--list .ui-datepicker-calendar td b {
+            left: 20px; } }
+        @media all and (max-width: 830px) {
+          .n-declarations__date--list .ui-datepicker-calendar td b {
+            font-size: 13px;
+            width: 50px;
+            text-align: center; }
+            .n-declarations__date--list .ui-datepicker-calendar td b span {
+              display: inline; } }
+        .n-declarations__date--list .ui-datepicker-calendar td b:after {
+          display: block;
+          content: 'Начало в';
+          position: absolute;
+          left: 0;
+          top: -45px;
+          color: #878787;
+          font-size: 15px; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td b:after {
+              font-size: 10px;
+              top: -30px; } }
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__bg {
+        opacity: 0; }
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cover {
+        opacity: 0.3;
+        display: none; }
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cont {
+        color: #1C1C1C; }
+      .n-declarations__date--list .ui-datepicker-calendar td .n-event__type {
+        display: block;
+        text-align: left;
+        margin-left: 0px;
+        color: #878787;
+        font-size: 18px;
+        font-family: "Scada-Regular";
+        font-weight: normal;
+        text-transform: uppercase;
+        margin-bottom: 18px; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__type__l {
+          display: inline-block;
+          margin-right: 50px;
+          position: relative; }
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event__type__l:after {
+            display: block;
+            content: '';
+            height: 18px;
+            width: 1px;
+            background: #878787;
+            position: absolute;
+            right: -25px;
+            top: 1px; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__type__r {
+          display: inline-block; }
+      .n-declarations__date--list .ui-datepicker-calendar td .n-event__info {
+        margin-left: 0px;
+        text-align: left; }
+      .n-declarations__date--list .ui-datepicker-calendar td .n-event__t {
+        font-size: 36px;
+        font-family: "PTF75F";
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0px;
+        line-height: 1.2;
+        margin-bottom: 10px; }
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event__t a {
+          color: #1C1C1C;
+          padding: 0;
+          border: 0;
+          text-align: left;
+          background: none; }
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event__t a:hover {
+            text-decoration: underline; }
+      .n-declarations__date--list .ui-datepicker-calendar td .n-event__b {
+        display: block;
+        font-size: 22px;
+        text-align: left;
+        padding: 0;
+        line-height: 1.3;
+        font-family: "Scada-Regular"; }
+      .n-declarations__date--list .ui-datepicker-calendar td .event-btn {
+        opacity: 1;
+        font-size: 20px;
+        display: inline-block;
+        padding: 17px 30px;
+        position: absolute;
+        right: 25px;
+        top: 100px; }
+        @media all and (max-width: 1300px) {
+          .n-declarations__date--list .ui-datepicker-calendar td .event-btn {
+            font-size: 16px;
+            padding: 10px 20px; } }
+        @media all and (max-width: 830px) {
+          .n-declarations__date--list .ui-datepicker-calendar td .event-btn {
+            position: static; } }
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__t a {
+        color: #1C1C1C; }
+    .n-declarations__date--list .n-event {
+      background-size: cover; }
 
 .grid:after {
   content: '';

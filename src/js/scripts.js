@@ -104,7 +104,7 @@ $(document).ready(function(){
     });
 
     $('.n-sidebar__item').click(function(e){
-        e.preventDefault();
+        //e.preventDefault();
 
         if (!$(this).find('.n-sidebar__sublist').length) {
             return;
@@ -197,7 +197,9 @@ $(document).ready(function(){
                     }
                 });
 
-                mainSlider.update(true);
+                if (mainSlider) {
+                    mainSlider.update(true);
+                }
             }
         });
 
@@ -350,45 +352,44 @@ $(document).ready(function(){
         },
     ];
 
+    var request = (function() {
+        var loaded = false;
+        return function() {
+            $.ajax({
+                type: 'GET',
+                url: 'events.json',
+                error: function(xml,status,error){
+                    console.log(status);
+                },
+                success: function(eventsBigDate) {
+                    if (loaded) { return }
+                    loadEventsBigDate('#bigDate',eventsBigDate);
+                    loadEventsBigDate('#bigDate2',eventsBigDate);
+                    $('#bigDate2 td').each(function(index){
+                        if (!$(this).find('.n-event').length) {
+                            $(this).hide();
+                        }
+                        $(this).find('.event-container').html(
+                            $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
+                        );
+                    });
+                    loaded = true;
+                }
+            });
+        }
+    })();
+
+    request();
+
     tabby.init({
         callback: (function() {
             var loaded = false;
             return function(){
-               $.ajax({
-                   type: 'GET',
-                   url: 'events.json',
-                   error: function(xml,status,error){
-                       console.log(status);
-                   },
-                   success: function(eventsBigDate) {
-                       if (loaded) { return }
-                       loadEventsBigDate('#bigDate',eventsBigDate);
-                       loadEventsBigDate('#bigDate2',eventsBigDate);
-                       $('#bigDate2 td').each(function(index){
-                           if (!$(this).find('.n-event').length) {
-                               $(this).hide();
-                           }
-                           $(this).find('.ui-state-default').html(
-                               $(this).find('.ui-state-default').html() + $('#bigDate2 .ui-datepicker-month').html()
-                           );
-                       });
-                       loaded = true;
-                   }
-               });
+                request();
             }
         })()
     });
 
-    function tabbyDetect() {
-        if (isMinWidth()) {
-            tabby.toggleTab( '#tab2' );
-        }
-    };
-
-    tabbyDetect();
-    tabby.toggleTab( '#tab1' );
-
-    $(window).on('resize',tabbyDetect);
 
     $('#datepicker').datepicker({
         monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
@@ -409,23 +410,12 @@ $(document).ready(function(){
 
     $('#bigDate').datepicker({
         monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-        dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
-        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
+        dayNames: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
+        dayNamesMin: [ "Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье" ],
         showOtherMonths: true,
         autoClose: true,
-        onSelect: function(date){
-            setTimeout(function(){
-                $.ajax({
-                    type: 'GET',
-                    url: 'events.json',
-                    error: function(xml,status,error){
-                        console.log(status);
-                    },
-                    success: function(eventsBigDate) {
-                        loadEventsBigDate('#bigDate',eventsBigDate);
-                    }
-                });
-            });
+        onSelect: function(date, inst){
+            inst.inline = false;
         },
         onChangeMonthYear: function(){
             setTimeout(function(){
@@ -443,32 +433,17 @@ $(document).ready(function(){
         }
     });
 
+
     $('#bigDate2').datepicker({
-        monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-        dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
-        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
+        monthNames: [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
+        dayNames: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
+        dayNamesMin: [ "Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье" ],
         showOtherMonths: true,
         autoClose: true,
-        onSelect: function(date){
-            setTimeout(function(){
-                $.ajax({
-                    type: 'GET',
-                    url: 'events.json',
-                    error: function(xml,status,error){
-                        console.log(status);
-                    },
-                    success: function(eventsBigDate) {
-                        loadEventsBigDate('#bigDate2',eventsBigDate);
-                        $('#bigDate2 td').each(function(index){
-                            if (!$(this).find('.n-event').length) {
-                                $(this).hide();
-                            }
-                        });
-                    }
-                });
-            });
+        onSelect: function(e,inst){
+            inst.inline = false;
         },
-        onChangeMonthYear: function(){
+        onChangeMonthYear: function(inst){
             setTimeout(function(){
                 $.ajax({
                     type: 'GET',
@@ -482,12 +457,16 @@ $(document).ready(function(){
                             if (!$(this).find('.n-event').length) {
                                 $(this).hide();
                             }
+                            $(this).find('.event-container').html(
+                                $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
+                            );
                         });
                     }
                 });
             });
         }
     });
+
 
     function loadEvents(events) {
         $('.n-date .ui-datepicker-calendar tbody').find('td').each(function(index){
@@ -506,17 +485,45 @@ $(document).ready(function(){
 
     function loadEventsBigDate(elem,events) {
         $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(index){
-            $(this).append('<div class="event-holder"><div class="event-container"></div></div>')
+            $(this).append('<div class="event-holder"><div class="event-container"></div></div>');
+
             for (var i=0; i<=events.length - 1; i++) {
                 var date = events[i].date.split('.');
+
                 if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
                     $(this).find('.event-holder').append('<div class="n-event__bg" style="background-image:url('+ events[i].pic +')"></div><div class="n-event__cover"></div><div class="n-event__cont"></div>');
+
                     for (var j=0; j<=events[i].events.length - 1; j++) {
-                        $(this).find('.event-holder .n-event__cont').append('<div class="n-event"><i>'+events[i].events[j]+'</i><b>'+events[i].time[j]+'</b></div><a class="event-btn" href="#">Купить билет</a>');
+                        $(this).find('.event-holder .n-event__cont').append('' +
+                            '<div class="n-event">' +
+                                '<div class="n-event__subBg" style="background-image:url('+ events[i].pic +')"></div>' +
+                                '<div class="n-event__type">' +
+                                    '<div class="n-event__type__l">'+
+                                        events[i].holl[j]+
+                                    '</div>' +
+                                    '<div class="n-event__type__r">'+
+                                        events[i].type[j]+
+                                    '</div>' +
+                                '</div>' +
+                                '<i class="n-event__info">'+
+                                    '<span class="n-event__t"><a href="#">'+ events[i].events[j] +'</a></span>'+
+                                    '<span class="n-event__b">'+ events[i].descriptions[j] +'</span>'+
+                                '</i>' +
+                                '<b>' +
+                                    '<span class="n-event__time">'+
+                                        events[i].time[j]+
+                                    '</span>' +
+                                '</b>' +
+                                '<div class="n-event__age">'+
+                                    events[i].age[j]+
+                                '</div>'+
+                                '<a class="event-btn" onclick=window.location="#">' +
+                                    'Купить билет' +
+                                '</a>'+
+                            '</div>');
                     }
                 }
             };
-
         });
     };
 
@@ -597,6 +604,15 @@ $(document).ready(function(){
         });
     });
     getDate();
+    function tabbyDetect() {
+        if (isMinWidth()) {
+            tabby.toggleTab( '#tab2' );
+            $('.n-declarations__list li:nth-child(1)').removeClass('active');
+            $('.n-declarations__list li:nth-child(2)').addClass('active');
+        }
+    };
+    tabbyDetect();
+    $(window).on('resize',tabbyDetect);
 
     function initialize() {
 
