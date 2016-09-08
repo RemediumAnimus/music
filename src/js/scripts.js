@@ -382,10 +382,11 @@ $(document).ready(function(){
     function tabbyDetect() {
         if (isMinWidth()) {
             tabby.toggleTab( '#tab2' );
-        } 
+        }
     };
 
     tabbyDetect();
+    tabby.toggleTab( '#tab1' );
 
     $(window).on('resize',tabbyDetect);
 
