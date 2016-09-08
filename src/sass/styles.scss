@@ -407,7 +407,7 @@ body {
 }
 
 .hidden {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .n-sidebar {
   position: fixed;
@@ -1204,9 +1204,31 @@ body {
     .ui-selectmenu-button span.ui-selectmenu-text {
       text-align: left;
       padding: 0.4em 2.1em 0.4em 0.6em;
+      @include transition();
 
       @media all and (max-width: $mobile) {
         padding: 0.7em 2.1em 0.5em 0.6em;
+      }
+    }
+
+    .ui-menu-item {
+      opacity: 0;
+      -webkit-transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
+      -moz-transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
+      -ms-transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
+      -o-transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
+      transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+      transition-iteration-count: 1;
+
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          -webkit-transition-delay: (0.3s * $i);
+          -moz-transition-delay: (0.3s * $i);
+          transition-delay: (0.3s * $i);
+        }
       }
     }
 
@@ -1227,9 +1249,26 @@ body {
       color: #fff;
     }
 
+    .ui-selectmenu-open .ui-menu-item {
+
+    }
+
+    .select-active {
+      .ui-menu-item {
+        -webkit-transform: translateX(0px) perspective( 600px ) rotateX( 0deg );
+        -moz-transform: translateX(0px) perspective( 600px ) rotateX( 0deg );
+        -ms-transform: translateX(0px) perspective( 600px ) rotateX( 0deg );
+        -o-transform: translateX(0px) perspective( 600px ) rotateX( 0deg );
+        transform: translateX(0px) perspective( 600px ) rotateX( 0deg );
+        opacity: 1;
+      }
+
+    }
+
     .ui-widget-content {
       background: #F4F4F4;
       padding: 10px 0px;
+      height: 210px;
     }
 
     .ui-menu .ui-menu-item {

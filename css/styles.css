@@ -270,7 +270,7 @@ body {
     background: #9f3948 !important; }
 
 .hidden {
-  overflow: hidden; }
+  overflow: hidden !important; }
 
 .n-sidebar {
   position: fixed;
@@ -852,10 +852,82 @@ body {
           border-radius: 3px !important; } }
     .n-declarations__select .ui-selectmenu-button span.ui-selectmenu-text {
       text-align: left;
-      padding: 0.4em 2.1em 0.4em 0.6em; }
+      padding: 0.4em 2.1em 0.4em 0.6em;
+      transition: all 0.15s linear;
+      -webkit-transition: all 0.15s linear;
+      -moz-transition: all 0.15s linear; }
       @media all and (max-width: 830px) {
         .n-declarations__select .ui-selectmenu-button span.ui-selectmenu-text {
           padding: 0.7em 2.1em 0.5em 0.6em; } }
+    .n-declarations__select .ui-menu-item {
+      opacity: 0;
+      -webkit-transform: translateX(50px) perspective(600px) rotateX(0deg);
+      transform: translateX(50px) perspective(600px) rotateX(0deg);
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      -webkit-transition-timing-function: ease-in-out;
+              transition-timing-function: ease-in-out;
+      transition-iteration-count: 1; }
+      .n-declarations__select .ui-menu-item:nth-child(1) {
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s; }
+      .n-declarations__select .ui-menu-item:nth-child(2) {
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s; }
+      .n-declarations__select .ui-menu-item:nth-child(3) {
+        -webkit-transition-delay: 0.9s;
+        transition-delay: 0.9s; }
+      .n-declarations__select .ui-menu-item:nth-child(4) {
+        -webkit-transition-delay: 1.2s;
+        transition-delay: 1.2s; }
+      .n-declarations__select .ui-menu-item:nth-child(5) {
+        -webkit-transition-delay: 1.5s;
+        transition-delay: 1.5s; }
+      .n-declarations__select .ui-menu-item:nth-child(6) {
+        -webkit-transition-delay: 1.8s;
+        transition-delay: 1.8s; }
+      .n-declarations__select .ui-menu-item:nth-child(7) {
+        -webkit-transition-delay: 2.1s;
+        transition-delay: 2.1s; }
+      .n-declarations__select .ui-menu-item:nth-child(8) {
+        -webkit-transition-delay: 2.4s;
+        transition-delay: 2.4s; }
+      .n-declarations__select .ui-menu-item:nth-child(9) {
+        -webkit-transition-delay: 2.7s;
+        transition-delay: 2.7s; }
+      .n-declarations__select .ui-menu-item:nth-child(10) {
+        -webkit-transition-delay: 3s;
+        transition-delay: 3s; }
+      .n-declarations__select .ui-menu-item:nth-child(11) {
+        -webkit-transition-delay: 3.3s;
+        transition-delay: 3.3s; }
+      .n-declarations__select .ui-menu-item:nth-child(12) {
+        -webkit-transition-delay: 3.6s;
+        transition-delay: 3.6s; }
+      .n-declarations__select .ui-menu-item:nth-child(13) {
+        -webkit-transition-delay: 3.9s;
+        transition-delay: 3.9s; }
+      .n-declarations__select .ui-menu-item:nth-child(14) {
+        -webkit-transition-delay: 4.2s;
+        transition-delay: 4.2s; }
+      .n-declarations__select .ui-menu-item:nth-child(15) {
+        -webkit-transition-delay: 4.5s;
+        transition-delay: 4.5s; }
+      .n-declarations__select .ui-menu-item:nth-child(16) {
+        -webkit-transition-delay: 4.8s;
+        transition-delay: 4.8s; }
+      .n-declarations__select .ui-menu-item:nth-child(17) {
+        -webkit-transition-delay: 5.1s;
+        transition-delay: 5.1s; }
+      .n-declarations__select .ui-menu-item:nth-child(18) {
+        -webkit-transition-delay: 5.4s;
+        transition-delay: 5.4s; }
+      .n-declarations__select .ui-menu-item:nth-child(19) {
+        -webkit-transition-delay: 5.7s;
+        transition-delay: 5.7s; }
+      .n-declarations__select .ui-menu-item:nth-child(20) {
+        -webkit-transition-delay: 6s;
+        transition-delay: 6s; }
     .n-declarations__select .ui-state-default .ui-icon {
       background: url("../img/arrow.svg") no-repeat;
       width: 20px;
@@ -867,9 +939,14 @@ body {
     .n-declarations__select .ui-corner-top .ui-selectmenu-text {
       background: #785AA2;
       color: #fff; }
+    .n-declarations__select .select-active .ui-menu-item {
+      -webkit-transform: translateX(0px) perspective(600px) rotateX(0deg);
+      transform: translateX(0px) perspective(600px) rotateX(0deg);
+      opacity: 1; }
     .n-declarations__select .ui-widget-content {
       background: #F4F4F4;
-      padding: 10px 0px; }
+      padding: 10px 0px;
+      height: 210px; }
     .n-declarations__select .ui-menu .ui-menu-item {
       color: #1C1C1C;
       text-transform: uppercase;

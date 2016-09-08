@@ -306,19 +306,107 @@ $(document).ready(function(){
     };
 
     $( "#holl" ).selectmenu({
-        appendTo: "#holl-Select"
+        appendTo: "#holl-Select",
+        open: function(){
+            var height = $(this).parent().find('.ui-menu').css('height');
+            var $that = $(this);
+
+            $(this).parent().find('.ui-menu').addClass('hidden');
+            $(this).parent().find('.ui-menu').css('height',0);
+            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
+                css: {
+                    "height": height
+                },
+                onComplete:function(){
+
+                }
+            });
+            setTimeout(function(){
+                $that.parent().find('.ui-menu').addClass('select-active');
+                $that.parent().find('.ui-menu').addClass('hidden');
+            },100);
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
     });
 
     $( "#actions" ).selectmenu({
-        appendTo: "#actions-Select"
+        appendTo: "#actions-Select",
+        open: function(){
+            var height = $(this).parent().find('.ui-menu').css('height');
+            var $that = $(this);
+
+            $(this).parent().find('.ui-menu').addClass('hidden');
+            $(this).parent().find('.ui-menu').css('height',0);
+            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
+                css: {
+                    "height": height
+                },
+                onComplete:function(){
+
+                }
+            });
+            setTimeout(function(){
+                $that.parent().find('.ui-menu').addClass('select-active');
+                $that.parent().find('.ui-menu').addClass('hidden');
+            },100);
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
     });
 
     $( "#holl2" ).selectmenu({
-        appendTo: "#holl-Select2"
+        appendTo: "#holl-Select2",
+        open: function(){
+            var height = $(this).parent().find('.ui-menu').css('height');
+            var $that = $(this);
+
+            $(this).parent().find('.ui-menu').addClass('hidden');
+            $(this).parent().find('.ui-menu').css('height',0);
+            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
+                css: {
+                    "height": height
+                },
+                onComplete:function(){
+
+                }
+            });
+            setTimeout(function(){
+                $that.parent().find('.ui-menu').addClass('select-active');
+                $that.parent().find('.ui-menu').addClass('hidden');
+            },100);
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
     });
 
     $( "#actions2" ).selectmenu({
-        appendTo: "#actions-Select2"
+        appendTo: "#actions-Select2",
+        open: function(){
+            var height = $(this).parent().find('.ui-menu').css('height');
+            var $that = $(this);
+
+            $(this).parent().find('.ui-menu').addClass('hidden');
+            $(this).parent().find('.ui-menu').css('height',0);
+            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
+                css: {
+                    "height": height
+                },
+                onComplete:function(){
+
+                }
+            });
+            setTimeout(function(){
+                $that.parent().find('.ui-menu').addClass('select-active');
+                $that.parent().find('.ui-menu').addClass('hidden');
+            },100);
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
     });
 
     $('.n-events li').each(function(index){
