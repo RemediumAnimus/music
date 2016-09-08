@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a48bd484-3cf1-401c-8c92-f0766cfbcfb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/scripts.js" afterPath="$PROJECT_DIR$/src/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events.json" afterPath="$PROJECT_DIR$/events.json" />
     </list>
     <ignored path="music.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +60,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/scripts.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="405">
@@ -72,11 +72,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="events.json" pinned="false" current-in-tab="false">
+          <file leaf-file-name="events.json" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/events.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+                <state relative-caret-position="360">
+                  <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -96,10 +96,10 @@
         <option value="$PROJECT_DIR$/src/html/home.html" />
         <option value="$PROJECT_DIR$/src/html/__footer.html" />
         <option value="$PROJECT_DIR$/src/html/__header.html" />
-        <option value="$PROJECT_DIR$/events.json" />
         <option value="$PROJECT_DIR$/src/html/afisha.html" />
         <option value="$PROJECT_DIR$/src/sass/styles.scss" />
         <option value="$PROJECT_DIR$/src/js/scripts.js" />
+        <option value="$PROJECT_DIR$/events.json" />
       </list>
     </option>
   </component>
@@ -279,12 +279,12 @@
       <option name="presentableId" value="Default" />
       <updated>1473232556742</updated>
       <workItem from="1473232560725" duration="35374000" />
-      <workItem from="1473318859413" duration="9767000" />
+      <workItem from="1473318859413" duration="10390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45141000" />
+    <option name="totallyTimeSpent" value="45764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1048" extended-state="6" />
@@ -462,14 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -485,6 +477,14 @@
           <folding>
             <marker date="1473328674607" expanded="true" signature="17051:17092" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
