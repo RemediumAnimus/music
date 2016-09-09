@@ -209,6 +209,18 @@ $(document).ready(function(){
             },
         });
 
+        TweenMax.to($('.n-fixed'),1, {
+            css: {
+                "left":"332px"
+            },
+        });
+
+        TweenMax.to($('.n-footer'),0.5, {
+            css: {
+                "margin-left": "292px"
+            },
+        });
+
         $('.n-menu').toggleClass('n-menu--active');
     });
 
@@ -259,6 +271,12 @@ $(document).ready(function(){
                 TweenMax.to($('.n-sidebar'),0.5, {
                     css: {
                         "left":"-292px"
+                    },
+                });
+
+                TweenMax.to($('.n-fixed'),1, {
+                    css: {
+                        "left":"102px"
                     },
                 });
                 if (mainSlider) {
@@ -761,16 +779,12 @@ $(document).ready(function(){
     $(window).on('resize',tabbyDetect);
 
     function changePos() {
-        var $elem = $('#bigDate thead');
+        var $elem = $('.n-fixed');
         var $container = $('#bigDate tbody');
         if ($(window).scrollTop() >= $container.offset().top) {
-            $elem.addClass('th-fixed');
-            setTimeout(function(){
-                $elem.addClass('th-fixed--anim');
-            });
+            $elem.addClass('n-fixed--show');
         } else {
-            $elem.removeClass('th-fixed');
-            $elem.removeClass('th-fixed--anim');
+            $elem.removeClass('n-fixed--show');
         }
     }
 

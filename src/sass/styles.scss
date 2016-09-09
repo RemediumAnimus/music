@@ -419,6 +419,7 @@ body {
   height: 100%;
   left: -292px;
   background: #1c1c1c;
+  z-index: 2;
 
   @media all and (max-width: $mobile) {
     @include transition($value: all, $time: 0.45s, $function: ease-in-out);
@@ -3517,64 +3518,75 @@ body {
   margin-top: 20px;
 }
 
-#bigDate .ui-datepicker-calendar .th-fixed {
-  width: auto;
+.n-fixed {
   position: fixed;
-  top: -10px;
+  top: 0;
   left: 102px;
   right: 40px;
-  z-index: 100;
+  background: #fff;
+  opacity: 0;
+  z-index: 10;
   @include transition();
 
-  tr {
-    width: 100%;
+  &__container {
     display: table;
-    
-    th {
-      padding-top: 10px;
-      background: #fff;
-      border: 1px solid #E8E8E8;
-      border-right: 0;
-      border-bottom: 0;
+    width: 100%;
+  }
 
-      &:last-child {
-        border-right: 1px solid #E8E8E8;
-      }
-    }
+  &__date {
+    display: table-cell;
+    padding-top: 10px;
+    border: 1px solid #E8E8E8;
+    border-right: 0;
+    border-bottom: 0;
+    width: 14.25%;
+    color: #666666;
+    font-size: 14px;
+    font-family: "Scada-Regular";
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
   }
 }
 
 @-moz-document url-prefix() {
-  #bigDate .ui-datepicker-calendar .th-fixed {
-    width: auto;
+  .n-fixed {
     position: fixed;
-    top: -10px;
+    top: 0;
     left: 101px;
     right: 41px;
+    background: #fff;
+    opacity: 0;
     z-index: 100;
-    @include transition();
 
-    tr {
-      width: 100%;
+    &__container {
       display: table;
+      width: 100%;
+    }
 
-      th {
-        padding-top: 10px;
-        background: #fff;
-        border: 1px solid #E8E8E8;
-        border-right: 0;
-        border-bottom: 0;
-
-        &:last-child {
-          border-right: 1px solid #E8E8E8;
-        }
-      }
+    &__date {
+      display: table-cell;
+      padding-top: 10px;
+      border: 1px solid #E8E8E8;
+      border-right: 0;
+      border-bottom: 0;
+      width: 14.25%;
+      color: #666666;
+      font-size: 14px;
+      font-family: "Scada-Regular";
+      text-transform: uppercase;
+      font-weight: normal;
+      text-align: left;
+      padding-left: 20px;
+      padding-bottom: 10px;
     }
   }
 }
 
-.th-fixed--anim {
-  top: 0px !important;
+.n-fixed--show {
+  opacity: 1;
 }
 
 

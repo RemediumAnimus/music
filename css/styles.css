@@ -281,7 +281,8 @@ body {
   width: 292px;
   height: 100%;
   left: -292px;
-  background: #1c1c1c; }
+  background: #1c1c1c;
+  z-index: 2; }
   @media all and (max-width: 830px) {
     .n-sidebar {
       transition: all 0.45s ease-in-out;
@@ -2541,50 +2542,63 @@ body {
 #bigDate .ui-datepicker-calendar {
   margin-top: 20px; }
 
-#bigDate .ui-datepicker-calendar .th-fixed {
-  width: auto;
+.n-fixed {
   position: fixed;
-  top: -10px;
+  top: 0;
   left: 102px;
   right: 40px;
-  z-index: 100;
+  background: #fff;
+  opacity: 0;
+  z-index: 10;
   transition: all 0.15s linear;
   -webkit-transition: all 0.15s linear;
   -moz-transition: all 0.15s linear; }
-  #bigDate .ui-datepicker-calendar .th-fixed tr {
-    width: 100%;
-    display: table; }
-    #bigDate .ui-datepicker-calendar .th-fixed tr th {
-      padding-top: 10px;
-      background: #fff;
-      border: 1px solid #E8E8E8;
-      border-right: 0;
-      border-bottom: 0; }
-      #bigDate .ui-datepicker-calendar .th-fixed tr th:last-child {
-        border-right: 1px solid #E8E8E8; }
+  .n-fixed__container {
+    display: table;
+    width: 100%; }
+  .n-fixed__date {
+    display: table-cell;
+    padding-top: 10px;
+    border: 1px solid #E8E8E8;
+    border-right: 0;
+    border-bottom: 0;
+    width: 14.25%;
+    color: #666666;
+    font-size: 14px;
+    font-family: "Scada-Regular";
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px; }
 
 @-moz-document url-prefix() {
-  #bigDate .ui-datepicker-calendar .th-fixed {
-    width: auto;
+  .n-fixed {
     position: fixed;
-    top: -10px;
+    top: 0;
     left: 101px;
     right: 41px;
-    z-index: 100;
-    transition: all 0.15s linear;
-    -webkit-transition: all 0.15s linear;
-    -moz-transition: all 0.15s linear; }
-    #bigDate .ui-datepicker-calendar .th-fixed tr {
-      width: 100%;
-      display: table; }
-      #bigDate .ui-datepicker-calendar .th-fixed tr th {
-        padding-top: 10px;
-        background: #fff;
-        border: 1px solid #E8E8E8;
-        border-right: 0;
-        border-bottom: 0; }
-        #bigDate .ui-datepicker-calendar .th-fixed tr th:last-child {
-          border-right: 1px solid #E8E8E8; } }
+    background: #fff;
+    opacity: 0;
+    z-index: 100; }
+    .n-fixed__container {
+      display: table;
+      width: 100%; }
+    .n-fixed__date {
+      display: table-cell;
+      padding-top: 10px;
+      border: 1px solid #E8E8E8;
+      border-right: 0;
+      border-bottom: 0;
+      width: 14.25%;
+      color: #666666;
+      font-size: 14px;
+      font-family: "Scada-Regular";
+      text-transform: uppercase;
+      font-weight: normal;
+      text-align: left;
+      padding-left: 20px;
+      padding-bottom: 10px; } }
 
-.th-fixed--anim {
-  top: 0px !important; }
+.n-fixed--show {
+  opacity: 1; }
