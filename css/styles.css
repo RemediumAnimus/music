@@ -832,7 +832,8 @@ body {
     margin-right: 20px; }
     @media all and (max-width: 1300px) {
       .n-declarations__select {
-        width: 300px; } }
+        width: 300px;
+        margin-right: 20px; } }
     @media all and (max-width: 830px) {
       .n-declarations__select {
         width: 46%;
@@ -855,7 +856,8 @@ body {
       background: transparent;
       font-weight: normal;
       position: relative;
-      z-index: 101; }
+      z-index: 101;
+      width: 100% !important; }
       @media all and (max-width: 830px) {
         .n-declarations__select .ui-state-default {
           font-size: 14px;

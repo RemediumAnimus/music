@@ -1177,6 +1177,7 @@ body {
 
     @media all and (max-width: $min) {
       width: 300px;
+      margin-right: 20px;
     }
 
     @media all and (max-width: $mobile) {
@@ -1205,6 +1206,7 @@ body {
       font-weight: normal;
       position: relative;
       z-index: 101;
+      width: 100% !important;
 
       @media all and (max-width: $mobile) {
         font-size: 14px;
