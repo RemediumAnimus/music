@@ -410,6 +410,26 @@ $(document).ready(function(){
         }
     });
 
+    $( "#tabSelect" ).selectmenu({
+        appendTo: "#tab-Select",
+        open: function(){
+            innerScroll($(this));
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
+    });
+
+    $( "#tabSelect2" ).selectmenu({
+        appendTo: "#tab-Select2",
+        open: function(){
+            innerScroll($(this));
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        }
+    });
+
     $('.n-events li').each(function(index){
         $(this).hover(function(){
             dateSlider.slideTo(index);
