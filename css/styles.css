@@ -281,8 +281,7 @@ body {
   width: 292px;
   height: 100%;
   left: -292px;
-  background: #1c1c1c;
-  z-index: 2; }
+  background: #1c1c1c; }
   @media all and (max-width: 830px) {
     .n-sidebar {
       transition: all 0.45s ease-in-out;

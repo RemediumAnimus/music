@@ -419,7 +419,7 @@ body {
   height: 100%;
   left: -292px;
   background: #1c1c1c;
-  z-index: 2;
+  //z-index: 2;
 
   @media all and (max-width: $mobile) {
     @include transition($value: all, $time: 0.45s, $function: ease-in-out);

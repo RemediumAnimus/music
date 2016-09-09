@@ -781,7 +781,7 @@ $(document).ready(function(){
     function changePos() {
         var $elem = $('.n-fixed');
         var $container = $('#bigDate tbody');
-        if ($(window).scrollTop() >= $container.offset().top) {
+        if ($(window).scrollTop() >= $container.offset().top && $('#tab1').hasClass('active')) {
             $elem.addClass('n-fixed--show');
         } else {
             $elem.removeClass('n-fixed--show');
