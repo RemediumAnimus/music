@@ -1402,7 +1402,8 @@ body {
         font-family: "Scada-Regular";
         visibility: hidden;
         height: 0;
-        opacity: 0; }
+        opacity: 0;
+        overflow: hidden; }
         @media all and (max-width: 830px) {
           .n-declarations__date--list .ui-datepicker-calendar td .n-event__b {
             font-size: 14px; } }

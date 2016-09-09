@@ -307,6 +307,7 @@ $(document).ready(function(){
 
     $(document).on({
         mouseenter: function () {
+            if(isMinWidth()) {return}
             var $container = $(this).find('.n-event__b');
             var height;
             TweenMax.killTweensOf($container);
@@ -326,6 +327,7 @@ $(document).ready(function(){
             });
         },
         mouseleave: function () {
+            if(isMinWidth()) {return}
             var $container = $(this).find('.n-event__b');
             TweenMax.killTweensOf($container);
             TweenMax.to($container,0.5, {
@@ -551,8 +553,37 @@ $(document).ready(function(){
                     }
                 });
             });
+            eventInit();
         }
     });
+
+    function eventInit(){
+        $('#bigDate2 td').click(function(e){
+            if(!isMediumWidth()) {return}
+            $('.n-event').find('.n-event__b').animate({
+                'opacity': '0',
+                'height': '0'
+            },'slow');
+            var $container = $(e.target).closest('.n-event').find('.n-event__b');
+            var height;
+            TweenMax.killTweensOf($container);
+            $container.css('height','auto');
+            height = $container.css('height');
+            $container.css('height','0');
+            TweenMax.to($container,0.5, {
+                css: {
+                    'height':height
+                },
+                onComplete: function() {
+                    $container.css('visibility','visible');
+                    $container.stop().animate({
+                        'opacity': 1
+                    },'slow');
+                }
+            });
+        });
+    }
+    eventInit();
 
 
     function loadEvents(events) {
