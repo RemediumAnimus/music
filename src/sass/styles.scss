@@ -1584,6 +1584,45 @@ body {
       }
     }
 
+    .active {
+
+      .n-event__subBg {
+        opacity: 1 !important;
+      }
+
+      .n-event__age {
+        opacity: 1 !important;
+      }
+
+      .n-event__cont {
+        color: #fff !important;
+      }
+
+      .event-btn {
+        opacity: 1 !important;
+      }
+
+      .n-event__t {
+        a {
+          color: #fff !important;
+        }
+      }
+
+      .n-event__b {
+        color: #BABABA !important;
+      }
+
+      .n-event__type {
+        color: #BABABA !important;
+      }
+
+      b {
+        &:after {
+          color: #BABABA !important;
+        }
+      }
+    }
+
     .event-btn {
       display: block;
       text-align: center;
@@ -1708,13 +1747,25 @@ body {
 
               .n-event__age {
                 opacity: 1;
+
+                @media all and (max-width: $mobile) {
+                  opacity: 0.5;
+                }
               }
               .n-event__subBg {
                 opacity: 1;
+
+                @media all and (max-width: $mobile) {
+                  opacity: 0;
+                }
               }
 
               .n-event__cont {
                 color: #fff;
+
+                @media all and (max-width: $mobile) {
+                  color: #1C1C1C;
+                }
               }
 
               .event-btn {
@@ -1724,20 +1775,36 @@ body {
               .n-event__t {
                 a {
                   color: #fff;
+
+                  @media all and (max-width: $mobile) {
+                    color: #1C1C1C;
+                  }
                 }
               }
               
               .n-event__b {
                 color: #BABABA;
+
+                @media all and (max-width: $mobile) {
+                  color: #878787;
+                }
               }
 
               .n-event__type {
                 color: #BABABA;
+
+                @media all and (max-width: $mobile) {
+                  color: #878787;
+                }
               }
               
               b {
                 &:after {
                   color: #BABABA;
+
+                  @media all and (max-width: $mobile) {
+                    color: #878787;
+                  }
                 }
               }
             }

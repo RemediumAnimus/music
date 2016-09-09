@@ -560,12 +560,20 @@ $(document).ready(function(){
     function eventInit(){
         $('#bigDate2 td').click(function(e){
             if(!isMediumWidth()) {return}
+            var $elem = $(e.target).closest('.n-event');
+            var $container = $(e.target).closest('.n-event').find('.n-event__b');
+            var $bg = $(e.target).closest('.n-event').find('.n-event__subBg');
+            var height;
+
+
+            $('.n-event').removeClass('active');
+            $elem.addClass('active');
+
             $('.n-event').find('.n-event__b').animate({
                 'opacity': '0',
                 'height': '0'
             },'slow');
-            var $container = $(e.target).closest('.n-event').find('.n-event__b');
-            var height;
+
             TweenMax.killTweensOf($container);
             $container.css('height','auto');
             height = $container.css('height');

@@ -1163,6 +1163,22 @@ body {
         display: none; }
       .n-declarations__date .n-event__time {
         text-align: left; }
+    .n-declarations__date .active .n-event__subBg {
+      opacity: 1 !important; }
+    .n-declarations__date .active .n-event__age {
+      opacity: 1 !important; }
+    .n-declarations__date .active .n-event__cont {
+      color: #fff !important; }
+    .n-declarations__date .active .event-btn {
+      opacity: 1 !important; }
+    .n-declarations__date .active .n-event__t a {
+      color: #fff !important; }
+    .n-declarations__date .active .n-event__b {
+      color: #BABABA !important; }
+    .n-declarations__date .active .n-event__type {
+      color: #BABABA !important; }
+    .n-declarations__date .active b:after {
+      color: #BABABA !important; }
     .n-declarations__date .event-btn {
       display: block;
       text-align: center;
@@ -1261,20 +1277,41 @@ body {
             background: rgba(0, 0, 0, 0.6); }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age {
           opacity: 1; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age {
+              opacity: 0.5; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg {
           opacity: 1; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg {
+              opacity: 0; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont {
           color: #fff; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont {
+              color: #1C1C1C; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .event-btn {
           opacity: 1; }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a {
           color: #fff; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a {
+              color: #1C1C1C; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b {
           color: #BABABA; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b {
+              color: #878787; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type {
           color: #BABABA; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type {
+              color: #878787; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after {
           color: #BABABA; }
+          @media all and (max-width: 830px) {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after {
+              color: #878787; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event__cont {
           padding: 10px 5px 50px 5px; }
           @media all and (max-width: 830px) {
