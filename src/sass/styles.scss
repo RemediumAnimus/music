@@ -1327,6 +1327,10 @@ body {
       background: #F4F4F4;
       font-weight: normal;
     }
+    
+    .ui-selectmenu-button {
+      background: none !important;
+    }
 
     .ui-menu .ui-state-focus {
       margin: 0;
@@ -1662,7 +1666,7 @@ body {
               color: #666666;
               position: absolute;
               right: 25px;
-              top: 184px;
+              top: 150px;
               font-weight: normal;
               opacity: 0.5;
               @include transition();
@@ -1908,6 +1912,9 @@ body {
             padding: 0;
             line-height: 1.3;
             font-family: $scada-r;
+            visibility: hidden;
+            height: 0;
+            opacity: 0;
 
             @media all and (max-width: $mobile) {
               font-size: 14px;
@@ -1921,7 +1928,7 @@ body {
             padding: 17px 30px;
             position: absolute;
             right: 25px;
-            top: 100px;
+            top: 65px;
 
             @media all and (max-width: $min) {
               font-size: 16px;

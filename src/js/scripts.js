@@ -305,6 +305,44 @@ $(document).ready(function(){
         });
     };
 
+    $(document).on({
+        mouseenter: function () {
+            var $container = $(this).find('.n-event__b');
+            var height;
+            $container.css('height','auto');
+            height = $container.css('height');
+            $container.css('height','0');
+            TweenMax.to($container,0.5, {
+                css: {
+                   'height':height
+                },
+                onComplete: function() {
+                    $container.css('visibility','visible');
+                    $container.stop().animate({
+                        'opacity': 1
+                    },'slow');
+                }
+            });
+        },
+        mouseleave: function () {
+            TweenMax.killAll();
+            var $container = $(this).find('.n-event__b');
+            TweenMax.to($container,0.5, {
+                css: {
+                    "opacity": 0
+                },
+                onComplete: function(){
+                    $container.css('visibility','visible');
+                    TweenMax.to($container,0.5, {
+                        css: {
+                            'height':0
+                        },
+                    });
+                }
+            });
+        }
+    },'#bigDate2 .n-event');
+
     function innerScroll($elem) {
         var height = $elem.parent().find('.ui-menu').css('height');
         var $that = $elem;
@@ -327,7 +365,7 @@ $(document).ready(function(){
         setTimeout(function(){
             $that.parent().find('.ui-menu').addClass('select-active');
         },100);
-    }
+    };
 
     $( "#holl" ).selectmenu({
         appendTo: "#holl-Select",
