@@ -550,10 +550,10 @@ $(document).ready(function(){
                                 $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
                             );
                         });
+                        eventInit();
                     }
                 });
             });
-            eventInit();
         }
     });
 
