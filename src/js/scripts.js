@@ -309,6 +309,7 @@ $(document).ready(function(){
         mouseenter: function () {
             var $container = $(this).find('.n-event__b');
             var height;
+            TweenMax.killTweensOf($container);
             $container.css('height','auto');
             height = $container.css('height');
             $container.css('height','0');
@@ -325,8 +326,8 @@ $(document).ready(function(){
             });
         },
         mouseleave: function () {
-            TweenMax.killAll();
             var $container = $(this).find('.n-event__b');
+            TweenMax.killTweensOf($container);
             TweenMax.to($container,0.5, {
                 css: {
                     "opacity": 0

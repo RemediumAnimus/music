@@ -1209,7 +1209,7 @@ body {
       border: none; }
       .n-declarations__date--list .ui-datepicker-calendar td .n-event {
         position: relative;
-        padding: 50px 290px 50px 230px; }
+        padding: 50px 260px 50px 230px; }
         @media all and (max-width: 1300px) {
           .n-declarations__date--list .ui-datepicker-calendar td .n-event {
             padding: 50px 180px 50px 130px; } }
