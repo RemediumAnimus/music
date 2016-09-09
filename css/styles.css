@@ -280,7 +280,8 @@ body {
   position: fixed;
   width: 292px;
   height: 100%;
-  left: -292px; }
+  left: -292px;
+  background: #1c1c1c; }
   @media all and (max-width: 830px) {
     .n-sidebar {
       transition: all 0.45s ease-in-out;
@@ -2350,7 +2351,8 @@ body {
   background: #1c1c1c; }
   @media all and (max-width: 830px) {
     .n-footer {
-      margin-left: 0; } }
+      margin-left: 0;
+      z-index: 0; } }
   .n-footer__container {
     padding: 0px 50px;
     display: table;

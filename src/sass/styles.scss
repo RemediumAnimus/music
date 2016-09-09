@@ -418,6 +418,7 @@ body {
   width: 292px;
   height: 100%;
   left: -292px;
+  background: #1c1c1c;
 
   @media all and (max-width: $mobile) {
     @include transition($value: all, $time: 0.45s, $function: ease-in-out);
@@ -3246,6 +3247,7 @@ body {
 
   @media all and(max-width: $mobile) {
     margin-left: 0;
+    z-index: 0;
   }
 
   &__container {
