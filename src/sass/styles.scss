@@ -1227,6 +1227,14 @@ body {
       }
     }
 
+    .ui-selectmenu-menu {
+      width: 100% !important;
+    }
+
+    ul.ui-menu {
+      overflow-x: hidden !important;
+    }
+
     .ui-menu-item {
       opacity: 0;
       -webkit-transform: translateX(50px) perspective( 600px ) rotateX( 0deg );
@@ -1385,6 +1393,7 @@ body {
     }
 
     .ui-datepicker-calendar {
+      position: relative;
       tr {
         //display: table;
         width: 100%;
@@ -3487,6 +3496,85 @@ body {
       width: 80%;
     }
   }
+}
+
+.ui-datepicker {
+  padding: 0 !important;
+}
+
+#bigDate .ui-datepicker-calendar thead {
+  position: absolute;
+  width: 100%;
+  top: -35px;
+
+  tr {
+    display: table;
+    width: 100%;
+  }
+}
+
+#bigDate .ui-datepicker-calendar{
+  margin-top: 20px;
+}
+
+#bigDate .ui-datepicker-calendar .th-fixed {
+  width: auto;
+  position: fixed;
+  top: -10px;
+  left: 102px;
+  right: 40px;
+  z-index: 100;
+  @include transition();
+
+  tr {
+    width: 100%;
+    display: table;
+    
+    th {
+      padding-top: 10px;
+      background: #fff;
+      border: 1px solid #E8E8E8;
+      border-right: 0;
+      border-bottom: 0;
+
+      &:last-child {
+        border-right: 1px solid #E8E8E8;
+      }
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  #bigDate .ui-datepicker-calendar .th-fixed {
+    width: auto;
+    position: fixed;
+    top: -10px;
+    left: 101px;
+    right: 41px;
+    z-index: 100;
+    @include transition();
+
+    tr {
+      width: 100%;
+      display: table;
+
+      th {
+        padding-top: 10px;
+        background: #fff;
+        border: 1px solid #E8E8E8;
+        border-right: 0;
+        border-bottom: 0;
+
+        &:last-child {
+          border-right: 1px solid #E8E8E8;
+        }
+      }
+    }
+  }
+}
+
+.th-fixed--anim {
+  top: 0px !important;
 }
 
 

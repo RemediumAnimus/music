@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a48bd484-3cf1-401c-8c92-f0766cfbcfb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/afisha.html" afterPath="$PROJECT_DIR$/afisha.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="$PROJECT_DIR$/css/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scripts.js" afterPath="$PROJECT_DIR$/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/afisha.html" afterPath="$PROJECT_DIR$/src/html/afisha.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/scripts.js" afterPath="$PROJECT_DIR$/src/js/scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/styles.scss" afterPath="$PROJECT_DIR$/src/sass/styles.scss" />
     </list>
@@ -66,26 +63,26 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="styles.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-105">
-                  <caret line="1293" column="16" selection-start-line="1293" selection-start-column="16" selection-end-line="1293" selection-end-column="16" />
+                <state relative-caret-position="495">
+                  <caret line="1234" column="36" selection-start-line="1234" selection-start-column="36" selection-end-line="1234" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/scripts.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="384">
-                  <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
+                <state relative-caret-position="144">
+                  <caret line="766" column="39" selection-start-line="766" selection-start-column="39" selection-end-line="766" selection-end-column="39" />
                   <folding>
-                    <marker date="1473427866671" expanded="true" signature="20822:20863" ph="..." />
-                    <marker date="1473427866671" expanded="true" signature="21219:21236" ph="..." />
-                    <marker date="1473427866671" expanded="true" signature="21219:21240" ph="..." />
-                    <marker date="1473427866671" expanded="true" signature="21219:21260" ph="..." />
+                    <marker date="1473429672418" expanded="true" signature="20822:20863" ph="..." />
+                    <marker date="1473429672418" expanded="true" signature="21219:21236" ph="..." />
+                    <marker date="1473429672418" expanded="true" signature="21219:21240" ph="..." />
+                    <marker date="1473429672418" expanded="true" signature="21219:21260" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -118,9 +115,9 @@
         <option value="$PROJECT_DIR$/src/html/__footer.html" />
         <option value="$PROJECT_DIR$/js/vendor/scrollbar/jquery.scrollbar.css" />
         <option value="$PROJECT_DIR$/img/arrow.svg" />
-        <option value="$PROJECT_DIR$/src/sass/styles.scss" />
         <option value="$PROJECT_DIR$/src/html/afisha.html" />
         <option value="$PROJECT_DIR$/src/js/scripts.js" />
+        <option value="$PROJECT_DIR$/src/sass/styles.scss" />
       </list>
     </option>
   </component>
@@ -387,12 +384,12 @@
       <updated>1473232556742</updated>
       <workItem from="1473232560725" duration="35374000" />
       <workItem from="1473318859413" duration="38816000" />
-      <workItem from="1473406633929" duration="17419000" />
+      <workItem from="1473406633929" duration="20665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91609000" />
+    <option name="totallyTimeSpent" value="94855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1048" extended-state="6" />
@@ -471,10 +468,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1473427866671" expanded="true" signature="20822:20863" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21236" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21240" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21260" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="20822:20863" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21236" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21240" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21260" ph="..." />
           </folding>
         </state>
       </provider>
@@ -532,10 +529,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1473427866671" expanded="true" signature="20822:20863" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21236" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21240" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21260" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="20822:20863" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21236" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21240" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21260" ph="..." />
           </folding>
         </state>
       </provider>
@@ -640,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="1293" column="16" selection-start-line="1293" selection-start-column="16" selection-end-line="1293" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/afisha.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -658,14 +647,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
+        <state relative-caret-position="144">
+          <caret line="766" column="39" selection-start-line="766" selection-start-column="39" selection-end-line="766" selection-end-column="39" />
           <folding>
-            <marker date="1473427866671" expanded="true" signature="20822:20863" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21236" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21240" ph="..." />
-            <marker date="1473427866671" expanded="true" signature="21219:21260" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="20822:20863" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21236" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21240" ph="..." />
+            <marker date="1473429672418" expanded="true" signature="21219:21260" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="1234" column="36" selection-start-line="1234" selection-start-column="36" selection-end-line="1234" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

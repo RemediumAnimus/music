@@ -760,6 +760,22 @@ $(document).ready(function(){
     tabbyDetect();
     $(window).on('resize',tabbyDetect);
 
+    function changePos() {
+        var $elem = $('#bigDate thead');
+        var $container = $('#bigDate tbody');
+        if ($(window).scrollTop() >= $container.offset().top) {
+            $elem.addClass('th-fixed');
+            setTimeout(function(){
+                $elem.addClass('th-fixed--anim');
+            });
+        } else {
+            $elem.removeClass('th-fixed');
+            $elem.removeClass('th-fixed--anim');
+        }
+    }
+
+    $(window).on('scroll',changePos);
+
     function initialize() {
 
         var Coordinates = [

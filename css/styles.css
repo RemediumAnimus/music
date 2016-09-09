@@ -874,6 +874,10 @@ body {
       @media all and (max-width: 830px) {
         .n-declarations__select .ui-selectmenu-button span.ui-selectmenu-text {
           padding: 0.7em 2.1em 0.5em 0.6em; } }
+    .n-declarations__select .ui-selectmenu-menu {
+      width: 100% !important; }
+    .n-declarations__select ul.ui-menu {
+      overflow-x: hidden !important; }
     .n-declarations__select .ui-menu-item {
       opacity: 0;
       -webkit-transform: translateX(50px) perspective(600px) rotateX(0deg);
@@ -1024,78 +1028,80 @@ body {
       display: none; }
     .n-declarations__date .ui-datepicker-today .event-container {
       border: 4px solid #C267A6; }
-    .n-declarations__date .ui-datepicker-calendar tr {
-      width: 100%; }
-      .n-declarations__date .ui-datepicker-calendar tr:last-child {
-        text-decoration: none; }
-        .n-declarations__date .ui-datepicker-calendar tr:last-child td {
-          border: 1px solid #E8E8E8; }
-    .n-declarations__date .ui-datepicker-calendar th {
-      display: table-cell;
-      width: 14.25%;
-      color: #666666;
-      font-size: 14px;
-      font-family: "Scada-Regular";
-      text-transform: uppercase;
-      font-weight: normal;
-      text-align: left;
-      padding-left: 22px; }
-    .n-declarations__date .ui-datepicker-calendar td {
-      width: 14.25%;
-      font-weight: bold;
-      color: #1c94c4;
-      padding: 0px;
-      position: relative;
-      min-height: 260px;
-      border: 1px solid #E8E8E8;
-      border-bottom: 0; }
-      .n-declarations__date .ui-datepicker-calendar td span {
-        border: 0;
-        background: none;
+    .n-declarations__date .ui-datepicker-calendar {
+      position: relative; }
+      .n-declarations__date .ui-datepicker-calendar tr {
+        width: 100%; }
+        .n-declarations__date .ui-datepicker-calendar tr:last-child {
+          text-decoration: none; }
+          .n-declarations__date .ui-datepicker-calendar tr:last-child td {
+            border: 1px solid #E8E8E8; }
+      .n-declarations__date .ui-datepicker-calendar th {
+        display: table-cell;
+        width: 14.25%;
+        color: #666666;
+        font-size: 14px;
+        font-family: "Scada-Regular";
+        text-transform: uppercase;
         font-weight: normal;
-        color: inherit; }
-      .n-declarations__date .ui-datepicker-calendar td > a {
-        border: 0;
-        background: none;
-        font-weight: normal;
-        color: inherit;
-        position: absolute;
-        left: 14px;
-        top: 10px;
-        font-size: 32px;
-        font-family: "roboto-light";
-        color: #BABABA;
-        z-index: 1; }
-      .n-declarations__date .ui-datepicker-calendar td .n-event__b {
-        display: none; }
-      .n-declarations__date .ui-datepicker-calendar td .n-event__t {
-        text-align: left; }
-        .n-declarations__date .ui-datepicker-calendar td .n-event__t a {
-          color: #1C1C1C;
-          padding: 0;
+        text-align: left;
+        padding-left: 22px; }
+      .n-declarations__date .ui-datepicker-calendar td {
+        width: 14.25%;
+        font-weight: bold;
+        color: #1c94c4;
+        padding: 0px;
+        position: relative;
+        min-height: 260px;
+        border: 1px solid #E8E8E8;
+        border-bottom: 0; }
+        .n-declarations__date .ui-datepicker-calendar td span {
           border: 0;
-          text-align: left;
-          background: none; }
-          .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover {
-            text-decoration: underline; }
-      .n-declarations__date .ui-datepicker-calendar td .n-event {
-        margin: 0; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .n-event__bg {
-        opacity: 1;
-        background: #785AA2;
-        background-position: center center;
-        background-size: cover; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cover {
-        background: rgba(0, 0, 0, 0.4); }
-      .n-declarations__date .ui-datepicker-calendar td:hover b {
-        color: #fff; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cont {
-        color: #fff; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .event-btn {
-        opacity: 1;
-        cursor: pointer; }
-      .n-declarations__date .ui-datepicker-calendar td:hover .n-event__t a {
-        color: #fff; }
+          background: none;
+          font-weight: normal;
+          color: inherit; }
+        .n-declarations__date .ui-datepicker-calendar td > a {
+          border: 0;
+          background: none;
+          font-weight: normal;
+          color: inherit;
+          position: absolute;
+          left: 14px;
+          top: 10px;
+          font-size: 32px;
+          font-family: "roboto-light";
+          color: #BABABA;
+          z-index: 1; }
+        .n-declarations__date .ui-datepicker-calendar td .n-event__b {
+          display: none; }
+        .n-declarations__date .ui-datepicker-calendar td .n-event__t {
+          text-align: left; }
+          .n-declarations__date .ui-datepicker-calendar td .n-event__t a {
+            color: #1C1C1C;
+            padding: 0;
+            border: 0;
+            text-align: left;
+            background: none; }
+            .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover {
+              text-decoration: underline; }
+        .n-declarations__date .ui-datepicker-calendar td .n-event {
+          margin: 0; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__bg {
+          opacity: 1;
+          background: #785AA2;
+          background-position: center center;
+          background-size: cover; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cover {
+          background: rgba(0, 0, 0, 0.4); }
+        .n-declarations__date .ui-datepicker-calendar td:hover b {
+          color: #fff; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cont {
+          color: #fff; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .event-btn {
+          opacity: 1;
+          cursor: pointer; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__t a {
+          color: #fff; }
     .n-declarations__date .event-holder {
       top: 0;
       left: 0px;
@@ -2520,3 +2526,65 @@ body {
     .n-events li span {
       float: left;
       width: 80%; }
+
+.ui-datepicker {
+  padding: 0 !important; }
+
+#bigDate .ui-datepicker-calendar thead {
+  position: absolute;
+  width: 100%;
+  top: -35px; }
+  #bigDate .ui-datepicker-calendar thead tr {
+    display: table;
+    width: 100%; }
+
+#bigDate .ui-datepicker-calendar {
+  margin-top: 20px; }
+
+#bigDate .ui-datepicker-calendar .th-fixed {
+  width: auto;
+  position: fixed;
+  top: -10px;
+  left: 102px;
+  right: 40px;
+  z-index: 100;
+  transition: all 0.15s linear;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear; }
+  #bigDate .ui-datepicker-calendar .th-fixed tr {
+    width: 100%;
+    display: table; }
+    #bigDate .ui-datepicker-calendar .th-fixed tr th {
+      padding-top: 10px;
+      background: #fff;
+      border: 1px solid #E8E8E8;
+      border-right: 0;
+      border-bottom: 0; }
+      #bigDate .ui-datepicker-calendar .th-fixed tr th:last-child {
+        border-right: 1px solid #E8E8E8; }
+
+@-moz-document url-prefix() {
+  #bigDate .ui-datepicker-calendar .th-fixed {
+    width: auto;
+    position: fixed;
+    top: -10px;
+    left: 101px;
+    right: 41px;
+    z-index: 100;
+    transition: all 0.15s linear;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear; }
+    #bigDate .ui-datepicker-calendar .th-fixed tr {
+      width: 100%;
+      display: table; }
+      #bigDate .ui-datepicker-calendar .th-fixed tr th {
+        padding-top: 10px;
+        background: #fff;
+        border: 1px solid #E8E8E8;
+        border-right: 0;
+        border-bottom: 0; }
+        #bigDate .ui-datepicker-calendar .th-fixed tr th:last-child {
+          border-right: 1px solid #E8E8E8; } }
+
+.th-fixed--anim {
+  top: 0px !important; }
