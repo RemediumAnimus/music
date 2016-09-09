@@ -2344,7 +2344,10 @@ body {
 .n-footer {
   margin-left: 62px;
   color: #BABABA;
-  font-size: 16px; }
+  font-size: 16px;
+  position: relative;
+  z-index: 50;
+  background: #1c1c1c; }
   @media all and (max-width: 830px) {
     .n-footer {
       margin-left: 0; } }
