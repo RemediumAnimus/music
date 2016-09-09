@@ -409,6 +409,10 @@ body {
 .hidden {
   overflow: hidden !important;
 }
+
+.no-transition {
+  transition: none !important;
+}
 .n-sidebar {
   position: fixed;
   width: 292px;
@@ -1166,9 +1170,14 @@ body {
 
   &__select {
     display: inline-block;
-    width: 230px;
+    width: 340px;
     position: relative;
     z-index: 2;
+    margin-right: 20px;
+
+    @media all and (max-width: $min) {
+      width: 300px;
+    }
 
     @media all and (max-width: $mobile) {
       width: 46%;
@@ -1188,10 +1197,14 @@ body {
       font-family: $scada-r;
       text-transform: uppercase;
       outline: none;
-      border-radius: 0 !important;
+      border-radius: 0px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
       border: 0;
       background: transparent;
       font-weight: normal;
+      position: relative;
+      z-index: 101;
 
       @media all and (max-width: $mobile) {
         font-size: 14px;
@@ -1222,6 +1235,7 @@ body {
       transition-duration: 0.5s;
       transition-timing-function: ease-in-out;
       transition-iteration-count: 1;
+      transition-property: transform, opacity;
 
       @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
@@ -1236,6 +1250,7 @@ body {
       background: url("../img/arrow.svg") no-repeat;
       width: 20px;
       height: 12px;
+      @include transition();
     }
 
     .ui-state-default.ui-state-hover {
@@ -1245,8 +1260,13 @@ body {
     }
 
     .ui-corner-top .ui-selectmenu-text {
-      background: #785AA2;
+      background: #C267A6;
       color: #fff;
+    }
+
+
+    .ui-corner-top .ui-icon{
+      transform: rotate(180deg);
     }
 
     .ui-selectmenu-open .ui-menu-item {
@@ -1266,14 +1286,31 @@ body {
     }
 
     .ui-widget-content {
-      background: #F4F4F4;
+      background: #fff;
       padding: 10px 0px;
       height: 210px;
+      box-sizing: border-box;
+    }
+
+    .ui-front {
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+    .scroll-wrapper {
+      border: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .scrollbar-inner > .scroll-element div {
+      width: 4px;
+    }
+
+    .scrollbar-inner > .scroll-element .scroll-element_track {
+      background: none;
     }
 
     .ui-menu .ui-menu-item {
       color: #1C1C1C;
-      text-transform: uppercase;
       font-size: 20px;
       font-family: $scada-r;
       padding: 13px 30px;
@@ -1285,7 +1322,7 @@ body {
 
     .ui-state-focus, .ui-widget-content .ui-state-focus {
       border: none;
-      background: none;
+      background: #F4F4F4;
       font-weight: normal;
     }
 

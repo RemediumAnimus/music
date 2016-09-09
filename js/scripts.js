@@ -305,26 +305,34 @@ $(document).ready(function(){
         });
     };
 
+    function innerScroll($elem) {
+        var height = $elem.parent().find('.ui-menu').css('height');
+        var $that = $elem;
+
+        $elem.parent().find('.ui-menu').addClass('hidden');
+        $that.parent().find('.ui-menu').addClass('scrollbar-inner');
+        $('.scrollbar-inner').scrollbar({
+            autoScrollSize: true,
+            scrollx: "hidden"
+        });
+        $elem.parent().find('.ui-menu').css('height',0);
+        TweenMax.to($elem.parent().find('.ui-menu'),0.5, {
+            css: {
+                "height": height
+            },
+            onComplete:function(){
+
+            }
+        });
+        setTimeout(function(){
+            $that.parent().find('.ui-menu').addClass('select-active');
+        },100);
+    }
+
     $( "#holl" ).selectmenu({
         appendTo: "#holl-Select",
         open: function(){
-            var height = $(this).parent().find('.ui-menu').css('height');
-            var $that = $(this);
-
-            $(this).parent().find('.ui-menu').addClass('hidden');
-            $(this).parent().find('.ui-menu').css('height',0);
-            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
-                css: {
-                    "height": height
-                },
-                onComplete:function(){
-
-                }
-            });
-            setTimeout(function(){
-                $that.parent().find('.ui-menu').addClass('select-active');
-                $that.parent().find('.ui-menu').addClass('hidden');
-            },100);
+            innerScroll($(this));
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
@@ -334,23 +342,7 @@ $(document).ready(function(){
     $( "#actions" ).selectmenu({
         appendTo: "#actions-Select",
         open: function(){
-            var height = $(this).parent().find('.ui-menu').css('height');
-            var $that = $(this);
-
-            $(this).parent().find('.ui-menu').addClass('hidden');
-            $(this).parent().find('.ui-menu').css('height',0);
-            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
-                css: {
-                    "height": height
-                },
-                onComplete:function(){
-
-                }
-            });
-            setTimeout(function(){
-                $that.parent().find('.ui-menu').addClass('select-active');
-                $that.parent().find('.ui-menu').addClass('hidden');
-            },100);
+            innerScroll($(this));
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
@@ -360,23 +352,7 @@ $(document).ready(function(){
     $( "#holl2" ).selectmenu({
         appendTo: "#holl-Select2",
         open: function(){
-            var height = $(this).parent().find('.ui-menu').css('height');
-            var $that = $(this);
-
-            $(this).parent().find('.ui-menu').addClass('hidden');
-            $(this).parent().find('.ui-menu').css('height',0);
-            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
-                css: {
-                    "height": height
-                },
-                onComplete:function(){
-
-                }
-            });
-            setTimeout(function(){
-                $that.parent().find('.ui-menu').addClass('select-active');
-                $that.parent().find('.ui-menu').addClass('hidden');
-            },100);
+            innerScroll($(this));
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
@@ -386,23 +362,7 @@ $(document).ready(function(){
     $( "#actions2" ).selectmenu({
         appendTo: "#actions-Select2",
         open: function(){
-            var height = $(this).parent().find('.ui-menu').css('height');
-            var $that = $(this);
-
-            $(this).parent().find('.ui-menu').addClass('hidden');
-            $(this).parent().find('.ui-menu').css('height',0);
-            TweenMax.to($(this).parent().find('.ui-menu'),0.5, {
-                css: {
-                    "height": height
-                },
-                onComplete:function(){
-
-                }
-            });
-            setTimeout(function(){
-                $that.parent().find('.ui-menu').addClass('select-active');
-                $that.parent().find('.ui-menu').addClass('hidden');
-            },100);
+            innerScroll($(this));
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
