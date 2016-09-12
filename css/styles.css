@@ -1120,7 +1120,9 @@ body {
       display: block;
       margin: 2px;
       font-style: normal;
-      background-size: 0; }
+      background-size: 0;
+      border: 1px dashed transparent;
+      padding: 0px 10px 10px 10px; }
       .n-declarations__date .n-event__age {
         display: none; }
       .n-declarations__date .n-event i {
@@ -1160,7 +1162,7 @@ body {
         width: 100%;
         height: 100%;
         z-index: 1;
-        padding: 65px 22px 50px 22px;
+        padding: 65px 10px 50px 10px;
         text-align: left;
         color: #1C1C1C;
         z-index: 2;
@@ -1182,6 +1184,8 @@ body {
         display: none; }
       .n-declarations__date .n-event__time {
         text-align: left; }
+      .n-declarations__date .n-event:hover {
+        border: 1px dashed #fff; }
     .n-declarations__date .active .n-event__subBg {
       opacity: 1 !important; }
     .n-declarations__date .active .n-event__age {
