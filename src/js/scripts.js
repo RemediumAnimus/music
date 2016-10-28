@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
     var $grid, $grid2;
+    var eventsPath = $('body').find('*[data-json-url]');
+    var firstLoad = false;
+    var method = $('body').find('*[data-method]').data('method') || "POST";
 
     function isMediumWidth() {
         return $('#medium-indicator').is(':visible');
@@ -14,43 +17,49 @@ $(document).ready(function(){
         return $('#mobile-indicator').is(':visible');
     }
 
+    //адаптация блоков на главной
     function normalize() {
-
+        var space = 1;
+        if ($('.n-menu').hasClass('n-menu--active') && firstLoad) {
+            space = 1.15;
+        }
         if (!isMediumWidth()) {
             var paddings = {
-                'x1': 48,
-                'x2': 23.55,
-                'x3': 15.4,
-                'x4': 48.1,
-                'x4mod': 23.6,
-                'x5': 31.8
+                'x1': 48 * space,
+                'x2': 24 * space,
+                'x3': 16 * space,
+                'x3mod2': 25 * space,
+                'x4': 48 * space,
+                'x4mod': 24 * space,
+                'x5': 32 * space
             };
         } else if (!isMinWidth()) {
             var paddings = {
-                'x1': 56,
-                'x2': 27.55,
-                'x3': 18.3,
-                'x4': 56.1,
-                'x4mod': 27.55,
-                'x5': 36.8
+                'x1': 56 * space,
+                'x2': 28 * space,
+                'x3': 19.2 * space,
+                'x4': 56 * space,
+                'x4mod': 28 * space,
+                'x5': 36.8 * space
             };
         } else if(!isMobileWidth()) {
             var paddings = {
-                'x1': 96,
-                'x2': 27.55,
-                'x3': 24.3,
-                'x4': 96,
-                'x4mod': 35.55,
-                'x5': 46.8
+                'x1': 96 * space,
+                'x2': 27.55 * space,
+                'x3': 24.3 * space,
+                'x3mod2': 44 * space,
+                'x4': 96 * space,
+                'x4mod': 35.55 * space,
+                'x5': 46.8 * space
             };
         } else {
             var paddings = {
-                'x1': 96,
-                'x2': 47.55,
-                'x3': 74.3,
-                'x4': 86.1,
-                'x4mod': 75.55,
-                'x5': 76.8
+                'x1': 96 * space,
+                'x2': 47.55 * space,
+                'x3': 74.3 * space,
+                'x4': 86.1 * space,
+                'x4mod': 75.55 * space,
+                'x5': 76.8 * space
             };
         }
         if (!isMobileWidth()) {
@@ -69,6 +78,9 @@ $(document).ready(function(){
             });
             $('.x3').css({
                 'height': parseInt(paddings.x3 * containerW / 100)
+            });
+            $('.x3--mod2').css({
+                'height': parseInt(paddings.x3mod2 * containerW / 100)
             });
             $('.x4').css({
                 'height': parseInt(paddings.x4 * containerW / 100)
@@ -91,11 +103,24 @@ $(document).ready(function(){
         }
 
         $('.n-sidebar').removeClass('n-sidebar--active');
+        firstLoad = true;
     };
+
+    function calendarSizer(calendar) {
+        var $items = $(calendar).find('.event-holder');
+        var $td = $(calendar).find('td');
+        $items.css({
+            'min-height': $items.eq(0).closest('td').width() + 'px'
+        });
+        $td.css({
+            'padding-top': 0
+        });
+    }
 
     normalize();
 
     $(window).on('resize',normalize);
+
 
     $('.n-header__burger').click(function(e){
         $('.n-sidebar').toggleClass('menu-active');
@@ -103,6 +128,7 @@ $(document).ready(function(){
         $('body').toggleClass('hidden');
     });
 
+    //анимация пунктов в меню
     $('.n-sidebar__item').click(function(e){
         //e.preventDefault();
 
@@ -110,7 +136,7 @@ $(document).ready(function(){
             return;
         }
         var height = $(this).find('.n-sidebar__sublist').outerHeight();
-        var prevHeight = $('.n-sidebar__list').outerHeight();
+        var prevHeight = $('.n-sidebar__list').height();
 
         $(this).find('.n-sidebar__sublist').show();
         $(this).find('.n-sidebar__sublist').data('height', prevHeight + 'px');
@@ -131,6 +157,12 @@ $(document).ready(function(){
 
     });
 
+    $('.n-detail__right__btn').click(function(){
+        $('.n-detail__right__block').addClass('n-full');
+        $(this).hide();
+    });
+
+    //анимация бокового меню
     $('.n-sidebar__back').click(function(e){
         e.stopPropagation();
 
@@ -152,7 +184,26 @@ $(document).ready(function(){
         });
     });
 
-    $('.n-menu__burger').click(function(){
+    function gridSizer($item) {
+        $item.each(function(){
+            $(this).css({
+                'height': $(this).width() + 'px'
+            });
+        })
+    }
+
+    setTimeout(function(){
+        gridSizer($('.n-media'));
+        gridSizer($('.n-gal-item'));
+    });
+
+    $(window).on('resize',function(){gridSizer($('.n-media'))});
+    $(window).on('resize',function(){gridSizer($('.n-gal-item'))});
+
+    //анимация бокового меню и контентой части
+    function animateForward(){
+        var left = parseInt($('.n-sidebar').width()) - 62;
+        var sidebarWidth = $('.n-sidebar').css('width');
         TweenMax.set($('.n-content'), {
             "transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
             "-webkit-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
@@ -161,24 +212,24 @@ $(document).ready(function(){
 
         TweenMax.to($('.n-footer'),0.5, {
             css: {
-                "margin-left": "292px"
+                "margin-left": "15%"
             },
         });
 
         TweenMax.to($('.n-content'),0.5, {
             css: {
-                "transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
-                "-webkit-transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
-                "-moz-transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
+                "transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
+                "-webkit-transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
+                "-moz-transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
             },
             onComplete: function () {
                 TweenMax.set($('.n-content'), {
                     css: {
-                    "transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
-                    "-webkit-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
-                    "-moz-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
-                    "margin-left": "292px",
-                    "margin-right": "-232px"
+                        "transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
+                        "-webkit-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
+                        "-moz-transform": "translate3d(" + 0 + "px," + 0 + "px," + 0 + "px)",
+                        "margin-left": sidebarWidth,
+                        "margin-right": left * -1 + "px"
                     },
                     onComplete: function(){
                         TweenMax.to($('.n-content'),0.5,{
@@ -192,6 +243,11 @@ $(document).ready(function(){
                                 if (mainSlider) {
                                     mainSlider.update(true);
                                 }
+                                if (dateSlider) {
+                                    dateSlider.update(true);
+                                }
+
+                                gridSizer($('.n-media'));
                             }
                         })
                     }
@@ -199,6 +255,9 @@ $(document).ready(function(){
 
                 if (mainSlider) {
                     mainSlider.update(true);
+                }
+                if (dateSlider) {
+                    dateSlider.update(true);
                 }
             }
         });
@@ -209,38 +268,53 @@ $(document).ready(function(){
             },
         });
 
-        TweenMax.to($('.n-fixed'),1, {
+        TweenMax.set($('.n-fixed__container'),{
+            "padding-left": "40px"
+
+        });
+
+        TweenMax.to($('.n-fixed'),0, {
             css: {
-                "left":"332px"
+                "left":"15%"
             },
         });
 
         TweenMax.to($('.n-footer'),0.5, {
             css: {
-                "margin-left": "292px"
+                "margin-left": "15%"
             },
         });
 
         $('.n-menu').toggleClass('n-menu--active');
-    });
 
-    $('.n-sidebar__close').click(function(){
+    }
+
+    //анимация бокового меню и контентой части
+    function animateBackward(){
+
         $('.n-sidebar').toggleClass('n-sidebar--active');
 
         TweenMax.to($('.n-content'),1, {
             css: {
-                "margin-right":"-232px"
+                "margin-right":"-15%"
             },
             onUpdate: function(){
                 if (mainSlider) {
                     mainSlider.update(true);
                 }
+
+                if (dateSlider) {
+                    dateSlider.update(true);
+                }
+
+                gridSizer($('.n-media'));
             },
             onComplete: function(){
+                var left = $('.n-content').offset().left - 62;
                 TweenMax.set($('.n-content'), {
-                    "transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
-                    "-webkit-transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
-                    "-moz-transform": "translate3d(" + 230 + "px," + 0 + "px," + 0 + "px)",
+                    "transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
+                    "-webkit-transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
+                    "-moz-transform": "translate3d(" + left + "px," + 0 + "px," + 0 + "px)",
                     "margin-left": "62px",
                     "margin-right": "0px"
                 });
@@ -266,11 +340,22 @@ $(document).ready(function(){
                         if (mainSlider) {
                             mainSlider.update(true);
                         }
+
+                        if (dateSlider) {
+                            dateSlider.update(true);
+                        }
+
+                        TweenMax.set($('.n-fixed__container'),{
+                            "padding-left": "0px"
+                        });
+
+                        normalize();
+                        packeryInit();
                     }
                 });
                 TweenMax.to($('.n-sidebar'),0.5, {
                     css: {
-                        "left":"-292px"
+                        "left":"-15%"
                     },
                 });
 
@@ -282,11 +367,26 @@ $(document).ready(function(){
                 if (mainSlider) {
                     mainSlider.update(true);
                 }
+
+                if (dateSlider) {
+                    dateSlider.update(true);
+                }
             }
         });
 
+    }
+
+    $('.n-menu__burger').click(function(){
+        animateForward();
+        $('.x3--circle').addClass('fixtop');
     });
 
+    $('.n-sidebar__close').click(function(){
+        animateBackward();
+        $('.x3--circle').removeClass('fixtop');
+    });
+
+    //инициализация плагина построения блоков
     function packeryInit(){
         $grid = $('.grid').packery({
             itemSelector: '.grid__item',
@@ -295,11 +395,18 @@ $(document).ready(function(){
             gutter: '.gutter-sizer'
         });
 
+        $grid.on( 'layoutComplete', function(){
+
+        });
+
         $grid2 = $('.grid2').packery({
             itemSelector: '.grid__item',
             percentPosition: true,
             gutter: '.gutter-sizer'
         });
+
+        $('.n-content').addClass('n-contentActive');
+        $('.n-sidebar').addClass('n-sideActive');
     }
 
     if (!isMobileWidth()) {
@@ -312,14 +419,37 @@ $(document).ready(function(){
             effect: 'coverflow',
             nextButton: '.n-slider__arrowR',
             prevButton: '.n-slider__arrowL',
-            speed: 600
+            speed: 900
         });
     };
 
     if ($('#dateSlider').length) {
         var dateSlider = new Swiper('#dateSlider', {
             loop: true,
-            speed: 600
+            speed: 900,
+            effect: 'fade'
+        });
+    };
+
+    if ($('#gallerySlider').length) {
+        var gallerySlider = new Swiper('#gallerySlider', {
+            speed: 900,
+            preventClicksPropagation: false,
+            preventClicks: false,
+            nextButton: '.n-slider__arrowR',
+            prevButton: '.n-slider__arrowL',
+            slidesPerView: 4,
+            breakpoints: {
+                800: {
+                    slidesPerView: 2,
+                },
+                1300: {
+                    slidesPerView: 2,
+                },
+                1600: {
+                    slidesPerView: 3,
+                }
+            }
         });
     };
 
@@ -334,7 +464,7 @@ $(document).ready(function(){
             $container.css('height','0');
             TweenMax.to($container,0.5, {
                 css: {
-                   'height':height
+                    'height':height
                 },
                 onComplete: function() {
                     $container.css('visibility','visible');
@@ -364,6 +494,15 @@ $(document).ready(function(){
         }
     },'#bigDate2 .n-event');
 
+    function sidebarScroll() {
+        $('.n-sidebar__wrap').scrollbar({
+            autoScrollSize: true,
+            scrollx: "hidden"
+        });
+    }
+
+    sidebarScroll();
+
     function innerScroll($elem) {
         var height = $elem.parent().find('.ui-menu').css('height');
         var $that = $elem;
@@ -388,6 +527,8 @@ $(document).ready(function(){
         },100);
     };
 
+
+    //селекты
     $( "#holl" ).selectmenu({
         appendTo: "#holl-Select",
         open: function(){
@@ -454,59 +595,75 @@ $(document).ready(function(){
         })
     });
 
-    var events = [
-        {
-            date: '24.9.2016',
-            events: [
-                'hello hello',
-                'buy buy',
-            ]
-        },
-        {
-            date: '14.9.2016',
-            events: [
-                'hello hello',
-                'buy buy',
-            ]
-        },
-        {
-            date: '10.9.2016',
-            events: [
-                'hello hello',
-                'buy buy',
-                'wtf'
-            ]
-        },
-    ];
-
+    //загрузка событий календаря
     var request = (function() {
         var loaded = false;
         return function() {
             $.ajax({
-                type: 'GET',
-                url: 'events.json',
+                xhr: function()
+                {
+                    $('.n-preloader__val').css({
+                        'width': 0,
+                        'opacity': 1
+                    });
+                    var xhr = new window.XMLHttpRequest();
+                    //Upload progress
+                    xhr.upload.addEventListener("progress", function(evt){
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            //Do something with upload progress
+                        }
+                    }, false);
+                    //Download progress
+                    xhr.addEventListener("progress", function(evt){
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            //Do something with download progress
+                            $('.n-preloader__val').animate({
+                                'width': percentComplete * 100 + "%"
+                            });
+                        }
+                    }, false);
+                    return xhr;
+                },
+                type: method,//POST
+                url: eventsPath.data('json-url'),
                 error: function(xml,status,error){
                     console.log(status);
                 },
                 success: function(eventsBigDate) {
                     if (loaded) { return }
-                    loadEventsBigDate('#bigDate',eventsBigDate);
-                    loadEventsBigDate('#bigDate2',eventsBigDate);
-                    $('#bigDate2 td').each(function(index){
-                        if (!$(this).find('.n-event').length) {
-                            $(this).hide();
-                        }
-                        $(this).find('.event-container').html(
-                            $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
-                        );
+                    setTimeout(function(){
+                        $('.n-preloader__val').animate({
+                            'opacity': 0
+                        });
+
+                        loadEventsBigDate('#bigDate',eventsBigDate);
+                        loadEventsDate('#bigDate2',eventsBigDate);
+                        loadEventsBigDate('#datepicker', eventsBigDate);
+                        $('#bigDate2 td').each(function(index){
+                            if (!$(this).find('.n-event').length) {
+                                $(this).hide();
+                            }
+                            $(this).find('.event-container').html(
+                                $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
+                            );
+                        });
+                        calendarSizer('#bigDate');
+                        $(window).on('resize',function(){
+                            calendarSizer('#bigDate');
+                        });
+                        eventInit();
+                        loaded = true;
                     });
-                    loaded = true;
                 }
             });
         }
     })();
 
-    request();
+    if (eventsPath.length) {
+        request();
+    }
 
     tabby.init({
         callback: (function() {
@@ -517,20 +674,28 @@ $(document).ready(function(){
         })()
     });
 
-
     $('#datepicker').datepicker({
         monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
         showOtherMonths: true,
         selectOtherMonths: true,
         autoClose: true,
-        onSelect: function(date){
-            setTimeout(function(){
-                loadEvents(events);
-            });
+        firstDay: 1,
+        onSelect: function(e, inst){
+            inst.inline = false;
         },
         onChangeMonthYear: function(){
-            setTimeout(function(){
-                loadEvents(events);
+            setTimeout(function() {
+                $.ajax({
+                    type: method,//POST
+                    url: eventsPath.data('json-url'),
+                    error: function (xml, status, error) {
+                        console.log(status);
+                    },
+                    success: function (eventsBigDate) {
+                        loadEventsBigDate('#datepicker', eventsBigDate);
+                        eventInit();
+                    }
+                });
             });
         }
     });
@@ -538,22 +703,51 @@ $(document).ready(function(){
     $('#bigDate').datepicker({
         monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
         dayNames: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
-        dayNamesMin: [ "Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье" ],
+        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
         showOtherMonths: true,
         autoClose: true,
+        firstDay: 1,
         onSelect: function(date, inst){
             inst.inline = false;
         },
         onChangeMonthYear: function(){
             setTimeout(function(){
                 $.ajax({
-                    type: 'GET',
-                    url: 'events.json',
+                    xhr: function()
+                    {
+                        var xhr = new window.XMLHttpRequest();
+                        //Upload progress
+                        xhr.upload.addEventListener("progress", function(evt){
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                //Do something with upload progress
+                            }
+                        }, false);
+                        //Download progress
+                        xhr.addEventListener("progress", function(evt){
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                //Do something with download progress
+                                $('.n-preloader__val').animate({
+                                    'width': percentComplete * 100 + "%",
+                                    'opacity': 1
+                                });
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    type: method,//POST
+                    url: eventsPath.data('json-url'),
                     error: function(xml,status,error){
                         console.log(status);
                     },
+
                     success: function(eventsBigDate) {
+                        $('.n-preloader__val').animate({
+                            'opacity': 0
+                        });
                         loadEventsBigDate('#bigDate',eventsBigDate);
+                        calendarSizer('#bigDate');
                     }
                 });
             });
@@ -573,13 +767,13 @@ $(document).ready(function(){
         onChangeMonthYear: function(inst){
             setTimeout(function(){
                 $.ajax({
-                    type: 'GET',
-                    url: 'events.json',
+                    type: method,//POST
+                    url: eventsPath.data('json-url'),
                     error: function(xml,status,error){
                         console.log(status);
                     },
                     success: function(eventsBigDate) {
-                        loadEventsBigDate('#bigDate2',eventsBigDate);
+                        loadEventsDate('#bigDate2',eventsBigDate);
                         $('#bigDate2 td').each(function(index){
                             if (!$(this).find('.n-event').length) {
                                 $(this).hide();
@@ -595,14 +789,16 @@ $(document).ready(function(){
         }
     });
 
-    function eventInit(){
+
+    //колбэк для нормальной обработки событий в datepicker. После смены даты календарь занового перестраивается, все события слетают
+     function eventInit(){
         $('#bigDate2 td').click(function(e){
             if(!isMediumWidth()) {return}
+
             var $elem = $(e.target).closest('.n-event');
             var $container = $(e.target).closest('.n-event').find('.n-event__b');
             var $bg = $(e.target).closest('.n-event').find('.n-event__subBg');
             var height;
-
 
             $('.n-event').removeClass('active');
             $elem.addClass('active');
@@ -628,26 +824,95 @@ $(document).ready(function(){
                 }
             });
         });
-    }
-    eventInit();
 
+        $('#bigDate td').hover(function(){
+            if ($(this).find('.n-event__cover').length) {
+                $(this).find('.ui-state-default').addClass('calHover')
+            }
+        },function(){
+            if ($(this).find('.n-event__cover').length) {
+                $(this).find('.ui-state-default').removeClass('calHover')
+            }
+        });
 
-    function loadEvents(events) {
-        $('.n-date .ui-datepicker-calendar tbody').find('td').each(function(index){
-            $(this).append('<div class="event-holder"><div class="event-container"></div></div>')
-            for (var i=0; i<=events.length - 1; i++) {
-                var date = events[i].date.split('.');
-                if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
-                    for (var j=0; j<=events[i].events.length - 1; j++) {
-                        $(this).find('.event-holder').append('<i class="n-event"><b>'+events[i].events[j]+'</b></i>');
+        $('#bigDate .n-event').hover(function(e){
+            var id = $(this).data('id');
+            $(this).prev().addClass('event-visible');
+
+            $('#bigDate td').each(function(index){
+                var $that = $(this);
+                $(this).find('.n-event').each(function(){
+                    if ($(this).data('id') == id) {
+                        $that.addClass('event-active');
+                        $(this).prev().addClass('event-visible');
                     }
-                }
-            };
+                })
+            });
+        },function(){
+            $(this).prev().removeClass('event-visible');
+            var id = $(this).data('id');
 
+            $('#bigDate td').each(function(index){
+                $('#bigDate td').removeClass('event-active');
+                $(this).find('.n-event').prev().removeClass('event-visible');
+            });
+        });
+
+        $('#datepicker td').click(function(e){
+            $('#datepicker td').each(function(){
+               $(this).find('a').eq(0).removeClass('ui-state-active');
+            });
+            $(this).find('a').eq(0).addClass('ui-state-active');
+        });
+
+        $('.n-declarations__date *').click(function(){
+            if ($(this).is('[href]')) {
+                location.href = $(this).attr('href');
+            }
         });
     };
 
+    eventInit();
+
+    //обработка загрузки данных в календарь
     function loadEventsBigDate(elem,events) {
+        if (!elem.length) {return}
+
+        var source   = $("#template-BigDate").html();
+        var day = new Date().getDate();
+
+        $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(j){
+
+            $(this).append('<div class="event-holder"><div class="event-container"></div></div>');
+
+            for (var i=0; i<=events.length - 1; i++) {
+                var date = events[i].date.split('.');
+
+                if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
+
+                    var template = Handlebars.compile(source);
+                    var html    = template(events[i]);
+
+                    if (!$(this).find('.n-event__cover').length) {
+                        $(this).find('.event-holder').append('<div class="n-event__cover"></div><div class="n-event__cont"></div>');
+                    }
+
+                    $(this).find('.event-holder .n-event__cont').append(html);
+
+                    if (day > parseInt($(this).find('.ui-state-default').html())) {
+                        $(this).find('.event-btn').hide();
+                    }
+
+                }
+            };
+        });
+    };
+
+    function loadEventsDate(elem,events) {
+        if (!elem.length) {return}
+
+        var source   = $("#template-BigDate2").html();
+
         $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(index){
             $(this).append('<div class="event-holder"><div class="event-container"></div></div>');
 
@@ -655,43 +920,20 @@ $(document).ready(function(){
                 var date = events[i].date.split('.');
 
                 if (parseInt($(this).find('a').html()) == date[0] && $(this).data('month') == date[1] - 1 && $(this).data('year') == date[2]) {
-                    $(this).find('.event-holder').append('<div class="n-event__bg" style="background-image:url('+ events[i].pic +')"></div><div class="n-event__cover"></div><div class="n-event__cont"></div>');
 
-                    for (var j=0; j<=events[i].events.length - 1; j++) {
-                        $(this).find('.event-holder .n-event__cont').append('' +
-                            '<div class="n-event">' +
-                                '<div class="n-event__subBg" style="background-image:url('+ events[i].pic +')"></div>' +
-                                '<div class="n-event__type">' +
-                                    '<div class="n-event__type__l">'+
-                                        events[i].holl[j]+
-                                    '</div>' +
-                                    '<div class="n-event__type__r">'+
-                                        events[i].type[j]+
-                                    '</div>' +
-                                '</div>' +
-                                '<i class="n-event__info">'+
-                                    '<span class="n-event__t"><a href="#">'+ events[i].events[j] +'</a></span>'+
-                                    '<span class="n-event__b">'+ events[i].descriptions[j] +'</span>'+
-                                '</i>' +
-                                '<b>' +
-                                    '<span class="n-event__time">'+
-                                        events[i].time[j]+
-                                    '</span>' +
-                                '</b>' +
-                                '<div class="n-event__age">'+
-                                    events[i].age[j]+
-                                '</div>'+
-                                '<a class="event-btn" onclick=window.location="#">' +
-                                    'Купить билет' +
-                                '</a>'+
-                            '</div>');
+                    var template = Handlebars.compile(source);
+                    var html    = template(events[i]);
+
+                    if (!$(this).find('.n-event__cover').length) {
+                        $(this).find('.event-holder').append('<div class="n-event__cover"></div><div class="n-event__cont"></div>');
                     }
+
+                    $(this).find('.event-holder .n-event__cont').append(html)
                 }
             };
         });
     };
 
-    loadEvents(events);
 
     function getDate(){
         var month = $('.ui-datepicker-month').html();
@@ -767,18 +1009,20 @@ $(document).ready(function(){
             }
         });
     });
+
     getDate();
+
     function tabbyDetect() {
         if (isMinWidth()) {
             tabby.toggleTab( '#tab2' );
-            $('.n-declarations__list li:nth-child(1)').removeClass('active');
-            $('.n-declarations__list li:nth-child(2)').addClass('active');
         }
     };
+
     tabbyDetect();
     $(window).on('resize',tabbyDetect);
 
     function changePos() {
+        if(!$('.n-fixed').length) {return}
         var $elem = $('.n-fixed');
         var $container = $('#bigDate tbody');
         if ($(window).scrollTop() >= $container.offset().top && $('#tab1').hasClass('active')) {
@@ -788,9 +1032,101 @@ $(document).ready(function(){
         }
     }
 
-    $(window).on('scroll',changePos);
+    function placeholder() {
 
-    function initialize() {
+        $('input[type="text"],input[type="search"], textarea').focus(function(){
+            if ($(this).prop('readonly')==false) {
+                var plac = $(this).prop('placeholder');
+                $(this).prop('placeholder',' ');
+
+                $('input[type="text"],input[type="search"], textarea').blur(function(){
+                    $(this).prop('placeholder',plac);
+                });
+            }
+        });
+    };
+
+    placeholder();
+
+    $(window).on('scroll',changePos);
+    $(window).on('resize', function(){
+        if(isMobileWidth()) {
+            $('.n-content').removeClass('n-contentActive');
+            $('.n-sidebar').removeClass('n-sideActive');
+        }
+    });
+
+    $('.n-poster__dates').click(function(){
+        if (!isMobileWidth()) { return }
+        $(this).toggleClass('active');
+    });
+
+    $('.n-table__header').click(function(){
+        if (!isMobileWidth()) { return }
+        $(this).closest('.n-tables').toggleClass('n-table--active');
+    });
+
+    //попап
+    $('.pop-img').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        },
+        removalDelay: 500,
+        callbacks: {
+            beforeOpen: function() {
+                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                this.st.mainClass = this.st.el.attr('data-effect');
+            },
+            change: function() {
+                if (this.isOpen) {
+                    this.wrap.addClass('mfp-open');
+                }
+            },
+            beforeClose: function() {
+                this.wrap.removeClass('mfp-open');
+            }
+        },
+    });
+
+    (function(){
+        var startFrom = parseInt($('.js-load').data('start-from'));
+        var inProgress = false;
+        var path = $('body').find('*[data-ajax-url]');
+        var count = parseInt($('.js-load').data('count'));
+        var page = parseInt($('.js-load').data('page'));
+        var perpage = parseInt($('.js-load').data('perpage'));
+        $('.js-load').click(function(){
+            $.ajax({
+                url: path.data('ajax-url'),
+                method: method,
+                data: {
+                    "startFrom" : startFrom,
+                    "page": page,
+                    "perPage": perpage
+                },
+                beforeSend: function() {
+                    inProgress = true;
+                }
+            }).done(function(data){
+                
+                if (data.length > 0) {
+                    $('#n-load').append(data);
+                    gridSizer($('.n-media'));
+                    inProgress = false;
+                    $('.js-load').attr('data-page',++page);
+                }
+                
+                if ( startFrom + ( (page-1) * perpage ) >= count ) {
+                    $('.js-load').hide();
+                }
+            });
+        });
+    })();
+
+
+    //карта
+    function initialize(id) {
 
         var Coordinates = [
             {lat: 59.9551157, lng: 30.3116487}
@@ -799,72 +1135,143 @@ $(document).ready(function(){
         var mapOptions = {
             zoom: 15,
             center: new google.maps.LatLng(59.9551157, 30.3116487),
-            disableDefaultUI: true
+            disableDefaultUI: true,
+            scrollwheel: false
         };
 
-        var map = new google.maps.Map(document.getElementById('map'),mapOptions);
-        var image = {
-            anchor: new google.maps.Point(10, 42),
-            path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
-            strokeColor: '#AD1380',
-            strokeWeight: 5,
-            scale: 0.3
-        };
+        var map = new google.maps.Map(document.getElementById(id),mapOptions);
 
-        var coords = {
-            lat: Coordinates[0].lat,
-            lng: Coordinates[0].lng,
-        };
+        switch(id) {
 
-        var contentString = '<div class="infoWindow">'+
-            '<div class="infoWindow__container">' +
-                '<div class="infoWindow__left">' +
-                    '<img src="img/logo2.svg" alt="">'+
-                '</div>'+
-                '<div class="infoWindow__right">' +
-                    '197198, г. Санкт-Петербург Александровский парк,'+
-                    'д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская" '+
-                '</div>'+
-            '</div>'+
-            '</div>';
+            case 'map' :
 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            pixelOffset: new google.maps.Size(-300,127),
-            maxWidth: 470
-        });
+                var image = {
+                    anchor: new google.maps.Point(10, 42),
+                    path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
+                    strokeColor: '#AD1380',
+                    strokeWeight: 5,
+                    scale: 0.3
+                };
 
-        var marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            icon: image,
-        });
+                var contentString = '<div class="infoWindow">' +
+                    '<div class="infoWindow__container">' +
+                    '<div class="infoWindow__left">' +
+                    '<img src="img/logo2.svg" alt="">' +
+                    '</div>' +
+                    '<div class="infoWindow__right">' +
+                    '197198, г. Санкт-Петербург Александровский парк,' +
+                    'д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская" ' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
 
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    pixelOffset: new google.maps.Size(-300, 127),
+                    maxWidth: 470
+                });
 
-        infowindow.open(map, marker);
+                var coords = {
+                    lat: Coordinates[0].lat,
+                    lng: Coordinates[0].lng,
+                };
 
-        google.maps.event.addListener(infowindow, 'domready', function() {
-            $('.gm-style-iw').css({
-                'color': 'red !important'
-            });
-            var elem = document.getElementsByClassName('gm-style-iw')[0].parentNode;
-            var container = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[1];
-            var arrowShadow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[0];
-            var arrow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[2];
-            elem.style.boxShadow = "2px 6px 10px rgba(0,0,0,0.3)";
-            container.style.border = "none";
-            container.style.boxShadow = "none";
-            container.style.backgroundColor = "#fff";
-            arrowShadow.style.display = "none";
-            arrow.style.display = "none";
-            console.log(container);
-        });
+                var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    icon: image,
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
+                infowindow.open(map, marker);
+
+                google.maps.event.addListener(infowindow, 'domready', function() {
+                    $('.gm-style-iw').css({
+                        'color': 'red !important'
+                    });
+                    var elem = document.getElementsByClassName('gm-style-iw')[0].parentNode;
+                    var container = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[1];
+                    var arrowShadow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[0];
+                    var arrow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[2];
+                    elem.style.boxShadow = "2px 6px 10px rgba(0,0,0,0.3)";
+                    container.style.border = "none";
+                    container.style.boxShadow = "none";
+                    container.style.backgroundColor = "#fff";
+                    arrowShadow.style.display = "none";
+                    arrow.style.display = "none";
+                });
+
+                break;
+
+            case 'map2' :
+
+                var image = {
+                    anchor: new google.maps.Point(10, 42),
+                    path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
+                    strokeColor: '#AD1380',
+                    strokeWeight: 5,
+                    scale: 0.3,
+                };
+
+                var contentString = '<div class="infoWindow">' +
+                    '<div class="infoWindow__container">' +
+                    '<div class="infoWindow__left">' +
+                    '<img src="img/logo2.svg" alt="">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    pixelOffset: new google.maps.Size(-170, 95),
+                    maxWidth: 200
+                });
+
+                var coords = {
+                    lat: Coordinates[0].lat,
+                    lng: Coordinates[0].lng,
+                };
+
+                var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    icon: image,
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
+                infowindow.open(map, marker);
+
+                google.maps.event.addListener(infowindow, 'domready', function() {
+                    $('.gm-style-iw').css({
+                        'color': 'red !important'
+                    });
+                    var elem = document.getElementsByClassName('gm-style-iw')[0].parentNode;
+                    var container = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[1];
+                    var arrowShadow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[0];
+                    var arrow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[2];
+                    elem.style.boxShadow = "2px 6px 10px rgba(0,0,0,0.3)";
+                    container.style.border = "none";
+                    container.style.boxShadow = "none";
+                    container.style.backgroundColor = "#fff";
+                    arrowShadow.style.display = "none";
+                    arrow.style.display = "none";
+                });
+
+                break;
+        }
     }
 
     if ($('#map').length) {
-        initialize();
+        initialize('map');
+    }
+    if ($('#map2').length) {
+        initialize('map2');
     }
 });
