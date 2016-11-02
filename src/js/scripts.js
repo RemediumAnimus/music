@@ -4,6 +4,7 @@ $(document).ready(function(){
     var eventsPath = $('body').find('*[data-json-url]');
     var firstLoad = false;
     var method = $('body').find('*[data-method]').data('method') || "POST";
+    var events;
 
     function isMediumWidth() {
         return $('#medium-indicator').is(':visible');
@@ -419,7 +420,9 @@ $(document).ready(function(){
             effect: 'coverflow',
             nextButton: '.n-slider__arrowR',
             prevButton: '.n-slider__arrowL',
-            speed: 900
+            speed: 900,
+            preventClicks: false,
+            preventClicksPropagation: false
         });
     };
 
@@ -427,7 +430,9 @@ $(document).ready(function(){
         var dateSlider = new Swiper('#dateSlider', {
             loop: true,
             speed: 900,
-            effect: 'fade'
+            effect: 'fade',
+            preventClicks: false,
+            preventClicksPropagation: false
         });
     };
 
@@ -439,6 +444,8 @@ $(document).ready(function(){
             nextButton: '.n-slider__arrowR',
             prevButton: '.n-slider__arrowL',
             slidesPerView: 4,
+            preventClicks: false,
+            preventClicksPropagation: false,
             breakpoints: {
                 800: {
                     slidesPerView: 2,
@@ -536,6 +543,14 @@ $(document).ready(function(){
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            var parameter = getTabParameter();
+            var attr1 = $(this).data('sort');
+            var attr2 = $('#actions').data('sort');
+            var value1 = ui.item.value;
+            var value2 = getSortVal($('#actions'));
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
         }
     });
 
@@ -546,6 +561,14 @@ $(document).ready(function(){
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            var parameter = getTabParameter();
+            var attr1 = $('#holl').data('sort');
+            var attr2 = $(this).data('sort');
+            var value1 = getSortVal($('#holl'));
+            var value2 = ui.item.value;
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
         }
     });
 
@@ -556,6 +579,14 @@ $(document).ready(function(){
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            var parameter = getTabParameter();
+            var attr1 = $(this).data('sort');
+            var attr2 = $('#actions2').data('sort');
+            var value1 = ui.item.value;
+            var value2 = getSortVal($('#actions2'));
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
         }
     });
 
@@ -566,6 +597,14 @@ $(document).ready(function(){
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            var parameter = getTabParameter();
+            var attr1 = $('#holl2').data('sort');
+            var attr2 = $(this).data('sort');
+            var value1 = getSortVal($('#holl2'));
+            var value2 = ui.item.value;
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
         }
     });
 
@@ -589,11 +628,14 @@ $(document).ready(function(){
         }
     });
 
-    $('.n-events li').each(function(index){
-        $(this).hover(function(){
-            dateSlider.slideTo(index);
-        })
-    });
+    function sliderEvents() {
+        $('.n-events li').each(function(index){
+            $(this).hover(function(){
+                dateSlider.slideTo(index);
+            });
+        });
+    };
+    sliderEvents();
 
     //загрузка событий календаря
     var request = (function() {
@@ -641,6 +683,7 @@ $(document).ready(function(){
                         loadEventsBigDate('#bigDate',eventsBigDate);
                         loadEventsDate('#bigDate2',eventsBigDate);
                         loadEventsBigDate('#datepicker', eventsBigDate);
+
                         $('#bigDate2 td').each(function(index){
                             if (!$(this).find('.n-event').length) {
                                 $(this).hide();
@@ -655,11 +698,128 @@ $(document).ready(function(){
                         });
                         eventInit();
                         loaded = true;
+                        events = eventsBigDate;
+                        loadSliderEvents($('#sliderWrap'));
                     });
                 }
             });
         }
     })();
+
+    function getTabParameter() {
+        return $('.n-declarations__list').find('.active').data('parameter');
+    }
+
+    function getSortVal($elem) {
+        return $elem.val();
+    }
+
+    function addStyles($elem) {
+        $elem.find('.n-event__cover').hide();
+        $elem.find('.ui-state-default').addClass('n-color');
+        $elem.find('.n-event__subBg').hide();
+        if ($elem.closest('#bigDate2').length) {
+            $elem.hide();
+            $elem.find('.n-event__cover').hide();
+        }
+    }
+
+    function removeStyles($elem) {
+        $elem.find('.n-event__cover').show();
+        $elem.find('.ui-state-default').removeClass('n-color');
+        $elem.find('.n-event__subBg').show();
+        if ($elem.closest('#bigDate2').length) {
+            $elem.show();
+            $elem.find('.n-event__cover').hide();
+        }
+    }
+
+    function checkElem($elem, selector) {
+        $elem.find(selector).each(function(index) {
+            if ($(this).css('display') != 'none') {
+                removeStyles($elem);
+                return false;
+            } else {
+                console.log($(this));
+                $elem.find(selector).eq(index).removeClass('n-spaceFirst');
+                $elem.find(selector).eq(index + 1).addClass('n-spaceFirst');
+
+                if ($elem.find(selector).length - 1 == index) {
+                    addStyles($elem);
+                }
+            }
+        });
+    }
+
+    $('.n-declarations__list li').click(function(){
+        $('.n-declarations__list li').removeClass('active');
+        $(this).addClass('active');
+
+        (function(){
+            var attr1 = $('#holl').data('sort');
+            var attr2 = $('#actions').data('sort');
+            var value1 = getSortVal($('#holl'));
+            var value2 = getSortVal($('#actions'));
+            var parameter = getTabParameter();
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+        })();
+
+
+        (function(){
+            var attr1 = $('#holl2').data('sort');
+            var attr2 = $('#actions2').data('sort');
+            var value1 = getSortVal($('#holl2'));
+            var value2 = getSortVal($('#actions2'));
+            var parameter = getTabParameter();
+            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
+        })();
+    });
+
+    function sort(parameter, attr, attr2, value, value2, $elem) {
+        if (value == 0 && value2 == 0 && parameter == 0) {
+            $elem.find('td').each(function() {
+                var $that = $(this);
+                $(this).find('.n-event').each(function () {
+                    $(this).removeClass('n-spaceFirst');
+                    if ($(this).data(attr) != 'undefined') {
+                        $(this).show();
+                        checkElem($that,'.n-event');
+                    }
+                });
+            });
+        } else {
+            $elem.find('td').each(function() {
+                var $that = $(this);
+
+                $(this).find('.n-event').each(function () {
+                    var parameters = $(this).data('parameters').split(',');
+
+                    for (var i=0; i<parameters.length; i++) {
+                        if (parseInt(parameters[parameter])) {
+                            if ($(this).data(attr) != value && value != 0) {
+                                $(this).hide();
+                            } else {
+                                if ($(this).data(attr2) != value2) {
+                                    $(this).hide();
+                                } else {
+                                    $(this).show();
+                                }
+
+                                if (value2 == 0) {
+                                    $(this).show();
+                                }
+                            }
+                            break;
+                        } else {
+                            $(this).hide();
+                            break;
+                        }
+                    }
+                    checkElem($that,'.n-event');
+                });
+            });
+        }
+    }
 
     if (eventsPath.length) {
         request();
@@ -667,9 +827,8 @@ $(document).ready(function(){
 
     tabby.init({
         callback: (function() {
-            var loaded = false;
             return function(){
-                request();
+                calendarSizer('#bigDate');
             }
         })()
     });
@@ -682,20 +841,15 @@ $(document).ready(function(){
         firstDay: 1,
         onSelect: function(e, inst){
             inst.inline = false;
+            setTimeout(function() {
+                loadSliderEvents($('#sliderWrap'));
+            });
         },
         onChangeMonthYear: function(){
             setTimeout(function() {
-                $.ajax({
-                    type: method,//POST
-                    url: eventsPath.data('json-url'),
-                    error: function (xml, status, error) {
-                        console.log(status);
-                    },
-                    success: function (eventsBigDate) {
-                        loadEventsBigDate('#datepicker', eventsBigDate);
-                        eventInit();
-                    }
-                });
+                loadEventsBigDate('#datepicker', events);
+                eventInit();
+                loadSliderEvents($('#sliderWrap'));
             });
         }
     });
@@ -710,47 +864,17 @@ $(document).ready(function(){
         onSelect: function(date, inst){
             inst.inline = false;
         },
-        onChangeMonthYear: function(){
+        onChangeMonthYear: function() {
             setTimeout(function(){
-                $.ajax({
-                    xhr: function()
-                    {
-                        var xhr = new window.XMLHttpRequest();
-                        //Upload progress
-                        xhr.upload.addEventListener("progress", function(evt){
-                            if (evt.lengthComputable) {
-                                var percentComplete = evt.loaded / evt.total;
-                                //Do something with upload progress
-                            }
-                        }, false);
-                        //Download progress
-                        xhr.addEventListener("progress", function(evt){
-                            if (evt.lengthComputable) {
-                                var percentComplete = evt.loaded / evt.total;
-                                //Do something with download progress
-                                $('.n-preloader__val').animate({
-                                    'width': percentComplete * 100 + "%",
-                                    'opacity': 1
-                                });
-                            }
-                        }, false);
-                        return xhr;
-                    },
-                    type: method,//POST
-                    url: eventsPath.data('json-url'),
-                    error: function(xml,status,error){
-                        console.log(status);
-                    },
-
-                    success: function(eventsBigDate) {
-                        $('.n-preloader__val').animate({
-                            'opacity': 0
-                        });
-                        loadEventsBigDate('#bigDate',eventsBigDate);
-                        calendarSizer('#bigDate');
-                    }
-                });
-            });
+                loadEventsBigDate('#bigDate', events);
+                calendarSizer('#bigDate');
+                var attr1 = $('#holl').data('sort');
+                var attr2 = $('#actions').data('sort');
+                var value1 = getSortVal($('#holl'));
+                var value2 = getSortVal($('#actions'));
+                var parameter = getTabParameter();
+                sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+            })
         }
     });
 
@@ -766,25 +890,22 @@ $(document).ready(function(){
         },
         onChangeMonthYear: function(inst){
             setTimeout(function(){
-                $.ajax({
-                    type: method,//POST
-                    url: eventsPath.data('json-url'),
-                    error: function(xml,status,error){
-                        console.log(status);
-                    },
-                    success: function(eventsBigDate) {
-                        loadEventsDate('#bigDate2',eventsBigDate);
-                        $('#bigDate2 td').each(function(index){
-                            if (!$(this).find('.n-event').length) {
-                                $(this).hide();
-                            }
-                            $(this).find('.event-container').html(
-                                $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
-                            );
-                        });
-                        eventInit();
+                loadEventsDate('#bigDate2',events);
+                $('#bigDate2 td').each(function(index){
+                    if (!$(this).find('.n-event').length) {
+                        $(this).hide();
                     }
+                    $(this).find('.event-container').html(
+                        $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
+                    );
                 });
+                eventInit();
+                var attr1 = $('#holl2').data('sort');
+                var attr2 = $('#actions2').data('sort');
+                var value1 = getSortVal($('#holl2'));
+                var value2 = getSortVal($('#actions2'));
+                var parameter = getTabParameter();
+                sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
             });
         }
     });
@@ -873,6 +994,41 @@ $(document).ready(function(){
     };
 
     eventInit();
+    
+    function loadSliderEvents($container) {
+        if (!dateSlider) {return}
+        var $events = $container.find('.ui-state-active').parent().find('.n-event');
+        var source   = $("#template-events").html();
+        var lastSlide;
+        dateSlider.removeAllSlides();
+        $events.each(function(index){
+            var event = $(this).find('.n-event');
+            var bg = $(this).find('.n-event__subBg').css('background-image');
+            var slide = $("<div class='n-item__inside__pic swiper-slide notransition'></div>");
+            slide.css({
+                'background-image': bg
+            });
+            dateSlider.appendSlide(slide);
+            lastSlide = index;
+        });
+
+        $('.swiper-slide').removeClass('notransition');
+
+        $('#n-events').find('li').each(function(){
+            $(this).remove();
+        });
+
+        for (var i=0; i<events.length; i++) {
+            var date = events[i].date.split('.');
+            if (parseInt($container.find('.ui-state-active').html()) == date[0] && $container.find('.ui-state-active').parent().data('month') == date[1] - 1 && $container.find('.ui-state-active').parent().data('year') == date[2]) {
+                var template = Handlebars.compile(source);
+                var html = template(events[i]);
+                $('#n-events').append(html);
+            }
+
+        };
+        sliderEvents();
+    }
 
     //обработка загрузки данных в календарь
     function loadEventsBigDate(elem,events) {

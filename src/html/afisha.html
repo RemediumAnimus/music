@@ -69,10 +69,10 @@
 				<div class="n-declarations__container">
 					<div class="n-declarations__list">
 						<ul>
-							<li class="active"><a href="#"></a><span>Вся афиша</span></li>
-							<li><a href="#"></a><span>Спектакли театра</span></li>
-							<li><a href="#"></a><span>Гостевые постановки</span></li>
-							<li><a href="#"></a><span>Детям</span></li>
+							<li data-parameter="0" class="active"><a href="#"></a><span>Вся афиша</span></li>
+							<li data-parameter="1"><a href="#"></a><span>Спектакли театра</span></li>
+							<li data-parameter="2"><a href="#"></a><span>Гостевые постановки</span></li>
+							<li data-parameter="3"><a href="#"></a><span>Детям</span></li>
 						</ul>
 					</div>
 					<div class="n-declarations__checks">
@@ -138,20 +138,20 @@
 								</select>
 							</div>
 							<div class="n-declarations__select" id="holl-Select">
-								<select name="" id="holl">
-									<option value="">Все залы</option>
-									<option value="">Основная сцена</option>
-									<option value="">Зал Бельэтаж</option>
+								<select name="" id="holl" data-sort="hollid">
+									<option value="0">Все залы</option>
+									<option value="1">Основная сцена</option>
+									<option value="2">Зал Бельэтаж</option>
 								</select>
 							</div>
 							<div class="n-declarations__select" id="actions-Select">
-								<select name="" id="actions">
-									<option value="">Все постановки</option>
-									<option value="">Детский музыкальный спектакль</option>
-									<option value="">Мюзикл</option>
-									<option value="">Музыкальный спектакль</option>
-									<option value="">Спектакль</option>
-									<option value="">Драмматическая постановка спектакля</option>
+								<select name="" id="actions" data-sort="typeid">
+									<option value="0">Все постановки</option>
+									<option value="1">Детский музыкальный спектакль</option>
+									<option value="2">Мюзикл</option>
+									<option value="3">Музыкальный спектакль</option>
+									<option value="4">Спектакль</option>
+									<option value="5">Драмматическая постановка спектакля</option>
 								</select>
 							</div>
 						</div>
@@ -160,7 +160,7 @@
 
 						<script id="template-BigDate" type="text/x-handlebars-template">
 							<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
-							<div class="n-event" data-id='{{id}}'>
+							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-parameters='{{parameter0}},{{parameter1}},{{parameter2}},{{parameter3}}'>
 								<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
 								<div class="n-event__type">
 									<div class="n-event__type__l">
@@ -197,20 +197,20 @@
 						</div>
 						<div class="n-declarations__selects">
 							<div class="n-declarations__select" id="holl-Select2">
-								<select name="" id="holl2">
-									<option value="">Все залы</option>
-									<option value="">Основная сцена</option>
-									<option value="">Зал Бельэтаж</option>
+								<select name="" id="holl2" data-sort="hollid">
+									<option value="0">Все залы</option>
+									<option value="1">Основная сцена</option>
+									<option value="2">Зал Бельэтаж</option>
 								</select>
 							</div>
 							<div class="n-declarations__select" id="actions-Select2">
-								<select name="" id="actions2">
-									<option value="">Все постановки</option>
-									<option value="">Детский музыкальный спектакль</option>
-									<option value="">Мюзикл</option>
-									<option value="">Музыкальный спектакль</option>
-									<option value="">Спектакль</option>
-									<option value="">Драмматическая постановка спектакля</option>
+								<select name="" id="actions2" data-sort="typeid">
+									<option value="0">Все постановки</option>
+									<option value="1">Детский музыкальный спектакль</option>
+									<option value="2">Мюзикл</option>
+									<option value="3">Музыкальный спектакль</option>
+									<option value="4">Спектакль</option>
+									<option value="5">Драмматическая постановка спектакля</option>
 								</select>
 							</div>
 						</div>
@@ -219,7 +219,7 @@
 
 						<script id="template-BigDate2" type="text/x-handlebars-template">
 							<div class="n-event__subBg" style="background-image:url('{{pic2}}')"></div>
-							<div class="n-event" data-id='{{id}}'>
+							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-parameters='{{parameter0}},{{parameter1}},{{parameter2}},{{parameter3}}'>
 								<div class="n-event__subBg" style="background-image:url('{{pic2}}')"></div>
 								<div class="n-event__type">
 									<div class="n-event__type__l">

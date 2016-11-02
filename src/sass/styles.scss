@@ -132,11 +132,24 @@ div {
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
 
 body {
   background: #1C1F21;
   font-family: $scada-r;
   min-width: 320px;
+  height: 100%;
+}
+
+
+
+.page {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 135px;
+  background: #fff;
 }
 
 h1 {
@@ -372,7 +385,7 @@ h5 {
 
 .n-main {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -651,6 +664,24 @@ body {
     }
   }
 
+  &__toggler {
+    display: block;
+    padding: 12px 38px;
+    position: relative;
+
+    &:after {
+      display: block;
+      content: '';
+      width: 8px;
+      height: 100%;
+      background: #5B378D;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
+
   &__list-container {
     margin-left: -40px;
     margin-right: -40px;
@@ -677,6 +708,10 @@ body {
     }
   }
 
+  .list-active {
+    left: -100%;
+  }
+
   &__item {
     cursor: pointer;
     color: #7B7B7C;
@@ -691,29 +726,11 @@ body {
       position: relative;
       padding-right: 50px;
     }
-
-    a {
-      display: block;
-      padding: 12px 38px;
-      position: relative;
-
-      &:after {
-        display: block;
-        content: '';
-        width: 8px;
-        height: 100%;
-        background: #5B378D;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-      }
-    }
   }
 
   &__inside {
     display: block;
-    padding: 12px 12px 12px 38px;
+    //padding: 12px 12px 12px 38px;
     position: relative;
   }
 
@@ -739,7 +756,13 @@ body {
     background: #26292E;
     color: #fff;
 
-    a {
+    & > .n-sidebar__toggler {
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    & > .n-sidebar__inside > .n-sidebar__toggler {
       &:after {
         opacity: 1;
       }
@@ -780,6 +803,10 @@ body {
     z-index: 1;
     box-shadow: -2px -2px 4px rgba(0,0,0,0.5);
     display: none;
+  }
+
+  .sublist-active {
+    display: block;
   }
 
   &__version {
@@ -849,7 +876,6 @@ body {
   margin-left: 62px;
   position: relative;
   z-index: 1;
-  height: 100%;
   background: #ff94b2;
   left: 0;
   background: -moz-linear-gradient(top, #ff94b2 1%, #9e005d 18%, #6300bf 35%, #49007f 51%, #3c00aa 68%, #7b0094 85%, #2d003f 100%);
@@ -873,8 +899,8 @@ body {
   &__info {
 
     .n-info {
-      background: #999999;
-      margin: 0px 0.4%;
+      background: #fff;
+      margin: 5px 0.4%;
       padding: 40px;
       color: #1C1F21;
 
@@ -2095,10 +2121,9 @@ body {
   }
 
   &__pic {
-    width: 50%;
+    width: 302px;
     margin-top: 25px;
-    height: 70px;
-    background: #fff;
+    height: 85px;
     float: right;
     text-align: center;
     line-height: 70px;
@@ -3636,7 +3661,7 @@ body {
     top: 35px;
     right: 35px;
     opacity: 1;
-    z-index: 2;
+    z-index: 6;
     @include transition($value: all, $time: 0.55s, $function: linear);
 
     @media all and(max-width: $mobile) {
@@ -5174,7 +5199,7 @@ body {
     }
 
     .n-media__name {
-      height: 24%;
+      min-height: 24%;
       bottom: 5px;
       left: 5px;
       right: 5px;
@@ -5190,7 +5215,7 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
-        height: 31%;
+        min-height: 31%;
         padding: 10px 10%;
       }
 
@@ -5262,6 +5287,8 @@ body {
     @media all and (max-width: $mobile) {
       left: 0;
       right: 0;
+      top: 0;
+      bottom: 0;
     }
   }
 
@@ -5392,7 +5419,7 @@ body {
     }
   }
   .n-media__name {
-    height: 45%;
+    min-height: 45%;
     bottom: 5px;
     left: 5px;
     right: 5px;
@@ -5402,7 +5429,7 @@ body {
       bottom: 0;
       left: 0;
       right: 0;
-      height: 31%;
+      min-height: 31%;
     }
 
     span {
@@ -5443,7 +5470,7 @@ body {
     background: #7D59B3;
   }
   .n-media__name {
-    height: 45%;
+    min-height: 45%;
     bottom: 10px;
     left: 5px;
     right: 5px;
@@ -5455,7 +5482,7 @@ body {
       bottom: 20%;
       left: 0;
       right: 0;
-      height: 31%;
+      min-height: 31%;
       overflow: visible;
     }
 
@@ -6202,18 +6229,22 @@ body {
 .n-type {
   background: #fff;
   padding-bottom: 50px;
+  //min-height: 100%;
 
   &__header {
-    height: 880px;
+    height: auto;
     position: relative;
     background-size: cover;
 
-    @media all and (max-width: $mid) {
-      height: 550px;
+    .n-container {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
-    @media all and (max-width: $mobile) {
-      height: 550px;
+    img {
+      display: block;
+      width: 100%;
     }
 
     h1 {
@@ -6223,7 +6254,8 @@ body {
       z-index: 1;
 
       @media all and (max-width: $mid) {
-        padding-top: 70px;
+        padding-top: 30px;
+        font-size: 25px;
       }
     }
 
@@ -6270,9 +6302,12 @@ body {
   margin-left: 15%;
   color: #BABABA;
   font-size: 16px;
-  position: relative;
+  position: absolute;
   z-index: 50;
   background: #1C1F21;
+  bottom: 0;
+  right: 0;
+  left: 0;
 
   @media all and(max-width: $mobile) {
     margin-left: 0;
@@ -6480,6 +6515,10 @@ body {
   z-index: 10;
   @include transition($value: all, $time: 0.55s, $function: linear);
 
+  @media all and (max-width: $mobile) {
+    display: none;
+  }
+
   &__container {
     padding-left: 40px;
   }
@@ -6615,9 +6654,14 @@ body {
   border: none !important;
 }
 
+.n-declarations__date#bigDate2  .ui-datepicker-calendar tr:last-child td {
+  border: none;
+}
+
 #bigDate {
   .n-event__cont {
     position: static;
+    //padding: 65px 0px 20px 0px;
 
     i {
       position: relative;
@@ -6661,10 +6705,6 @@ body {
 
     &:nth-child(2) {
       padding-top: 65px;
-    }
-
-    &:last-child(2) {
-      padding-bottom: 20px;
     }
     &:hover {
       .n-event__subBg {
@@ -6909,6 +6949,15 @@ body {
 }
 
 .n-info {
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: darken(#666666,30%);
+    }
+  }
+
   p {
     margin-bottom: 20px;
     font-size: 18px;
@@ -7092,6 +7141,31 @@ body {
   margin-right: -5px;
   margin-bottom: -5px;
 }
+
+.n-color {
+  color: #BABABA !important;
+}
+
+.event-active .ui-state-default.n-color {
+  color: #BABABA !important;
+}
+
+.n-spaceFirst {
+  padding-top: 65px !important;
+}
+
+#dateSlider .n-item__inside__pic {
+  //transition: none !important;
+}
+.notransition {
+  transition: none !important;
+}
+
+.n-gray {
+  background: #2A2F33;
+}
+
+
 
 
 

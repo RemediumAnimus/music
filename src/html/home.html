@@ -1,5 +1,5 @@
 //= __header.html
-<div class="n-main">
+<div class="n-main v3">
 	//= __sidebar.html
 
 	<div class="n-menu n-menu--active">
@@ -28,9 +28,10 @@
 										<div class="n-item__date">
 											<i>23</i><span>сентября</span>
 										</div>
-										<a class="n-item__btn" href="#">
+										<a class="n-item__btn" href="#buy">
 											<span>Купить билет</span>
 										</a>
+										<a class="n-item__link" href="#slidelink1"></a>
 										<div class="n-item__name">
 											<div class="n-item__age">
 												<span>18+</span>
@@ -51,9 +52,10 @@
 										<div class="n-item__date">
 											<i>23</i><span>сентября</span>
 										</div>
-										<a class="n-item__btn" href="#">
+										<a class="n-item__btn" href="#buy">
 											<span>Купить билет</span>
 										</a>
+										<a class="n-item__link" href="#slidelink2"></a>
 										<div class="n-item__name">
 											<div class="n-item__age">
 												<span>18+</span>
@@ -112,6 +114,7 @@
 				<div class="n-item grid__item x2 x2--news hideSecond">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#BF4C5D"></div>
 							<div class="n-item__header">
@@ -130,6 +133,7 @@
 				<div class="n-item grid__item x3 x3--news hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#7D59B3"></div>
 							<div class="n-item__header">
@@ -147,28 +151,20 @@
 
 				<div class="n-item grid__item x4 stamp n-date hideThird">
 					<div class="n-item__container">
-						<div class="n-item__inside">
+						<div class="n-item__inside" id="sliderWrap">
 							<div class="n-dateSlider" id="dateSlider">
 								<div class="n-dateSlider__container swiper-wrapper">
-									<div class="n-item__inside__pic swiper-slide" style="background-image:url(img/tmp/3.jpg)">
-									</div>
-									<div class="n-item__inside__pic swiper-slide" style="background-image:url(img/tmp/2.jpg)">
-									</div>
-									<div class="n-item__inside__pic swiper-slide" style="background-image:url(img/tmp/5.jpg)">
-									</div>
-									<div class="n-item__inside__pic swiper-slide" style="background-image:url(img/tmp/8.jpg)">
-									</div>
+
 								</div>
 							</div>
 							<div class="n-item__inside__cover" style="background:#000"></div>
 							<div class="n-item__date">
 								<i>23</i><span>сентября</span>
 							</div>
-							<ul class="n-events">
-								<li><a href="#"><i>12:00</i><span>«Али-Баба и 40 песен персидского базара»  </span></a></li>
-								<li><a href="#"><i>12:00</i><span>Сказка «Конек-горбунок» абонемент №3 «Музыка и сказка» </span></a></li>
-								<li><a href="#"><i>12:00</i><span>Мюзикл «Мастер и Маргарита»</span></a></li>
-								<li><a href="#"><i>12:00</i><span>«Невеста по вызову»</span></a></li>
+							<ul class="n-events" id="n-events">
+								<script id="template-events" type="text/x-handlebars-template">
+									<li><a href="{{path}}"><i>{{time}}</i><span>{{events}}</span></a></li>
+								</script>
 							</ul>
 							<div class="picker" data-json-url="events.json">
 								<div id="datepicker"></div>
@@ -205,6 +201,7 @@
 				<div class="n-item grid__item x2 hideSecond">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#actionlink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/2.jpg)"></div>
 							<div class="n-item__inside__cover"></div>
 							<div class="n-item__date">
@@ -231,6 +228,7 @@
 				<div class="n-item grid__item x3 x3--news hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#C267A6"></div>
 							<div class="n-item__header">
@@ -249,6 +247,7 @@
 				<div class="n-item grid__item x3 hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/4.jpg)"></div>
 							<div class="n-item__inside__cover"></div>
 							<div class="n-item__date">
@@ -272,6 +271,7 @@
 				<div class="n-item grid__item x3 x3--circle fixtop hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#medialink"></a>
 							<div class="n-pic-container">
 								<div class="n-pic-container__sub">
 									<div class="n-item__inside__pic" style="background-image:url(img/tmp/5.jpg)"></div>
@@ -291,6 +291,7 @@
 				<div class="n-item grid__item x2 hideSecond">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/6.jpg)"></div>
 							<div class="n-item__inside__cover"></div>
 							<div class="n-item__name">
@@ -307,6 +308,7 @@
 				<div class="n-item grid__item x5">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#000"></div>
 							<div class="n-item__name">
@@ -321,6 +323,7 @@
 				<div class="n-item grid__item x4--mod">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#itemlink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/8.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#000"></div>
 							<div class="n-item__name">
@@ -335,6 +338,7 @@
 				<div class="n-item grid__item x3 x3--news hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#BF4C5D"></div>
 							<div class="n-item__header">
@@ -355,6 +359,7 @@
 				<div class="n-item grid__item x2 x2--news hideSecond">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#785AA2"></div>
 							<div class="n-item__header">
@@ -373,6 +378,7 @@
 				<div class="n-item grid__item x4--mod x4--mod2">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#actionlink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/10.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#000"></div>
 							<div class="n-item__name">
@@ -390,6 +396,7 @@
 				<div class="n-item grid__item x3 x3--mod hideFirst">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic"></div>
 							<div class="n-item__inside__cover" style="background:#000"></div>
 							<div class="n-item__header">
@@ -407,6 +414,8 @@
 				<div class="n-item grid__item x3 x3--circle fixtop x3--color">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#medialink"></a>
+
 							<div class="n-pic-container">
 								<div class="n-pic-container__sub">
 									<div class="n-item__inside__pic" style="background-image:url(img/tmp/9.jpg)"></div>
@@ -426,6 +435,7 @@
 				<div class="n-item grid__item x3 x3--news">
 					<div class="n-item__container">
 						<div class="n-item__inside">
+							<a class="n-item__link" href="#newslink"></a>
 							<div class="n-item__inside__pic" style="background-image:url(img/tmp/7.jpg)"></div>
 							<div class="n-item__inside__cover" style="background:#C267A6"></div>
 							<div class="n-item__header">
