@@ -3151,7 +3151,7 @@ h5 {
       .x2 .n-item__name .n-item__name__header--mod {
         text-transform: none;
         font-size: 1.4vw;
-        font-family: "Scada-Regular";
+        font-family: "PTF55F";
         background: url(../img/bg.png);
         display: block;
         background-size: cover;
@@ -5493,3 +5493,6 @@ h5 {
 
 .bileter_zoom_map {
   overflow: auto !important; }
+
+.grid .n-item__inside {
+  overflow: hidden; }
