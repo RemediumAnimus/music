@@ -30,9 +30,6 @@
 	<div class="n-content">
 		<div class="n-declarations">
 			<div class="n-declarations__header">
-				<div class="n-preloader">
-					<div class="n-preloader__val"></div>
-				</div>
 				<div class="n-declarations__month">
 					<div class="n-declarations__month__container">
 						<span></span>
@@ -69,10 +66,10 @@
 				<div class="n-declarations__container">
 					<div class="n-declarations__list">
 						<ul>
-							<li data-parameter="0" class="active"><a href="#"></a><span>Вся афиша</span></li>
-							<li data-parameter="1"><a href="#"></a><span>Спектакли театра</span></li>
-							<li data-parameter="2"><a href="#"></a><span>Гостевые постановки</span></li>
-							<li data-parameter="3"><a href="#"></a><span>Детям</span></li>
+							<li data-filter-by-category="1,2,4" class="active"><a href="#"></a><span>Вся афиша</span></li>
+							<li data-filter-by-category="2,3"><a href="#"></a><span>Спектакли театра</span></li>
+							<li data-filter-by-category="3"><a href="#"></a><span>Гостевые постановки</span></li>
+							<li data-filter-by-category="2"><a href="#"></a><span>Детям</span></li>
 						</ul>
 					</div>
 					<div class="n-declarations__checks">
@@ -125,6 +122,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="n-preloader">
+				<div class="n-preloader__val"></div>
+			</div>
 
 			<div data-tabs-content class="n-declarations__wrap">
 				<div data-tabs-pane class="n-tab tabs-pane active" id="tab1">
@@ -160,7 +160,7 @@
 
 						<script id="template-BigDate" type="text/x-handlebars-template">
 							<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
-							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-parameters='{{parameter0}},{{parameter1}},{{parameter2}},{{parameter3}}'>
+							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-categories='{{categoryId}}'>
 								<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
 								<div class="n-event__type">
 									<div class="n-event__type__l">
@@ -180,7 +180,7 @@
 								<div class="n-event__age">
 									{{age}}
 								</div>
-								<a class="event-btn" href="{{path}}">Купить билет</a>
+								<div class="event-btn bileter_performance_buy_button" id="pl14345556">Купить билет</div>
 							</div>
 						</script>
 
@@ -219,7 +219,7 @@
 
 						<script id="template-BigDate2" type="text/x-handlebars-template">
 							<div class="n-event__subBg" style="background-image:url('{{pic2}}')"></div>
-							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-parameters='{{parameter0}},{{parameter1}},{{parameter2}},{{parameter3}}'>
+							<div class="n-event" data-id='{{id}}' data-hollid='{{hollId}}' data-typeid='{{typeId}}' data-categories='{{categoryId}}'>
 								<div class="n-event__subBg" style="background-image:url('{{pic2}}')"></div>
 								<div class="n-event__type">
 									<div class="n-event__type__l">
@@ -239,33 +239,9 @@
 								<div class="n-event__age">
 									{{age}}
 								</div>
-								<a class="event-btn" href="{{path}}">Купить билет</a>
 							</div>
 						</script>
 
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="n-content__bottom">
-			<div class="n-content__bottom__left">
-				<div class="n-content__bottom__header">
-					<span> КУПИТЬ БИЛЕТЫ МОЖНО В КАССЕ МЮЗИК-ХОЛЛА 232-92-01, А ТАКЖЕ В ТЕАТРАЛЬНЫХ КАССАХ ГОРОДА </span>
-				</div>
-			</div>
-			<div class="n-content__bottom__right">
-				<div class="n-content__bottom__sub">
-					<div class="n-content__bottom__cell">
-						<img src="img/logo.png"  alt="">
-					</div>
-					<div class="n-content__bottom__cell n-size">
-						<span>Санкт-Петербургский международный культурный форум</span>
-					</div>
-					<div class="n-content__bottom__cell">
-						<img src="img/gerb.png" width="77" height="81" alt="">
-					</div>
-					<div class="n-content__bottom__cell">
-						<span>При поддержке Комитета по культуре Санкт-Петербурга</span>
 					</div>
 				</div>
 			</div>

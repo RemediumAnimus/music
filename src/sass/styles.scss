@@ -1,131 +1,6 @@
 @import "mixins";
-$font-path: '../fonts';
-$img-path: '../img';
-$tmp-path: '../img/tmp';
-
-$scada-r: 'Scada-Regular';
-$scada-b: 'Scada-Bold';
-$roboto-t: 'Roboto-Thin';
-$roboto-l: "roboto-light";
-$roboto-r: 'Roboto-Regular';
-$roboto-m: 'Roboto-Medium';
-$pt75: 'PTF75F';
-$pt55: 'PTF55F';
-
-$max: 1600px;
-$mid: 1366px;
-$min: 1200px;
-$mobile: 830px;
-
-@font-face {
-  font-family: 'Scada-Regular';
-  src: url('#{$font-path}/Scada-Regular.eot');
-  src: url('#{$font-path}/Scada-Regular.woff2') format('woff2'),
-  url('#{$font-path}/Scada-Regular.woff') format('woff'),
-  url('#{$font-path}/Sca#{$font-path}/da-Regular.ttf') format('truetype'),
-  url('#{$font-path}/Scada-Regular.svg#Scada-Regular') format('svg'),
-  url('#{$font-path}/Scada-Regular.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Scada-Bold';
-  src: url('#{$font-path}/Scada-Bold.eot');
-  src: url('#{$font-path}/Scada-Bold.woff2') format('woff2'),
-  url('#{$font-path}/Scada-Bold.woff') format('woff'),
-  url('#{$font-path}/Scada-Bold.ttf') format('truetype'),
-  url('#{$font-path}/Scada-Bold.svg#Scada-Bold') format('svg'),
-  url('#{$font-path}/Scada-Bold.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-Thin';
-  src: url('#{$font-path}/Roboto-Thin.woff') format('woff'),
-  url('#{$font-path}/Roboto-Thin.ttf') format('truetype'),
-  url('#{$font-path}/Roboto-Thin.svg#Roboto-Thin') format('svg'),
-  url('#{$font-path}/Roboto-Thin_1.eot'),
-  url('#{$font-path}/Roboto-Thin_1.woff2') format('woff2'),
-  url('#{$font-path}/Roboto-Thin_1.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'roboto-light';
-  src: url('#{$font-path}/roboto-light.woff') format('woff'),
-  url('#{$font-path}/Roboto-Thin.ttf') format('truetype'),
-  url('#{$font-path}/roboto-light.svg#Roboto-Thin') format('svg'),
-  url('#{$font-path}/roboto-light.eot'),
-  url('#{$font-path}/roboto-light.woff2') format('woff2'),
-  url('#{$font-path}/roboto-light.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-Regular';
-  src: url('#{$font-path}/Roboto-Regular.woff') format('woff'),
-  url('#{$font-path}/Roboto-Regular.ttf') format('truetype'),
-  url('#{$font-path}/Roboto-Regular.svg#Roboto-Regular') format('svg'),
-  url('#{$font-path}/Roboto-Regular_1.eot'),
-  url('#{$font-path}/Roboto-Regular_1.woff2') format('woff2'),
-  url('#{$font-path}/Roboto-Regular_1.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-Medium';
-  src: url('#{$font-path}/Roboto-Medium.woff') format('woff'),
-  url('#{$font-path}/Roboto-Medium.ttf') format('truetype'),
-  url('#{$font-path}/Roboto-Medium.svg#Roboto-Medium') format('svg'),
-  url('#{$font-path}/Roboto -Medium_1.eot'),
-  url('#{$font-path}/Roboto-Medium_1.woff2') format('woff2'),
-  url('#{$font-path}/Roboto-Medium_1.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-Bold';
-  src: url('#{$font-path}/Roboto-Bold.woff') format('woff'),
-  url('#{$font-path}/Roboto-Bold.ttf') format('truetype'),
-  url('#{$font-path}/Roboto-B old.svg#Roboto-Bold') format('svg'),
-  url('#{$font-path}/Roboto-Bold_1.eot'),
-  url('#{$font-path}/Roboto-Bold_1.woff2') format('woff2'),
-  url('#{$font-path}/Roboto-Bold_1.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'PTF75F';
-  src: url('#{$font-path}/PTF75F.eot');
-  src: url('#{$font-path}/PTF75F.woff2') format('woff2'),
-  url('#{$font-path}/PTF75F.eot?#iefix') format('embedded-opentype'),
-  url('#{$font-path}/PTSerif-Bold.woff') format('woff'),
-  url('#{$font-path}/PTSerif-Bold.ttf') format('truetype'),
-  url('#{$font-path}/PTSerif-Bold.svg#PTSerif-Bold') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'PTF55F';
-  src: url('#{$font-path}/PTF55F.eot');
-  src: url('#{$font-path}/PTF55F.woff2') format('woff2'),
-  url('#{$font-path}/PTF55F.eot? #iefix') format('embedded-opentype'),
-  url('#{$font-path}/PTSerif-Regular.woff') format('woff'),
-  url('#{$font-path}/PTSerif-Regular.ttf') format('truetype'),
-  url('#{$font-path}/PTSerif-Regular.svg#PTSerif-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@import "variables";
+@import "fonts";
 
 
 div {
@@ -146,16 +21,20 @@ body {
 
 
 .page {
+  //min-height: 100%;
+  //position: relative;
+  //padding-bottom: 246px;
+  background: #1C1F21;
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
-  position: relative;
-  padding-bottom: 135px;
-  background: #fff;
+  overflow-x: hidden;
 }
 
 h1 {
   text-transform: uppercase;
   font-family: $pt75;
-  font-size: 72px;
+  font-size: 55px;
 
   @media all and (max-width: $mid) {
     font-size: 45px;
@@ -386,7 +265,13 @@ h5 {
 .n-main {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow: visible;
+  //background: #F4F4F4;
+  flex: 1 0 auto;
+  
+  @media all and (max-width: $mobile) {
+    height: auto;
+  }
 }
 
 .n-menu {
@@ -396,6 +281,7 @@ h5 {
   position: fixed;
   text-align: center;
   left: 0;
+  z-index: 54;
   @include transition($value: all, $time: 0.55s, $function: linear);
 
   @media all and(max-width: $mobile) {
@@ -513,6 +399,7 @@ body {
   height: 100%;
   left: -292px;
   background: #1C1F21;
+  z-index: 12;
   //z-index: 2;
 
   @media all and (max-width: $mobile) {
@@ -531,6 +418,15 @@ body {
     bottom: 0;
     left: -100%;
     //display: none;
+  }
+  
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    background: #1C1F21;
   }
 
   &__logo {
@@ -554,9 +450,9 @@ body {
     top: 15%;
     bottom: 0;
     left: 0;
+    right: 0;
     margin: auto 0px;
-    width: auto;
-    min-width: 100%;
+    //width: 100%;
 
     @media all and (max-height: 590px) {
       top: 115px;
@@ -657,7 +553,7 @@ body {
     /*position: absolute;
     bottom: 120px;*/
     width: 100%;
-    padding: 0px 40px;
+    padding: 0px 0px 0px 40px;
 
     @media all and (max-width: $mobile) {
       position: static;
@@ -814,7 +710,17 @@ body {
     font-size: 1.1vw;
     position: relative;
     cursor: pointer;
+    display: block;
+    margin-bottom: 20px;
     @include transition($value: all, $time: 0.55s, $function: linear);
+
+    @media all and (max-width: $mid) {
+      font-size: 1.3vw;
+    }
+
+    @media all and (max-width: $mobile) {
+      font-size: 20px;
+    }
 
     &:hover {
       color: #fff;
@@ -832,8 +738,55 @@ body {
     }
   }
 
+  &__vision {
+    color: #7B7B7C;
+    font-size: 0.8vw;
+    position: relative;
+    cursor: pointer;
+    display: table;
+    width: 100%;
+    @include transition($value: all, $time: 0.55s, $function: linear);
+
+    @media all and (max-width: $mid) {
+      font-size: 1.3vw;
+      display: none;
+    }
+
+    @media all and (max-width: $mobile) {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      padding-right: 10px;
+    }
+
+    svg {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
   &__icons {
-    padding-top: 10%;
+    padding-top: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-left: 50px;
+    background: #1C1F21;
+    width: 15%;
+    min-width: 200px;
+
+    @media all and (max-width: $mobile) {
+      position: static;
+      width: auto;
+      padding-left: 0;
+    }
 
     li {
       display: inline-block;
@@ -876,21 +829,23 @@ body {
   margin-left: 62px;
   position: relative;
   z-index: 1;
-  background: #ff94b2;
+  /*background: #ff94b2;
   left: 0;
   background: -moz-linear-gradient(top, #ff94b2 1%, #9e005d 18%, #6300bf 35%, #49007f 51%, #3c00aa 68%, #7b0094 85%, #2d003f 100%);
   background: -webkit-linear-gradient(top, #ff94b2 1%,#9e005d 18%,#6300bf 35%,#49007f 51%,#3c00aa 68%,#7b0094 85%,#2d003f 100%);
   background: linear-gradient(to bottom, #ff94b2 1%,#9e005d 18%,#6300bf 35%,#49007f 51%,#3c00aa 68%,#7b0094 85%,#2d003f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff94b2', endColorstr='#2d003f',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff94b2', endColorstr='#2d003f',GradientType=0 );*/
   //@include transition();
   //background: #1c1c1c;
+  min-height: 100%;
+  background: #F4F4F4;
 
   @media all and(max-width: $mobile) {
     margin-left: 0;
     padding-top: 80px;
-    background: #fff;
     margin-bottom: 10px;
   }
+
 
   &--active {
     left: 15%;
@@ -1021,6 +976,7 @@ body {
       right: 0;
       top: 0;
       min-height: 100%;
+      max-height: 100%;
       background: #F4F4F4;
       padding: 70px 45px;
       text-align: left;
@@ -1067,7 +1023,7 @@ body {
 
       @media all and (max-width: $mobile) {
         line-height: 1.4;
-        font-size: 12px;
+        font-size: 14px;
         margin-bottom: 20px;
       }
     }
@@ -1095,6 +1051,10 @@ body {
 
   &__bottom {
     padding: 20px 0px;
+    background: #ff94b2;
+    background: -webkit-linear-gradient(top, #ff94b2 1%, #9e005d 18%, #6300bf 35%, #49007f 51%, #3c00aa 68%, #7b0094 85%, #2d003f 100%);
+    background: linear-gradient(to bottom, #7b0094 0%, #2d003f 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff94b2', endColorstr='#2d003f',GradientType=0 );
 
     @media all and(max-width: $mobile) {
       display: none !important;
@@ -1179,6 +1139,11 @@ body {
       padding: 13px 20px 11px 20px;
     }
 
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
     &--mod {
       padding: 20px 65px 20px 7%;
       overflow: hidden;
@@ -1205,7 +1170,7 @@ body {
 
   &__header {
     color: #1C1F21;
-    font-size: 72px;
+    font-size: 55px;
     text-transform: uppercase;
     font-family: $pt75;
     margin-bottom: 10px;
@@ -1234,12 +1199,11 @@ body {
 
   &__text {
     font-size: 18px;
-    color: #000;
     color: #666666;
     margin-bottom: 60px;
 
     @media all and (max-width: $mobile) {
-      font-size: 12px;
+      font-size: 14px;
       margin-bottom: 30px;
     }
   }
@@ -1419,7 +1383,7 @@ body {
     @media all and (max-width: $mobile) {
       float: none;
       width: auto;
-      font-size: 12px;
+      font-size: 14px;
       padding-left: 0;
       padding-top: 40px;
     }
@@ -1457,7 +1421,7 @@ body {
 
     @media all and (max-width: $mobile) {
       height: 240px;
-      width: 170%;
+      width: 100%;
     }
 
     &__wrap {
@@ -1516,6 +1480,10 @@ body {
       z-index: 1;
       overflow: visible;
       @include transition($value: all, $time: 0.55s, $function: ease-in-out);
+
+      @media all and (max-width: $mobile) {
+        width: 90% !important;
+      }
 
       &:hover {
         z-index: 22;
@@ -1631,6 +1599,14 @@ body {
 
     .x3--news .n-item__name .n-item__name__header {
       font-size: 3vh;
+
+      @media all and (max-width: $mid) {
+        font-size: 2vh;
+      }
+
+      @media all and (max-width: $min) {
+        font-size: 3vh;
+      }
     }
 
     .x3--news .n-item__subdate span {
@@ -1667,7 +1643,7 @@ body {
   padding: 0px 7%;
 
   @media all and (max-width: $mid) {
-    padding: 0px 60px;
+    padding: 0px 20px;
   }
 
   @media all and (max-width: $mobile) {
@@ -1833,7 +1809,7 @@ body {
       font-size: 16px;
 
       @media all and (max-width: $mobile) {
-        font-size: 12px;
+        font-size: 16px;
       }
 
       b {
@@ -1902,11 +1878,11 @@ body {
   background: #fff;
 
   @media all and (max-width: $mid) {
-    padding: 95px 0px;
+    padding: 95px 0px 0px;
   }
 
   @media all and (max-width: $mobile) {
-    padding: 40px 0px;
+    padding: 40px 0px 0px;
   }
 
   .n-head {
@@ -1954,7 +1930,7 @@ body {
     @media all and (max-width: $mobile) {
       width: auto;
       float: none;
-      padding-right: 0;
+      padding: 0px 0px 20px 0px;
     }
   }
 
@@ -1978,26 +1954,30 @@ body {
   }
 
   &__cell {
-    display: table-cell;
+    display: block;
     vertical-align: top;
     text-align: left;
     color: #878787;
     font-size: 18px;
     font-family: $roboto-r;
 
+    @media all and (max-width: $mid) {
+      font-size: 14px;
+    }
+
     @media all and (max-width: $mobile) {
       font-size: 10px;
     }
 
     &:first-child {
-      width: 40%;
+      width: auto;
       padding-right: 20px;
       font-family: $roboto-l;
+      margin-bottom: 20px;
 
       @media all and (max-width: $mobile) {
-        width: 30%;
+        width: auto;
         font-size: 10px;
-        width: 112px;
       }
     }
   }
@@ -2006,6 +1986,10 @@ body {
     color: #878787;
     font-size: 18px;
     font-family: $roboto-r;
+
+    @media all and (max-width: $mid) {
+      font-size: 14px;
+    }
 
     @media all and (max-width: $mobile) {
       font-size: 10px;
@@ -2020,11 +2004,25 @@ body {
   overflow: hidden;
 
   @media all and (max-width: $mid) {
-    padding: 45px 60px 175px 60px;
+    padding: 45px 20px 175px 20px;
   }
 
   @media all and (max-width: $mobile) {
     padding: 40px 20px;
+  }
+
+  &__ban {
+    margin-top: 50px;
+    text-align: center;
+
+    img {
+      display: inline-block;
+      width: 50%;
+
+      @media all and (max-width: 480px) {
+        width: 100%;
+      }
+    }
   }
 
   &__bottom {
@@ -2116,19 +2114,18 @@ body {
   }
 
   &__wrap {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     overflow: hidden;
   }
 
   &__pic {
     width: 302px;
-    margin-top: 25px;
     height: 85px;
-    float: right;
     text-align: center;
     line-height: 70px;
     overflow: hidden;
     text-align: center;
+    margin: 0px auto;
 
     img {
       display: inline-block;
@@ -2197,6 +2194,7 @@ body {
   }
 
   &__bottom {
+    padding-top: 20px;
 
     &__left {
       overflow: hidden;
@@ -2984,6 +2982,7 @@ body {
       background-size: 0;
       border: 1px dashed transparent;
       padding: 0px 10px 10px 10px;
+      @include transition();
 
       &__age {
         display: none;
@@ -3644,7 +3643,7 @@ body {
       }
 
       @media all and (max-width: 400px) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
@@ -3702,7 +3701,7 @@ body {
     position: absolute;
     left: 6%;
     bottom: 35px;
-    right: 35px;
+    right: 15px;
     z-index: 2;
 
     @media all and(max-width: $mobile) {
@@ -3783,6 +3782,7 @@ body {
       width: 46px;
       height: 24px;
       top: -50px;
+      right: -15px;
     }
 
     span {
@@ -3934,6 +3934,7 @@ body {
       margin: auto;
       z-index: -1;
       border: 2px solid #fff;
+      margin-top: -8%;
 
       @media all and (max-width: $mid) {
         //top: -8px;
@@ -4127,7 +4128,7 @@ body {
       }
 
       @media all and (max-width: 400px) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
@@ -4193,7 +4194,7 @@ body {
 
     &:hover {
       .n-item__inside__cover {
-        background: transparent !important;
+        background: transparent;
         &:after {
           opacity: 0.3;
         }
@@ -4279,7 +4280,7 @@ body {
   }
 
   .n-item__name {
-    left: 12%;
+    left: 6%;
 
     @media all and (max-width: $mobile) {
       left: 6%;
@@ -4319,7 +4320,7 @@ body {
       }
 
       @media all and (max-width: 400px) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
@@ -4379,16 +4380,18 @@ body {
       position: absolute;
       top: 55px;
       right: -56px;
+      width: 145px;
 
       @media all and (max-width: $mobile) {
         font-size: 38px;
         top: 68px;
         right: -70px;
+        display: none;
       }
     }
 
     .n-item__name {
-      padding-right: 30px;
+      padding-right: 0px;
 
       .n-item__name__header {
         font-size: 1vw;
@@ -5167,9 +5170,9 @@ body {
       margin-bottom: 10px;
     }
     .n-media__inside {
-      top: 5px;
-      left: 5px;
-      right: 5px;
+      top: 2px;
+      left: 2px;
+      right: 2px;
       bottom: 24%;
       border-radius: 0;
 
@@ -5200,9 +5203,9 @@ body {
 
     .n-media__name {
       min-height: 24%;
-      bottom: 5px;
-      left: 5px;
-      right: 5px;
+      bottom: 1px;
+      left: 1px;
+      right: 1px;
       top: auto;
       background: #fff;
       text-align: left;
@@ -5269,7 +5272,6 @@ body {
 
   &__cont {
     height: 100%;
-    background: #BABABA;
     overflow: hidden;
     position: relative;
   }
@@ -5338,6 +5340,10 @@ body {
     margin: auto;
     border-radius: 100%;
     @include transition($value: all, $time: 0.55s, $function: linear);
+
+    @media all and (max-width: $mobile) {
+      background-position: top center;
+    }
 
     &:after {
       display: block;
@@ -5420,9 +5426,9 @@ body {
   }
   .n-media__name {
     min-height: 45%;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
     overflow: hidden;
 
     @media all and (max-width: $mobile) {
@@ -5540,6 +5546,21 @@ body {
   @media all and (max-width: $mobile) {
     width: 100%;
   }
+
+  .n-media__cont {
+    background: rgba(125,89,179,0.5);
+  }
+
+  .n-media__cover {
+    background: #000;
+    opacity: 0;
+  }
+
+  &:hover {
+    .n-media__cover {
+      opacity: 0.5;
+    }
+  }
 }
 
 .z2 {
@@ -5555,11 +5576,32 @@ body {
       font-size: 2vw;
     }
   }
+
+  .n-media__cont {
+    background: rgba(194,103,166,0.5);
+  }
+  
+  .n-media__cover {
+    background: #000;
+    opacity: 0;
+  }
+
+  &:hover {
+    .n-media__cover {
+      opacity: 0.5;
+    }
+  }
 }
 
 .n-poster {
   overflow: hidden;
   background: #fff;
+
+  &__sub {
+    @media all and (max-width: $mobile) {
+      display: none !important;
+    }
+  }
 
   &__top {
     min-height: 850px;
@@ -5589,6 +5631,19 @@ body {
       width: 100%;
       height: 100%;
       background-position:center;
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #000;
+        z-index: 0;
+        opacity: 0;
+      }
 
       @media all and (max-width: $mobile) {
         height: 70%;
@@ -5635,14 +5690,14 @@ body {
         vertical-align: middle;
         font-size: 24px;
         text-transform: uppercase;
-        color: #BABABA;
+        color: #fff;
 
         @media all and (max-width: $mid) {
           font-size: 20px;
         }
 
         @media all and (max-width: $mobile) {
-          display: none;
+          //display: none;
         }
       }
     }
@@ -6064,7 +6119,7 @@ body {
         }
 
         @media all and (max-width: $mobile) {
-          font-size: 10px;
+          font-size: 12px;
           padding: 0;
         }
       }
@@ -6227,7 +6282,7 @@ body {
 }
 
 .n-type {
-  background: #fff;
+  background: #F4F4F4;
   padding-bottom: 50px;
   //min-height: 100%;
 
@@ -6248,7 +6303,7 @@ body {
     }
 
     h1 {
-      padding-top: 130px;
+      padding-top: 100px;
       color: #fff;
       position: relative;
       z-index: 1;
@@ -6274,6 +6329,10 @@ body {
       
       .n-type__header__cover {
         display: none;
+      }
+
+      .n-container {
+        position: static;
       }
 
       h1,span,p {
@@ -6302,12 +6361,17 @@ body {
   margin-left: 15%;
   color: #BABABA;
   font-size: 16px;
-  position: absolute;
+  //position: absolute;
   z-index: 50;
   background: #1C1F21;
   bottom: 0;
   right: 0;
   left: 0;
+  flex: 0 0 auto;
+
+  @media all and (max-width: $mid) {
+    margin-left: 200px;
+  }
 
   @media all and(max-width: $mobile) {
     margin-left: 0;
@@ -6378,6 +6442,10 @@ body {
     font-family: $scada-r;
     color: #878787;
   }
+}
+
+.n-sidebar .scroll-wrapper > .scroll-content {
+  padding-bottom: 100px;
 }
 
 .gm-style-iw {
@@ -6482,6 +6550,32 @@ body {
   }
 }
 
+.empty-event {
+  position: absolute;
+  z-index: 1;
+  bottom: 37%;
+  left: 10px;
+  right: 10px;
+
+  span {
+    display: block;
+    border: 1px solid transparent;
+    font-size: 1.1vw;
+    font-family: $pt75;
+    color: #fff;
+    overflow: hidden;
+    padding: 15px 28px;
+
+    @media all and (max-width: $max) {
+      font-size: 1.0vw;
+    }
+
+    @media all and (max-width: $min) {
+      font-size: 1.7vw;
+    }
+  }
+}
+
 .ui-datepicker {
   padding: 0 !important;
 }
@@ -6494,11 +6588,22 @@ body {
   tr {
     display: table;
     width: 100%;
+
+    td {
+
+    }
   }
 }
 
 #bigDate td {
   vertical-align: top;
+  .ui-state-default {
+    position: relative;
+    text-align: left;
+    left: 0;
+    top: 0;
+    padding: 20px 0px 20px 20px;
+  }
 }
 
 #bigDate .ui-datepicker-calendar{
@@ -6704,7 +6809,7 @@ body {
     }
 
     &:nth-child(2) {
-      padding-top: 65px;
+      //padding-top: 65px;
     }
     &:hover {
       .n-event__subBg {
@@ -6727,6 +6832,11 @@ body {
 
 .event-visible {
   opacity: 1 !important;
+  background-size: cover;
+}
+
+.event-hide {
+  opacity: 0.5 !important;
   background-size: cover;
 }
 
@@ -6935,15 +7045,12 @@ body {
 }
 
 .n-preloader {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 5px;
 
   &__val {
     height: 100%;
-    background: #1c1f21;
+    background: #9e005d;
     width: 0;
   }
 }
@@ -6952,9 +7059,10 @@ body {
 
   a {
     text-decoration: underline;
+    color: #B8A9D3;
 
     &:hover {
-      color: darken(#666666,30%);
+      color: darken(#B8A9D3,30%);
     }
   }
 
@@ -6962,6 +7070,23 @@ body {
     margin-bottom: 20px;
     font-size: 18px;
     color: #666666;
+
+    iframe {
+      @media all and (max-width: $min) {
+        width: 100% !important;
+      }
+
+      @media all and (max-width: $mobile) {
+        height: 250px !important;
+      }
+    }
+
+    img {
+      @media all and (max-width: $mobile) {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 
   img {
@@ -6977,7 +7102,7 @@ body {
     position: relative;
 
     @media all and (max-width: $mobile) {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     span {
@@ -7040,10 +7165,10 @@ body {
     font-size: 18px;
     color: #666666;
     position: relative;
-    overflow: auto;
+    overflow: visible;
 
     @media all and (max-width: $mobile) {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     &:before {
@@ -7083,13 +7208,13 @@ body {
 }
 
 .n-gal-item {
-  width: 10%;
+  width: 20%;
   padding-right: 5px;
   position: relative;
   margin-bottom: 5px;
 
   @media all and (max-width: $mid) {
-    width: 12.5%;
+    width: 20%;
   }
 
   @media all and (max-width: $min) {
@@ -7127,10 +7252,12 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    background-size: cover;
+    background-position:center;
   }
 
   img {
-    display: block;
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -7151,7 +7278,7 @@ body {
 }
 
 .n-spaceFirst {
-  padding-top: 65px !important;
+  //padding-top: 65px !important;
 }
 
 #dateSlider .n-item__inside__pic {
@@ -7163,6 +7290,116 @@ body {
 
 .n-gray {
   background: #2A2F33;
+}
+
+.hide {
+  display: none !important;
+}
+
+.popover-inner {
+  width: 500px;
+  background: #fff;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.298039) 2px 6px 10px;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-left: 30px solid #fff;
+    border-bottom: 30px solid transparent;
+    position: absolute;
+    top: 55px;
+    right: -20px;
+    z-index: 1;
+  }
+}
+
+#map2 {
+  .popover-inner {
+    width: 200px;
+
+    &:after {
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-left: 30px solid #fff;
+      border-bottom: 30px solid transparent;
+      position: absolute;
+      top: 20px;
+      right: -20px;
+      z-index: 1;
+    }
+  }
+
+  .infoWindow__right {
+    display: none;
+  }
+}
+
+.bileter_dialog {
+  @media all and (max-width: $mobile) {
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+.bileter_afisha_event_buy {
+  @media all and (max-width: $mobile) {
+    float: left;
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+#apit_buy_rules_label {
+  @media all and (max-width: $mobile) {
+    margin: 20px 0px;
+  }
+}
+
+.bileter_help_text {
+  @media all and (max-width: $mobile) {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.bileter_price_menu .one_price_menu {
+  @media all and (max-width: $mobile) {
+    width: 29%;
+    vertical-align: top;
+  }
+}
+
+.bileter_price_menu {
+  @media all and (max-width: $mobile) {
+    text-align: left;
+  }
+}
+
+.bileter_afisha_event {
+  @media all and (max-width: $mobile) {
+    padding: 0px 5px;
+  }
+}
+
+.bileter_afisha_event_buy {
+  @media all and (max-width: $mobile) {
+    font-size: 14px;
+  }
+}
+
+.bileter_zoom_map {
+  overflow: auto !important;
 }
 
 

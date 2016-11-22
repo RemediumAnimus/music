@@ -1,0 +1,100 @@
+@media all and (min-width: 1366px) {
+  .large-fs .x3--news .n-item__name .n-item__name__header {
+    font-size: 1.1vw; }
+  .large-fs .x3--news .n-item__subdate span {
+    font-size: 20px;
+    padding-top: 5px; }
+  .large-fs .n-item__name {
+    bottom: 20px;
+    left: 6%; }
+  .large-fs .n-item__inside__cover {
+    opacity: 0.5; }
+  .large-fs .n-sidebar__list {
+    font-size: 1.2vw; }
+  .large-fs .x2--news .n-item__name .n-item__name__header {
+    font-size: 1.6vw; }
+  .large-fs .x3--circle .n-item__name .n-item__name__header {
+    font-size: 1.4vw; }
+  .large-fs .x4--mod .n-item__name__header {
+    font-size: 1.9vw; }
+  .large-fs .empty-event span {
+    font-size: 1.2vw; }
+  .large-fs .n-events li {
+    font-size: 1.2vw; }
+  .large-fs .n-events li i {
+    font-size: 1.1vw;
+    width: 30%; }
+  .large-fs .n-events li span {
+    font-size: 1.1vw;
+    width: 70%; }
+  .large-fs .n-item .ui-state-default, .large-fs .n-item .ui-widget-content .ui-state-default {
+    font-size: 1.2vw; }
+  .large-fs .n-item .ui-state-default.ui-state-hover:after, .large-fs .n-item .ui-state-default.ui-state-active:after {
+    left: -1px; }
+  .large-fs .n-content__bottom__header {
+    font-size: 16px; }
+  .large-fs .n-content__bottom__sub span {
+    font-size: 16px; }
+  .large-fs .n-footer {
+    font-size: 18px; }
+  .large-fs .infoWindow__right {
+    font-size: 19px;
+    width: 66%; }
+  .large-fs .infoWindow__left {
+    width: 34%; }
+  .large-fs .infoWindow {
+    padding: 30px 0px 13px 40px; }
+  .large-fs .x3 .n-item__inside {
+    padding: 5px 15px; }
+  .large-fs .x3 .n-item__btn {
+    right: 10px; }
+  .large-fs .n-item__date span {
+    font-size: 1.3vw; }
+  .large-fs .n-declarations__date .n-event i {
+    font-size: 18px; }
+  .large-fs .n-declarations__date--list .ui-datepicker-calendar td .n-event__b {
+    font-size: 24px; }
+  .large-fs .n-declarations__date--list .ui-datepicker-calendar td .n-event__type {
+    font-size: 20px; }
+  .large-fs .n-declarations__date--list .ui-datepicker-calendar td b:after {
+    font-size: 17px; }
+  .large-fs .n-poster__top__bg:after {
+    opacity: 0.5; }
+  .large-fs .n-table__cell {
+    font-size: 20px; }
+  .large-fs .n-info p, .large-fs .n-info em, .large-fs .n-info li {
+    font-size: 20px; }
+  .large-fs .x6 .n-item__post {
+    font-size: 24px; }
+  .large-fs .x7 .n-item__post {
+    font-size: 20px; }
+  .large-fs .n-path__cell {
+    font-size: 20px; }
+  .large-fs .n-path__text {
+    font-size: 20px; }
+  .large-fs .n-path__subheader {
+    font-size: 18px; }
+  .large-fs .n-content__map__subtext {
+    font-size: 16px; }
+  .large-fs .n-media--news.z2 .n-media__name span {
+    font-size: 1.1vw; }
+  .large-fs .n-media--news.z2 .n-media__name b {
+    font-size: 16px;
+    color: #000; }
+  .large-fs .n-media--news2.z2 .n-media__name span {
+    font-size: 1.2vw; }
+  .large-fs .n-media--news2.z2 .n-media__name b {
+    font-size: 16px;
+    color: #fff; }
+  .large-fs .n-media--news .n-media__name b {
+    color: #000; }
+  .large-fs .n-type__header__cover {
+    opacity: 0.5; }
+  .large-fs .n-content__map__sidebar {
+    padding: 30px 45px; } }
+
+@media all and (min-width: 1366px) {
+  .kern_large * {
+    letter-spacing: 2px; }
+  .kern_large .n-item__btn span {
+    letter-spacing: 1px; } }

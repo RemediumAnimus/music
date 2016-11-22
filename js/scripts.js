@@ -5,6 +5,17 @@ $(document).ready(function(){
     var firstLoad = false;
     var method = $('body').find('*[data-method]').data('method') || "POST";
     var events;
+    var decksLength;
+    var counter = 1;
+
+    function bileter() {
+        if ($('.bileter_init').length) {
+            $('.bileter_init').click();
+        }
+    }
+
+    bileter();
+
 
     function isMediumWidth() {
         return $('#medium-indicator').is(':visible');
@@ -111,7 +122,7 @@ $(document).ready(function(){
         var $items = $(calendar).find('.event-holder');
         var $td = $(calendar).find('td');
         $items.css({
-            'min-height': $items.eq(0).closest('td').width() + 'px'
+            'min-height': $items.eq(0).closest('td').width() - 80 + 'px'
         });
         $td.css({
             'padding-top': 0
@@ -263,7 +274,13 @@ $(document).ready(function(){
             }
         });
 
-        TweenMax.to($('.n-sidebar'),1, {
+        TweenMax.to($('.n-sidebar'),0.5, {
+            css: {
+                "left":"0px"
+            },
+        });
+
+        TweenMax.to($('.n-sidebar__icons'),0.5, {
             css: {
                 "left":"0px"
             },
@@ -360,6 +377,12 @@ $(document).ready(function(){
                     },
                 });
 
+                TweenMax.to($('.n-sidebar__icons'),0.5, {
+                    css: {
+                        "left":"-15%"
+                    },
+                });
+
                 TweenMax.to($('.n-fixed'),1, {
                     css: {
                         "left":"102px"
@@ -421,32 +444,36 @@ $(document).ready(function(){
             nextButton: '.n-slider__arrowR',
             prevButton: '.n-slider__arrowL',
             speed: 900,
-            preventClicks: false,
-            preventClicksPropagation: false
+            preventClicks: true,
+            preventClicksPropagation: true,
+            onSlideChangeEnd: function(swiper) {
+                bileter();
+            }
         });
     };
 
     if ($('#dateSlider').length) {
         var dateSlider = new Swiper('#dateSlider', {
-            loop: true,
+            loop: false,
             speed: 900,
             effect: 'fade',
-            preventClicks: false,
-            preventClicksPropagation: false
+            preventClicks: true,
+            preventClicksPropagation: true
         });
     };
 
     if ($('#gallerySlider').length) {
         var gallerySlider = new Swiper('#gallerySlider', {
             speed: 900,
-            preventClicksPropagation: false,
-            preventClicks: false,
             nextButton: '.n-slider__arrowR',
             prevButton: '.n-slider__arrowL',
             slidesPerView: 4,
-            preventClicks: false,
-            preventClicksPropagation: false,
+            preventClicks: true,
+            preventClicksPropagation: true,
             breakpoints: {
+                799: {
+                    slidesPerView: 'auto',
+                },
                 800: {
                     slidesPerView: 2,
                 },
@@ -545,12 +572,13 @@ $(document).ready(function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
         },
         change: function(event, ui){
-            var parameter = getTabParameter();
+            var categories = getTabCategories();
             var attr1 = $(this).data('sort');
             var attr2 = $('#actions').data('sort');
             var value1 = ui.item.value;
             var value2 = getSortVal($('#actions'));
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate'));
+            bileter();
         }
     });
 
@@ -563,12 +591,13 @@ $(document).ready(function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
         },
         change: function(event, ui){
-            var parameter = getTabParameter();
+            var categories = getTabCategories();
             var attr1 = $('#holl').data('sort');
             var attr2 = $(this).data('sort');
             var value1 = getSortVal($('#holl'));
             var value2 = ui.item.value;
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate'));
+            bileter();
         }
     });
 
@@ -581,12 +610,13 @@ $(document).ready(function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
         },
         change: function(event, ui){
-            var parameter = getTabParameter();
+            var categories = getTabCategories();
             var attr1 = $(this).data('sort');
             var attr2 = $('#actions2').data('sort');
             var value1 = ui.item.value;
             var value2 = getSortVal($('#actions2'));
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate2'));
+            bileter();
         }
     });
 
@@ -599,12 +629,13 @@ $(document).ready(function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
         },
         change: function(event, ui){
-            var parameter = getTabParameter();
+            var categories = getTabCategories();
             var attr1 = $('#holl2').data('sort');
             var attr2 = $(this).data('sort');
             var value1 = getSortVal($('#holl2'));
             var value2 = ui.item.value;
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate2'));
+            bileter();
         }
     });
 
@@ -628,6 +659,32 @@ $(document).ready(function(){
         }
     });
 
+    $( "#yearSelect" ).selectmenu({
+        appendTo: "#year-Select",
+        open: function(){
+            innerScroll($(this));
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            $('.newsForm').submit();
+        }
+    });
+
+    $( "#catSelect" ).selectmenu({
+        appendTo: "#cat-Select",
+        open: function(){
+            innerScroll($(this));
+        },
+        close: function(){
+            $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change: function(event, ui){
+            $('.newsForm').submit();
+        }
+    });
+
     function sliderEvents() {
         $('.n-events li').each(function(index){
             $(this).hover(function(){
@@ -637,6 +694,40 @@ $(document).ready(function(){
     };
     sliderEvents();
 
+    function checkEvents() {
+
+        $('#datepicker td').each(function(index) {
+            var $that = $(this);
+            if (!$(this).find('.n-event').length && $(this).find('.ui-state-active').length) {
+                $(this).css({
+                    'opacity': 0.5
+                });
+                $('#sliderWrap').css({
+                    'background':$('.empty-event').data('pic')
+                });
+                $('.empty-event').show();
+                return false;
+            } else {
+                $('.empty-event').hide();
+            }
+        });
+
+        $('#datepicker td').each(function(index) {
+            if ($(this).find('.ui-state-active').length) {
+                $('#sliderWrap').find('.n-item__date i').html($(this).find('.ui-state-active').html());
+                $('#sliderWrap').find('.n-item__date span').html($('#datepicker').find('.ui-datepicker-month').html());
+            }
+            if (!$(this).find('.n-event').length) {
+                $(this).css({
+                    'opacity': 0.5
+                });
+                $('#sliderWrap').css({
+                    //'background':$('.empty-event').data('pic')
+                });
+            }
+        });
+    }
+
     //загрузка событий календаря
     var request = (function() {
         var loaded = false;
@@ -645,7 +736,7 @@ $(document).ready(function(){
                 xhr: function()
                 {
                     $('.n-preloader__val').css({
-                        'width': 0,
+                        'width': '0%',
                         'opacity': 1
                     });
                     var xhr = new window.XMLHttpRequest();
@@ -661,9 +752,9 @@ $(document).ready(function(){
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
                             //Do something with download progress
-                            $('.n-preloader__val').animate({
-                                'width': percentComplete * 100 + "%"
-                            });
+                            $('.n-preloader__val').stop().animate({
+                                'width': percentComplete * 30 + "%"
+                            },'slow');
                         }
                     }, false);
                     return xhr;
@@ -677,12 +768,14 @@ $(document).ready(function(){
                     if (loaded) { return }
                     setTimeout(function(){
                         $('.n-preloader__val').animate({
-                            'opacity': 0
+                            //'opacity': 0
                         });
 
                         loadEventsBigDate('#bigDate',eventsBigDate);
                         loadEventsDate('#bigDate2',eventsBigDate);
                         loadEventsBigDate('#datepicker', eventsBigDate);
+                        $('.n-event').addClass('hide');
+                        imageLoader();
 
                         $('#bigDate2 td').each(function(index){
                             if (!$(this).find('.n-event').length) {
@@ -692,6 +785,7 @@ $(document).ready(function(){
                                 $(this).find('.ui-state-default').html() + '<span>' + $('#bigDate2 .ui-datepicker-month').html() + '</span>'
                             );
                         });
+                        checkEvents();
                         calendarSizer('#bigDate');
                         $(window).on('resize',function(){
                             calendarSizer('#bigDate');
@@ -700,14 +794,17 @@ $(document).ready(function(){
                         loaded = true;
                         events = eventsBigDate;
                         loadSliderEvents($('#sliderWrap'));
+                        bileter();
                     });
                 }
             });
         }
     })();
 
-    function getTabParameter() {
-        return $('.n-declarations__list').find('.active').data('parameter');
+    function getTabCategories() {
+        var values = $('.n-declarations__list').find('.active').data('filter-by-category');
+        values.length > 1 ? values = values.split(',') : values = [values];
+        return values;
     }
 
     function getSortVal($elem) {
@@ -734,19 +831,44 @@ $(document).ready(function(){
         }
     }
 
-    function checkElem($elem, selector) {
-        $elem.find(selector).each(function(index) {
-            if ($(this).css('display') != 'none') {
-                removeStyles($elem);
-                return false;
-            } else {
-                console.log($(this));
-                $elem.find(selector).eq(index).removeClass('n-spaceFirst');
-                $elem.find(selector).eq(index + 1).addClass('n-spaceFirst');
+    function checkElem($elem) {
+        $elem.find('td').each(function() {
+            var $that = $(this);
 
-                if ($elem.find(selector).length - 1 == index) {
-                    addStyles($elem);
+            $(this).find('.n-event').each(function(index){
+                if ($that.find('.n-event').eq(index).css('display') == 'none') {
+                    if ($that.find('.n-event').eq(index+1).length && $that.find('.n-event').eq(index+1).css('display') != 'none') {
+
+                        $that.find('.n-event').eq(index).removeClass('n-spaceFirst');
+                        $that.find('.n-event').eq(index + 1).addClass('n-spaceFirst');
+                        return false;
+                    }
+                } else {
+                    $that.find('.n-event').eq(index).removeClass('n-spaceFirst');
                 }
+            });
+        });
+
+        $elem.find('td').each(function() {
+            var $that = $(this);
+            var hasElems = false;
+            $(this).find('.n-event').each(function(index){
+                if ($that.find('.n-event').eq(index).css('display') == 'none') {
+                    hasElems = false;
+                    if ($that.find('.n-event').eq(index+1).length && $that.find('.n-event').eq(index+1).css('display') != 'none') {
+                        hasElems = true;
+                        return false;
+                    }
+                } else {
+                    hasElems = true;
+                    return false;
+                }
+            });
+
+            if (hasElems) {
+                removeStyles($(this));
+            } else {
+                addStyles($(this));
             }
         });
     }
@@ -760,8 +882,9 @@ $(document).ready(function(){
             var attr2 = $('#actions').data('sort');
             var value1 = getSortVal($('#holl'));
             var value2 = getSortVal($('#actions'));
-            var parameter = getTabParameter();
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+            var categories = getTabCategories();
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate'));
+            bileter();
         })();
 
 
@@ -770,55 +893,73 @@ $(document).ready(function(){
             var attr2 = $('#actions2').data('sort');
             var value1 = getSortVal($('#holl2'));
             var value2 = getSortVal($('#actions2'));
-            var parameter = getTabParameter();
-            sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
+            var categories = getTabCategories();
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate2'));
+            bileter();
         })();
     });
 
-    function sort(parameter, attr, attr2, value, value2, $elem) {
-        if (value == 0 && value2 == 0 && parameter == 0) {
-            $elem.find('td').each(function() {
-                var $that = $(this);
-                $(this).find('.n-event').each(function () {
-                    $(this).removeClass('n-spaceFirst');
-                    if ($(this).data(attr) != 'undefined') {
-                        $(this).show();
-                        checkElem($that,'.n-event');
+    function sort(categoriesList, attr, attr2, value, value2, $elem) {
+
+        $elem.find('td').each(function() {
+            var $that = $(this);
+            $(this).find('.n-event').each(function () {
+                var categories = $(this).data('categories');
+                var hasValue = false;
+                var all = false;
+
+                for (var i=0; i<categoriesList.length; i++) {
+                    if (categoriesList[i] == 1) {
+                        all = true;
                     }
-                });
-            });
-        } else {
-            $elem.find('td').each(function() {
-                var $that = $(this);
+                }
 
-                $(this).find('.n-event').each(function () {
-                    var parameters = $(this).data('parameters').split(',');
+                categories.length > 1 ? categories = $(this).data('categories').split(',') : categories = [$(this).data('categories')];
 
-                    for (var i=0; i<parameters.length; i++) {
-                        if (parseInt(parameters[parameter])) {
-                            if ($(this).data(attr) != value && value != 0) {
-                                $(this).hide();
-                            } else {
-                                if ($(this).data(attr2) != value2) {
+                if (value == 0 && value2 == 0 && all) {
+                    $elem.find('td').each(function() {
+                        var $that = $(this);
+
+                        $(this).find('.n-event').each(function () {
+                            $(this).removeClass('n-spaceFirst');
+                            if ($(this).data(attr) != 'undefined') {
+                                $(this).show();
+                            }
+                        });
+                    });
+                } else {
+                    for (var i=0; i<categoriesList.length; i++) {
+                        for (var j=0; j<categories.length; j++) {
+
+                            if (parseInt(categoriesList[i]) == parseInt(categories[j])) {
+                                if ($(this).data(attr) != value && value != 0) {
                                     $(this).hide();
                                 } else {
-                                    $(this).show();
+                                    if ($(this).data(attr2) != value2) {
+                                        $(this).hide();
+                                    } else {
+                                        $(this).show();
+                                        hasValue = true;
+                                    }
+                                    if (value2 == 0) {
+                                        $(this).show();
+                                        hasValue = true;
+                                    }
                                 }
-
-                                if (value2 == 0) {
-                                    $(this).show();
-                                }
+                            } else {
+                                $(this).hide();
                             }
-                            break;
-                        } else {
-                            $(this).hide();
-                            break;
+                            if (hasValue) {
+                                $(this).show();
+                                break;
+                            }
                         }
                     }
-                    checkElem($that,'.n-event');
-                });
+                }
             });
-        }
+        });
+
+        checkElem($elem);
     }
 
     if (eventsPath.length) {
@@ -843,6 +984,7 @@ $(document).ready(function(){
             inst.inline = false;
             setTimeout(function() {
                 loadSliderEvents($('#sliderWrap'));
+                checkEvents();
             });
         },
         onChangeMonthYear: function(){
@@ -850,6 +992,7 @@ $(document).ready(function(){
                 loadEventsBigDate('#datepicker', events);
                 eventInit();
                 loadSliderEvents($('#sliderWrap'));
+                checkEvents();
             });
         }
     });
@@ -872,8 +1015,8 @@ $(document).ready(function(){
                 var attr2 = $('#actions').data('sort');
                 var value1 = getSortVal($('#holl'));
                 var value2 = getSortVal($('#actions'));
-                var parameter = getTabParameter();
-                sort(parameter, attr1, attr2, value1, value2, $('#bigDate'));
+                var categories = getTabCategories();
+                sort(categories, attr1, attr2, value1, value2, $('#bigDate'));
             })
         }
     });
@@ -904,8 +1047,8 @@ $(document).ready(function(){
                 var attr2 = $('#actions2').data('sort');
                 var value1 = getSortVal($('#holl2'));
                 var value2 = getSortVal($('#actions2'));
-                var parameter = getTabParameter();
-                sort(parameter, attr1, attr2, value1, value2, $('#bigDate2'));
+                var categories = getTabCategories();
+                sort(categories, attr1, attr2, value1, value2, $('#bigDate2'));
             });
         }
     });
@@ -963,7 +1106,9 @@ $(document).ready(function(){
             $('#bigDate td').each(function(index){
                 var $that = $(this);
                 $(this).find('.n-event').each(function(){
+                    $(this).addClass('event-hide');
                     if ($(this).data('id') == id) {
+                        $(this).removeClass('event-hide');
                         $that.addClass('event-active');
                         $(this).prev().addClass('event-visible');
                     }
@@ -974,14 +1119,21 @@ $(document).ready(function(){
             var id = $(this).data('id');
 
             $('#bigDate td').each(function(index){
+                $(this).find('.n-event').each(function(){
+                    $(this).removeClass('event-hide');
+                });
                 $('#bigDate td').removeClass('event-active');
                 $(this).find('.n-event').prev().removeClass('event-visible');
             });
         });
 
         $('#datepicker td').click(function(e){
-            $('#datepicker td').each(function(){
-               $(this).find('a').eq(0).removeClass('ui-state-active');
+            if (!$(this).find('.n-event').length) {
+                e.preventDefault();
+                return;
+            }
+            $('#datepicker td').each(function(e){
+                $(this).find('a').eq(0).removeClass('ui-state-active');
             });
             $(this).find('a').eq(0).addClass('ui-state-active');
         });
@@ -994,7 +1146,7 @@ $(document).ready(function(){
     };
 
     eventInit();
-    
+
     function loadSliderEvents($container) {
         if (!dateSlider) {return}
         var $events = $container.find('.ui-state-active').parent().find('.n-event');
@@ -1030,12 +1182,150 @@ $(document).ready(function(){
         sliderEvents();
     }
 
+    (function (global) {
+
+        'use strict';
+
+        function defer() {
+            var resolve, reject, promise = new Promise(function (a, b) {
+                resolve = a;
+                reject = b;
+            });
+
+            return {
+                resolve: resolve,
+                reject: reject,
+                promise: promise
+            };
+        }
+
+        /**
+         * Image preloader
+         * @param {Object} options
+         */
+        var ImagePreloader = function (options) {
+            this.options = options || {};
+            this.options.parallel = this.options.parallel || false;
+            this.items = [];
+            this.max = 0;
+        };
+
+        ImagePreloader.prototype.queue = function (array) {
+            if (!Array.isArray(array)) {
+                array = [array];
+            }
+
+            if (array.length > this.max) {
+                this.max = array.length;
+            }
+
+            var deferred = defer();
+
+            this.items.push({
+                collection: array,
+                deferred: deferred
+            });
+
+            return deferred.promise;
+        };
+
+        ImagePreloader.prototype.preloadImage = function (path) {
+            return new Promise(function (resolve, reject) {
+                var image = new Image();
+                image.onload = resolve;
+                image.onerror = resolve;
+                image.src = path;
+            });
+        };
+
+        ImagePreloader.prototype.preload = function () {
+            var deck, decks = [];
+
+            if (this.options.parallel) {
+
+                for (var i = 0; i < this.max; i++) {
+                    this.items.forEach(function (item) {
+                        if (typeof item.collection[i] !== 'undefined') {
+                            item.collection[i] = this.preloadImage(item.collection[i]);
+                        }
+                    }, this);
+                }
+
+            } else {
+
+                this.items.forEach(function (item) {
+                    item.collection = item.collection.map(this.preloadImage);
+                }, this);
+
+            }
+
+            this.items.forEach(function (item) {
+                deck = Promise.all(item.collection)
+                    .then(item.deferred.resolve.bind(item.deferred))
+                    .catch(console.log.bind(console));
+
+                decks.push(deck);
+            });
+
+            return Promise.all(decks);
+        };
+
+        global.ImagePreloader = ImagePreloader;
+
+    }(window));
+
+    function Deck(node, preloader, index) {
+        var data = node.style.backgroundImage.slice(4, -1).replace(/"/g, "");;
+
+        preloader.queue(data)
+            .then(function () {
+                //console.log('Deck ' + index + ' loaded.');
+                node.classList.add('loaded');
+                var percentComplete = (counter * 70 / decksLength) + 30;
+                //console.log(percentComplete + "%");
+                $('.n-preloader__val').stop().animate({
+                    'width': percentComplete + "%"
+                });
+                if (counter == decksLength) {
+                    $('.n-preloader__val').animate({
+                        'opacity': 0
+                    });
+                    $('.n-event').removeClass('hide');
+                }
+                counter++;
+            })
+            .catch(console.error.bind(console));
+    }
+
+    function imageLoader() {
+        var ip = new ImagePreloader({
+            parallel: false
+        });
+        var decks = Array.prototype.slice.call(document.querySelectorAll('.n-event__subBg'));
+        decksLength = decks.length;
+        console.log(decksLength);
+
+        decks.forEach(function (deck, index) {
+            new Deck(deck, ip, index);
+        });
+
+        ip.preload()
+            .then(function () {
+                console.log('All decks loaded.');
+            });
+    };
+
     //обработка загрузки данных в календарь
     function loadEventsBigDate(elem,events) {
         if (!elem.length) {return}
 
         var source   = $("#template-BigDate").html();
         var day = new Date().getDate();
+
+        var events = events.sort(function(obj1, obj2) {
+            // Сортировка по возрастанию
+            return parseInt(obj1.time.split(':').join('')) - parseInt(obj2.time.split(':').join(''));
+        });
 
         $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(j){
 
@@ -1052,6 +1342,8 @@ $(document).ready(function(){
                     if (!$(this).find('.n-event__cover').length) {
                         $(this).find('.event-holder').append('<div class="n-event__cover"></div><div class="n-event__cont"></div>');
                     }
+
+                    //console.log(parseInt(events[i].time.split(':').join('')));
 
                     $(this).find('.event-holder .n-event__cont').append(html);
 
@@ -1265,14 +1557,14 @@ $(document).ready(function(){
                     inProgress = true;
                 }
             }).done(function(data){
-                
+
                 if (data.length > 0) {
                     $('#n-load').append(data);
                     gridSizer($('.n-media'));
                     inProgress = false;
                     $('.js-load').attr('data-page',++page);
                 }
-                
+
                 if ( startFrom + ( (page-1) * perpage ) >= count ) {
                     $('.js-load').hide();
                 }
@@ -1280,154 +1572,13 @@ $(document).ready(function(){
         });
     })();
 
-
-    //карта
-    function initialize(id) {
-
-        var Coordinates = [
-            {lat: 59.9551157, lng: 30.3116487}
-        ];
-
-        var mapOptions = {
-            zoom: 15,
-            center: new google.maps.LatLng(59.9551157, 30.3116487),
-            disableDefaultUI: true,
-            scrollwheel: false
-        };
-
-        var map = new google.maps.Map(document.getElementById(id),mapOptions);
-
-        switch(id) {
-
-            case 'map' :
-
-                var image = {
-                    anchor: new google.maps.Point(10, 42),
-                    path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
-                    strokeColor: '#AD1380',
-                    strokeWeight: 5,
-                    scale: 0.3
-                };
-
-                var contentString = '<div class="infoWindow">' +
-                    '<div class="infoWindow__container">' +
-                    '<div class="infoWindow__left">' +
-                    '<img src="img/logo2.svg" alt="">' +
-                    '</div>' +
-                    '<div class="infoWindow__right">' +
-                    '197198, г. Санкт-Петербург Александровский парк,' +
-                    'д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская" ' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    pixelOffset: new google.maps.Size(-300, 127),
-                    maxWidth: 470
-                });
-
-                var coords = {
-                    lat: Coordinates[0].lat,
-                    lng: Coordinates[0].lng,
-                };
-
-                var marker = new google.maps.Marker({
-                    position: coords,
-                    map: map,
-                    icon: image,
-                });
-
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
-
-                infowindow.open(map, marker);
-
-                google.maps.event.addListener(infowindow, 'domready', function() {
-                    $('.gm-style-iw').css({
-                        'color': 'red !important'
-                    });
-                    var elem = document.getElementsByClassName('gm-style-iw')[0].parentNode;
-                    var container = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[1];
-                    var arrowShadow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[0];
-                    var arrow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[2];
-                    elem.style.boxShadow = "2px 6px 10px rgba(0,0,0,0.3)";
-                    container.style.border = "none";
-                    container.style.boxShadow = "none";
-                    container.style.backgroundColor = "#fff";
-                    arrowShadow.style.display = "none";
-                    arrow.style.display = "none";
-                });
-
-                break;
-
-            case 'map2' :
-
-                var image = {
-                    anchor: new google.maps.Point(10, 42),
-                    path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
-                    strokeColor: '#AD1380',
-                    strokeWeight: 5,
-                    scale: 0.3,
-                };
-
-                var contentString = '<div class="infoWindow">' +
-                    '<div class="infoWindow__container">' +
-                    '<div class="infoWindow__left">' +
-                    '<img src="img/logo2.svg" alt="">' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    pixelOffset: new google.maps.Size(-170, 95),
-                    maxWidth: 200
-                });
-
-                var coords = {
-                    lat: Coordinates[0].lat,
-                    lng: Coordinates[0].lng,
-                };
-
-                var marker = new google.maps.Marker({
-                    position: coords,
-                    map: map,
-                    icon: image,
-                });
-
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
-
-                infowindow.open(map, marker);
-
-                google.maps.event.addListener(infowindow, 'domready', function() {
-                    $('.gm-style-iw').css({
-                        'color': 'red !important'
-                    });
-                    var elem = document.getElementsByClassName('gm-style-iw')[0].parentNode;
-                    var container = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[1];
-                    var arrowShadow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[0];
-                    var arrow = document.getElementsByClassName('gm-style-iw')[0].previousSibling.children[2];
-                    elem.style.boxShadow = "2px 6px 10px rgba(0,0,0,0.3)";
-                    container.style.border = "none";
-                    container.style.boxShadow = "none";
-                    container.style.backgroundColor = "#fff";
-                    arrowShadow.style.display = "none";
-                    arrow.style.display = "none";
-                });
-
-                break;
+    function heightContent() {
+        if ($('.n-main').height() > $('.n-content').height() && !isMobileWidth()) {
+            $('.n-content').css({
+                'min-height': parseInt($('.n-main').height()) + 'px'
+            });
         }
-    }
-
-    if ($('#map').length) {
-        initialize('map');
-    }
-    if ($('#map2').length) {
-        initialize('map2');
-    }
+    };
+    $(window).on('resize',heightContent);
+    heightContent();
 });

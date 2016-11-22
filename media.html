@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/reset.css" >
 
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="http://musichall.apit.bileter.ru/256fb39358d208374be6db23f8dc1f7f.js"></script>
+	<link rel="stylesheet" href="http://apit.bileter.ru/css/apit.css" type="text/css" media="all" />
     <!-- Template styles -->
 	<link rel="stylesheet" href="js/vendor/swiper/swiper.min.css" >
 	<link rel="stylesheet" href="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.css">
@@ -18,12 +21,15 @@
 	<link rel="stylesheet" href="js/vendor/magnific-popup/magnific-popup.min.css" >
 	<link rel="stylesheet" href="js/vendor/magnific-popup/animations.css" >
 	<link rel="stylesheet" href="css/styles.css" >
+	<link rel="stylesheet" href="css/safari.css" >
+	<link rel="stylesheet" href="css/vision.css" >
 
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
 
 </head>
 
-<body>
+<body class="">
 <div id="medium-indicator"></div>
 <div id="min-indicator"></div>
 <div id="mobile-indicator"></div>
@@ -166,6 +172,24 @@
 	                <a class="n-sidebar__version" href="#">
 	                    Eng version
 	                </a>
+	                <a class="n-sidebar__vision large-vision" href="#">
+	                    <span>
+	                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20" height="20" enable-background="new 0 0 50 50">
+	                            <path fill="#fff" d="M25 36C13.5 36 8.3 25.9 8.1 25.4c-.1-.3-.1-.6 0-.9C8.3 24.1 13.5 14 25 14s16.7 10.1 16.9 10.6c.1.3.1.6 0 .9-.2.4-5.4 10.5-16.9 10.5zM10.1 25c1.1 1.9 5.9 9 14.9 9s13.7-7.1 14.9-9c-1.1-1.9-5.9-9-14.9-9s-13.7 7.1-14.9 9z"/><path d="M25 34c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-16c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z"/>
+	                            <path fill="#fff" d="M25 30c-2.8 0-5-2.2-5-5 0-.6.4-1 1-1s1 .4 1 1c0 1.7 1.3 3 3 3s3-1.3 3-3-1.3-3-3-3c-.6 0-1-.4-1-1s.4-1 1-1c2.8 0 5 2.2 5 5s-2.2 5-5 5z"/>
+	                        </svg>
+	                    </span>
+	                    <span class="txt">Версия для слабовидящих</span>
+	                </a>
+	                <a class="n-sidebar__vision normal-vision hide" href="#">
+	                    <span>
+	                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20" height="20" enable-background="new 0 0 50 50">
+	                            <path fill="#fff" d="M25 36C13.5 36 8.3 25.9 8.1 25.4c-.1-.3-.1-.6 0-.9C8.3 24.1 13.5 14 25 14s16.7 10.1 16.9 10.6c.1.3.1.6 0 .9-.2.4-5.4 10.5-16.9 10.5zM10.1 25c1.1 1.9 5.9 9 14.9 9s13.7-7.1 14.9-9c-1.1-1.9-5.9-9-14.9-9s-13.7 7.1-14.9 9z"/><path d="M25 34c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-16c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z"/>
+	                            <path fill="#fff" d="M25 30c-2.8 0-5-2.2-5-5 0-.6.4-1 1-1s1 .4 1 1c0 1.7 1.3 3 3 3s3-1.3 3-3-1.3-3-3-3c-.6 0-1-.4-1-1s.4-1 1-1c2.8 0 5 2.2 5 5s-2.2 5-5 5z"/>
+	                        </svg>
+	                    </span>
+	                    <span class="txt">Обычная версия</span>
+	                </a>
 	                <div class="n-sidebar__icons">
 	                    <ul>
 	                        <li><a href="#">
@@ -263,6 +287,7 @@
 					<div class="n-media z1">
 						<div class="n-media__container">
 							<a href="#"></a>
+							<div class="n-media__cover"></div>
 							<div class="n-media__cont">
 								<div class="n-media__inside">
 									<div class="n-media__sub">
@@ -279,6 +304,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -294,6 +320,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -311,6 +338,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -326,6 +354,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -343,6 +372,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -358,6 +388,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -377,6 +408,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -392,6 +424,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -409,6 +442,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -424,6 +458,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -441,6 +476,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -456,6 +492,7 @@
 						<div class="n-media z2">
 							<div class="n-media__container">
 								<a href="#"></a>
+								<div class="n-media__cover"></div>
 								<div class="n-media__cont">
 									<div class="n-media__inside">
 										<div class="n-media__sub">
@@ -472,6 +509,7 @@
 					<div class="n-media z1">
 						<div class="n-media__container">
 							<a href="#"></a>
+							<div class="n-media__cover"></div>
 							<div class="n-media__cont">
 								<div class="n-media__inside">
 									<div class="n-media__sub">
@@ -493,33 +531,32 @@
 			</div>
 
 		</div>
-
-		<div class="n-content__bottom">
-			<div class="n-content__bottom__left">
-				<div class="n-content__bottom__header">
-					<span> КУПИТЬ БИЛЕТЫ МОЖНО В КАССЕ МЮЗИК-ХОЛЛА 232-92-01, А ТАКЖЕ В ТЕАТРАЛЬНЫХ КАССАХ ГОРОДА </span>
-				</div>
-			</div>
-			<div class="n-content__bottom__right">
-				<div class="n-content__bottom__sub">
-					<div class="n-content__bottom__cell">
-						<img src="img/logo.png"  alt="">
-					</div>
-					<div class="n-content__bottom__cell n-size">
-						<span>Санкт-Петербургский международный культурный форум</span>
-					</div>
-					<div class="n-content__bottom__cell">
-						<img src="img/gerb.png" width="77" height="81" alt="">
-					</div>
-					<div class="n-content__bottom__cell">
-						<span>При поддержке Комитета по культуре Санкт-Петербурга</span>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 <div class="n-footer">
+    <div class="n-content__bottom">
+        <div class="n-content__bottom__left">
+            <div class="n-content__bottom__header">
+                <span> КУПИТЬ БИЛЕТЫ МОЖНО В КАССЕ МЮЗИК-ХОЛЛА 232-92-01, А ТАКЖЕ В ТЕАТРАЛЬНЫХ КАССАХ ГОРОДА </span>
+            </div>
+        </div>
+        <div class="n-content__bottom__right">
+            <div class="n-content__bottom__sub">
+                <div class="n-content__bottom__cell">
+                    <img src="img/logo.png"  alt="">
+                </div>
+                <div class="n-content__bottom__cell n-size">
+                    <span>Санкт-Петербургский международный культурный форум</span>
+                </div>
+                <div class="n-content__bottom__cell">
+                    <img src="img/gerb.png" width="77" height="81" alt="">
+                </div>
+                <div class="n-content__bottom__cell">
+                    <span>При поддержке Комитета по культуре Санкт-Петербурга</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="n-footer__container">
         <div class="n-footer__left">
             <span>2016 © Все права защищены. Санкт-Петербургский Мюзик Холл</span>
@@ -533,7 +570,6 @@
 </body>
 
 <!-- Scripts -->
-<script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/packery.pkgd.min.js"></script>
 <script src="js/vendor/swiper/swiper.jquery.min.js"></script>
 <script src="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
@@ -542,5 +578,8 @@
 <script src="js/vendor/scrollbar/jquery.scrollbar.min.js"></script>
 <script src="js/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script src="js/vendor/handlebars.min-latest.js"></script>
+<script src="js/vendor/es6-promise.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/map.js"></script>
+<script src="js/vision.js"></script>
 </html>
