@@ -2892,7 +2892,8 @@ body {
             background: none;
 
             &:hover {
-              //text-decoration: underline;
+              text-decoration: underline;
+              font-weight: normal;
             }
           }
         }

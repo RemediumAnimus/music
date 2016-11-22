@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a48bd484-3cf1-401c-8c92-f0766cfbcfb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration-detail.html" afterPath="$PROJECT_DIR$/administration-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration.html" afterPath="$PROJECT_DIR$/administration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration2.html" afterPath="$PROJECT_DIR$/administration2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/afisha-detail.html" afterPath="$PROJECT_DIR$/afisha-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/afisha.html" afterPath="$PROJECT_DIR$/afisha.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contacts.html" afterPath="$PROJECT_DIR$/contacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.html" afterPath="$PROJECT_DIR$/example.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example2.html" afterPath="$PROJECT_DIR$/example2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gallery.html" afterPath="$PROJECT_DIR$/gallery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home.html" afterPath="$PROJECT_DIR$/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media.html" afterPath="$PROJECT_DIR$/media.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news-detail.html" afterPath="$PROJECT_DIR$/news-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news.html" afterPath="$PROJECT_DIR$/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pressa.html" afterPath="$PROJECT_DIR$/pressa.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/__header.html" afterPath="$PROJECT_DIR$/src/html/__header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/styles.scss" afterPath="$PROJECT_DIR$/src/sass/styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tickets.html" afterPath="$PROJECT_DIR$/tickets.html" />
     </list>
     <ignored path="music.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -131,8 +114,8 @@
           <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="231">
-                  <caret line="2894" column="16" selection-start-line="2894" selection-start-column="16" selection-end-line="2894" selection-end-column="16" />
+                <state relative-caret-position="251">
+                  <caret line="2895" column="33" selection-start-line="2895" selection-start-column="33" selection-end-line="2895" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -574,12 +557,12 @@
       <workItem from="1479727951866" duration="614000" />
       <workItem from="1479802348743" duration="627000" />
       <workItem from="1479807606287" duration="248000" />
-      <workItem from="1479809917847" duration="4761000" />
+      <workItem from="1479809917847" duration="4890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537106000" />
+    <option name="totallyTimeSpent" value="537235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1005,8 +988,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sass/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="2894" column="16" selection-start-line="2894" selection-start-column="16" selection-end-line="2894" selection-end-column="16" />
+        <state relative-caret-position="251">
+          <caret line="2895" column="33" selection-start-line="2895" selection-start-column="33" selection-end-line="2895" selection-end-column="33" />
           <folding />
         </state>
       </provider>

@@ -2256,6 +2256,9 @@ h5 {
             border: 0;
             text-align: left;
             background: none; }
+            .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover {
+              text-decoration: underline;
+              font-weight: normal; }
         .n-declarations__date .ui-datepicker-calendar td .n-event {
           margin: 0; }
         .n-declarations__date .ui-datepicker-calendar td:hover .ui-state-default {
