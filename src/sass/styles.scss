@@ -3536,9 +3536,11 @@ body {
   &:hover {
     .n-pic-container__sub {
       transform: scale(2);
+      -webkit-transform: translateZ(0);
     }
     .n-item__inside__pic {
       transform: scale(1.1);
+      -webkit-transform: translateZ(0);
     }
 
     .n-item__btn {
