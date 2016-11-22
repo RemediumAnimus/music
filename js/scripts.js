@@ -140,18 +140,16 @@ $(document).ready(function(){
         $('body').toggleClass('hidden');
     });
 
-    //анимация пунктов в меню
-    $('.n-sidebar__item').click(function(e){
-        //e.preventDefault();
-
-        if (!$(this).find('.n-sidebar__sublist').length) {
+    function sidebarMove($elem) {
+        if (!$elem.find('.n-sidebar__sublist').length) {
             return;
         }
-        var height = $(this).find('.n-sidebar__sublist').outerHeight();
+
+        var height = $elem.find('.n-sidebar__sublist').outerHeight();
         var prevHeight = $('.n-sidebar__list').height();
 
-        $(this).find('.n-sidebar__sublist').show();
-        $(this).find('.n-sidebar__sublist').data('height', prevHeight + 'px');
+        $elem.find('.n-sidebar__sublist').show();
+        $elem.find('.n-sidebar__sublist').data('height', prevHeight + 'px');
 
         if (height > $('.n-sidebar__list').height()) {
             TweenMax.to($('.n-sidebar__list'),0.5, {
@@ -166,6 +164,15 @@ $(document).ready(function(){
                 "left": "-100%"
             },
         });
+    }
+
+    sidebarMove($('.n-sidebar__item.active'));
+
+    //анимация пунктов в меню
+    $('.n-sidebar__item').click(function(e){
+        //e.preventDefault();
+
+        sidebarMove($(this));
 
     });
 
