@@ -34,19 +34,6 @@ function eraseCookie(name) {
 }
 $(document).ready(function() {
 
-    $("input:radio[name|='font_size[]']").each(function(){
-        $(this).bind('change', function() {
-            var classes="normal-fs large-fs";
-            $("body").removeClass(classes);
-            var cookie_name = cookie_prefix + "fs";
-            eraseCookie(cookie_name);
-            if(this.id != "normal"){
-                $("body").addClass(this.id+"-fs");
-                createCookie(cookie_name, this.id+"-fs");
-            }
-        });
-    });
-
     $('.n-sidebar__vision').click(function(e){
         e.preventDefault();
         var cookie_name = cookie_prefix + "fs";
@@ -62,6 +49,13 @@ $(document).ready(function() {
         $('.large-vision').removeClass('hide');
         $("body").removeClass("large-fs kern_large");
         eraseCookie(cookie_name);
+    });
+
+    $('.n-menu__burger').on('click',function(){
+        eraseCookie('menu-visible');
+    });
+    $('.n-sidebar__close').on('click',function(){
+        createCookie('menu-hide', "true");
     });
 });
 

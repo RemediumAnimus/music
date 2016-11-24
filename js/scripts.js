@@ -7,6 +7,8 @@ $(document).ready(function(){
     var events;
     var decksLength;
     var counter = 1;
+    var translate = translateArray; // global
+    var months = translate.monthNames;
 
     function bileter() {
         if ($('.bileter_init').length) {
@@ -28,6 +30,12 @@ $(document).ready(function(){
     function isMobileWidth() {
         return $('#mobile-indicator').is(':visible');
     }
+
+    function isEnglish() {
+        return $('body').hasClass('english');
+    }
+
+    console.log(isEnglish());
 
     //адаптация блоков на главной
     function normalize() {
@@ -436,8 +444,8 @@ $(document).ready(function(){
             gutter: '.gutter-sizer'
         });
 
-        $('.n-content').addClass('n-contentActive');
-        $('.n-sidebar').addClass('n-sideActive');
+        //$('.n-content').addClass('n-contentActive');
+        //$('.n-sidebar').addClass('n-sideActive');
     }
 
     if (!isMobileWidth()) {
@@ -461,6 +469,16 @@ $(document).ready(function(){
 
     if ($('#dateSlider').length) {
         var dateSlider = new Swiper('#dateSlider', {
+            loop: false,
+            speed: 900,
+            effect: 'fade',
+            preventClicks: true,
+            preventClicksPropagation: true
+        });
+    };
+
+    if ($('#dateSliderMob').length) {
+        var dateSliderMob = new Swiper('#dateSliderMob', {
             loop: false,
             speed: 900,
             effect: 'fade',
@@ -696,9 +714,11 @@ $(document).ready(function(){
         $('.n-events li').each(function(index){
             $(this).hover(function(){
                 dateSlider.slideTo(index);
+                dateSliderMob.slideTo(index);
             });
         });
     };
+
     sliderEvents();
 
     function checkEvents() {
@@ -712,24 +732,49 @@ $(document).ready(function(){
                 $('#sliderWrap').css({
                     'background':$('.empty-event').data('pic')
                 });
-                $('.empty-event').show();
+                $('.n-date').find('.empty-event').show();
                 return false;
             } else {
-                $('.empty-event').hide();
+                $('.n-date').find('.empty-event').hide();
             }
         });
 
         $('#datepicker td').each(function(index) {
             if ($(this).find('.ui-state-active').length) {
                 $('#sliderWrap').find('.n-item__date i').html($(this).find('.ui-state-active').html());
-                $('#sliderWrap').find('.n-item__date span').html($('#datepicker').find('.ui-datepicker-month').html());
+                $('#sliderWrap').find('.n-item__date span').html(months[$(this).data('month')]);
             }
             if (!$(this).find('.n-event').length) {
                 $(this).css({
                     'opacity': 0.5
                 });
-                $('#sliderWrap').css({
-                    //'background':$('.empty-event').data('pic')
+            }
+        });
+
+        $('#datepicker-mob td').each(function(index) {
+            var $that = $(this);
+            if (!$(this).find('.n-event').length && $(this).find('.ui-state-active').length) {
+                $(this).css({
+                    'opacity': 0.5
+                });
+                $('#sliderWrapMob').css({
+                    'background':$('.empty-event').data('pic')
+                });
+                $('.n-date-mob').find('.empty-event').show();
+                return false;
+            } else {
+                $('.n-date-mob').find('.empty-event').hide();
+            }
+        });
+
+        $('#datepicker-mob td').each(function(index) {
+            if ($(this).find('.ui-state-active').length) {
+                $('#sliderWrapMob').find('.n-item__date i').html($(this).find('.ui-state-active').html());
+                $('#sliderWrapMob').find('.n-item__date span').html($('#datepicker').find('.ui-datepicker-month').html());
+            }
+            if (!$(this).find('.n-event').length) {
+                $(this).css({
+                    'opacity': 0.5
                 });
             }
         });
@@ -774,13 +819,11 @@ $(document).ready(function(){
                 success: function(eventsBigDate) {
                     if (loaded) { return }
                     setTimeout(function(){
-                        $('.n-preloader__val').animate({
-                            //'opacity': 0
-                        });
 
                         loadEventsBigDate('#bigDate',eventsBigDate);
                         loadEventsDate('#bigDate2',eventsBigDate);
                         loadEventsBigDate('#datepicker', eventsBigDate);
+                        loadEventsBigDate('#datepicker-mob', eventsBigDate);
                         $('.n-event').addClass('hide');
                         imageLoader();
 
@@ -801,6 +844,8 @@ $(document).ready(function(){
                         loaded = true;
                         events = eventsBigDate;
                         loadSliderEvents($('#sliderWrap'));
+                        loadSliderEventsMob($('#sliderWrapMob'));
+                        resizePicker();
                         bileter();
                     });
                 }
@@ -837,6 +882,13 @@ $(document).ready(function(){
             $elem.find('.n-event__cover').hide();
         }
     }
+
+    function resizePicker() {
+        console.log($('#n-events-mob').outerHeight())
+        $('.n-date-mob .n-item__container').css({
+            'height': $('#n-events-mob').outerHeight() + 500 || $('.n-date-mob .empty-event').outerHeight() + 500
+        });
+    };
 
     function checkElem($elem) {
         $elem.find('td').each(function() {
@@ -982,7 +1034,9 @@ $(document).ready(function(){
     });
 
     $('#datepicker').datepicker({
-        monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+        monthNames: translate.monthNames,
+        dayNames: translate.dayNames,
+        dayNamesMin: translate.dayNamesMin,
         showOtherMonths: true,
         selectOtherMonths: true,
         autoClose: true,
@@ -1004,15 +1058,42 @@ $(document).ready(function(){
         }
     });
 
+    $('#datepicker-mob').datepicker({
+        monthNames: translate.monthNames,
+        dayNames: translate.dayNames,
+        dayNamesMin: translate.dayNamesMin,
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        autoClose: true,
+        firstDay: 1,
+        onSelect: function(e, inst){
+            inst.inline = false;
+            setTimeout(function() {
+                loadSliderEventsMob($('#sliderWrapMob'));
+                checkEvents();
+                resizePicker();
+            });
+        },
+        onChangeMonthYear: function(){
+            setTimeout(function() {
+                loadEventsBigDate('#datepicker-mob', events);
+                eventInit();
+                loadSliderEventsMob($('#sliderWrapMob'));
+                checkEvents();
+                resizePicker();
+            });
+        }
+    });
+
     $('#bigDate').datepicker({
-        monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-        dayNames: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
-        dayNamesMin: [ "Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота" ],
+        monthNames: translate.monthNames,
+        dayNames: translate.dayNames,
+        dayNamesMin: translate.dayNamesMin,
         showOtherMonths: true,
         autoClose: true,
         firstDay: 1,
         onSelect: function(date, inst){
-            inst.inline = false;
+            inst.show();
         },
         onChangeMonthYear: function() {
             setTimeout(function(){
@@ -1030,13 +1111,13 @@ $(document).ready(function(){
 
 
     $('#bigDate2').datepicker({
-        monthNames: [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
-        dayNames: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
-        dayNamesMin: [ "Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье" ],
+        monthNames: translate.monthNames,
+        dayNames: translate.dayNames,
+        dayNamesMin: translate.dayNamesMin,
         showOtherMonths: true,
         autoClose: true,
         onSelect: function(e,inst){
-            inst.inline = false;
+            inst.show();
         },
         onChangeMonthYear: function(inst){
             setTimeout(function(){
@@ -1145,6 +1226,17 @@ $(document).ready(function(){
             $(this).find('a').eq(0).addClass('ui-state-active');
         });
 
+         $('#datepicker-mob td').click(function(e){
+             if (!$(this).find('.n-event').length) {
+                 e.preventDefault();
+                 return;
+             }
+             $('#datepicker-mob td').each(function(e){
+                 $(this).find('a').eq(0).removeClass('ui-state-active');
+             });
+             $(this).find('a').eq(0).addClass('ui-state-active');
+         });
+
         $('.n-declarations__date *').click(function(){
             if ($(this).is('[href]')) {
                 location.href = $(this).attr('href');
@@ -1187,7 +1279,42 @@ $(document).ready(function(){
 
         };
         sliderEvents();
-    }
+    };
+
+    function loadSliderEventsMob($container) {
+        if (!dateSliderMob) {return}
+        var $events = $container.find('.ui-state-active').parent().find('.n-event');
+        var source   = $("#template-events-mob").html();
+        var lastSlide;
+        dateSliderMob.removeAllSlides();
+        $events.each(function(index){
+            var event = $(this).find('.n-event');
+            var bg = $(this).find('.n-event__subBg').css('background-image');
+            var slide = $("<div class='n-item__inside__pic swiper-slide notransition'></div>");
+            slide.css({
+                'background-image': bg
+            });
+            dateSliderMob.appendSlide(slide);
+            lastSlide = index;
+        });
+
+        $('.swiper-slide').removeClass('notransition');
+
+        $('#n-events-mob').find('li').each(function(){
+            $(this).remove();
+        });
+
+        for (var i=0; i<events.length; i++) {
+            var date = events[i].date.split('.');
+            if (parseInt($container.find('.ui-state-active').html()) == date[0] && $container.find('.ui-state-active').parent().data('month') == date[1] - 1 && $container.find('.ui-state-active').parent().data('year') == date[2]) {
+                var template = Handlebars.compile(source);
+                var html = template(events[i]);
+                $('#n-events-mob').append(html);
+            }
+
+        };
+        sliderEvents();
+    };
 
     (function (global) {
 
@@ -1328,6 +1455,7 @@ $(document).ready(function(){
 
         var source   = $("#template-BigDate").html();
         var day = new Date().getDate();
+        var month = new Date().getMonth();
 
         var events = events.sort(function(obj1, obj2) {
             // Сортировка по возрастанию
@@ -1354,7 +1482,7 @@ $(document).ready(function(){
 
                     $(this).find('.event-holder .n-event__cont').append(html);
 
-                    if (day > parseInt($(this).find('.ui-state-default').html())) {
+                    if (day > parseInt($(this).find('.ui-state-default').html()) && month >= $(this).data('month')) {
                         $(this).find('.event-btn').hide();
                     }
 
@@ -1367,6 +1495,8 @@ $(document).ready(function(){
         if (!elem.length) {return}
 
         var source   = $("#template-BigDate2").html();
+        var day = new Date().getDate();
+        var month = new Date().getMonth();
 
         $('' + elem + ' .ui-datepicker-calendar tbody').find('td').each(function(index){
             $(this).append('<div class="event-holder"><div class="event-container"></div></div>');
@@ -1383,7 +1513,11 @@ $(document).ready(function(){
                         $(this).find('.event-holder').append('<div class="n-event__cover"></div><div class="n-event__cont"></div>');
                     }
 
-                    $(this).find('.event-holder .n-event__cont').append(html)
+                    $(this).find('.event-holder .n-event__cont').append(html);
+
+                    if (day > parseInt($(this).find('.ui-state-default').html()) && month >= $(this).data('month')) {
+                        $(this).find('.event-btn').hide();
+                    }
                 }
             };
         });
@@ -1508,7 +1642,15 @@ $(document).ready(function(){
         if(isMobileWidth()) {
             $('.n-content').removeClass('n-contentActive');
             $('.n-sidebar').removeClass('n-sideActive');
+        } else {
+            if (readCookie('menu-hide')) {
+                $('.n-content').removeClass('n-contentActive');
+                $('.n-sidebar').removeClass('n-sideActive');
+                $('.n-menu').removeClass('n-menu--active');
+                $('.n-footer').addClass('n-footer--left');
+            }
         }
+        console.log(readCookie('menu-visible'));
     });
 
     $('.n-poster__dates').click(function(){
@@ -1522,6 +1664,22 @@ $(document).ready(function(){
     });
 
     //попап
+    $.extend(true, $.magnificPopup.defaults, {
+        tClose: 'Закрыть (Esc)', // Alt text on close button
+        tLoading: 'Загрузка...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+        gallery: {
+            tPrev: 'Предыдущее (Стрелка влево)', // Alt text on left arrow
+            tNext: 'Следущее (Стрелка вправо)', // Alt text on right arrow
+            tCounter: '%curr% из %total%' // Markup for "1 of 7" counter
+        },
+        image: {
+            tError: '<a href="%url%">The image</a> could not be loaded.' // Error message when image could not be loaded
+        },
+        ajax: {
+            tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
+        }
+    });
+
     $('.pop-img').magnificPopup({
         type: 'image',
         gallery: {
@@ -1530,16 +1688,16 @@ $(document).ready(function(){
         removalDelay: 500,
         callbacks: {
             beforeOpen: function() {
-                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-                this.st.mainClass = this.st.el.attr('data-effect');
+                //this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                //this.st.mainClass = this.st.el.attr('data-effect');
             },
             change: function() {
                 if (this.isOpen) {
-                    this.wrap.addClass('mfp-open');
+                    //this.wrap.addClass('mfp-open');
                 }
             },
             beforeClose: function() {
-                this.wrap.removeClass('mfp-open');
+                //this.wrap.removeClass('mfp-open');
             }
         },
     });
@@ -1588,4 +1746,18 @@ $(document).ready(function(){
     };
     $(window).on('resize',heightContent);
     heightContent();
+
+    $('.n-header__date').click(function(){
+        $('.n-date-mob').show();
+        setTimeout(function(){
+            $('.n-date-mob').addClass('n-date-mob--visible');
+        });
+    });
+
+    $('.n-item__close').click(function(){
+        $('.n-date-mob').removeClass('n-date-mob--visible');
+        setTimeout(function(){
+            $('.n-date-mob').hide();
+        },200);
+    });
 });

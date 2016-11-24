@@ -1,5 +1,6 @@
 (function(){
     var myMap;
+    var translate = translateArray; // global
 
     function initialize(id){
         var center = [59.9551157, 30.3116487];
@@ -8,9 +9,9 @@
             center: center,
             zoom: 15,
             controls: [
-                "zoomControl",
+                "zoomControl"
             ]
-        }, {suppressMapOpenBlock: true});
+        }, {suppressMapOpenBlock: true,minZoom: 3});
 
         myMap.behaviors.disable('scrollZoom');
 
@@ -25,8 +26,7 @@
             '<img src="/img/logo2.svg" alt="">' +
             '</div>' +
             '<div class="infoWindow__right">' +
-            '197198, г. Санкт-Петербург Александровский парк,' +
-            'д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская" ' +
+                translate.mapInfo +
             '</div>' +
             '</div>' +
             '</div>' +

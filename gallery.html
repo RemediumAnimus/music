@@ -43,10 +43,17 @@
 
 	<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
 	<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
-
+	<script>
+		var translateArray = {
+			monthNames: [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
+			dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
+			dayNamesMin: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
+			mapInfo : '197198, г. Санкт-Петербург Александровский парк, д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская"'
+		}
+	</script>
 </head>
 
-<body class="">
+<body class="english">
 <div id="medium-indicator"></div>
 <div id="min-indicator"></div>
 <div id="mobile-indicator"></div>
@@ -90,9 +97,61 @@
 		</div>
 	</div>
 </div>
+	<div class="n-item n-date-mob">
+		<div class="n-item__container">
+			<div class="n-item__inside" id="sliderWrapMob">
+				<div class="n-dateSlider" id="dateSliderMob">
+					<div class="n-dateSlider__container swiper-wrapper">
+
+					</div>
+				</div>
+				<div class="n-item__inside__cover" style="background:#000"></div>
+				<div class="n-item__date">
+					<i></i><span></span>
+				</div>
+				<div class="n-item__close"></div>
+				<ul class="n-events" id="n-events-mob">
+					<script id="template-events-mob" type="text/x-handlebars-template">
+						<li><a href="{{path}}"><i>{{time}}</i><span>{{events}}</span></a></li>
+					</script>
+				</ul>
+				<div class="empty-event" data-pic="url(img/afisha_blank.jpg)">
+					<span>В этот день мероприятий нет</span>
+				</div>
+				<div class="picker" data-json-url="events.json">
+					<div id="datepicker-mob"></div>
+					<script id="template-BigDate-mob" type="text/x-handlebars-template">
+						<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
+						<div class="n-event" data-id='{{id}}'>
+							<div class="n-event__subBg" style="background-image:url('{{pic}}')"></div>
+							<div class="n-event__type">
+								<div class="n-event__type__l">
+									{{holl}}
+								</div>
+								<div class="n-event__type__l">
+									{{type}}
+								</div>
+							</div>
+							<i class="n-event__info">
+								<span class='n-event__t'><a href="{{path}}">{{events}}</a></span>
+								<span class="n-event__b">{{descriptions}}</span>
+							</i>
+							<b>
+								<span class="n-event__time">{{time}}</span>
+							</b>
+							<div class="n-event__age">
+								{{age}}
+							</div>
+							<a class="event-btn" href="{{path}}">Купить билет</a>
+						</div>
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- /.n-header -->
 <div class="n-main">
-	<div class="n-sidebar">
+	<div class="n-sidebar n-sideActive">
 	    <div class="n-sidebar__container">
 	        <div class="n-sidebar__close">
 	            <div class="n-sidebar__close__circle"></div>
@@ -280,19 +339,18 @@
 	        </div>
 	    </div>
 	</div>
-
 	<div class="n-menu n-menu--active">
-		<div class="n-menu__logo">
-			<a href="#">
-				<img src="img/logo-min.svg" alt="">
-			</a>
-		</div>
-		<div class="n-menu__burger">
-			<div class="n-menu__burger__line"></div>
-		</div>
+	    <div class="n-menu__logo">
+	        <a href="#">
+	            <img src="img/logo-min.svg" alt="">
+	        </a>
+	    </div>
+	    <div class="n-menu__burger">
+	        <div class="n-menu__burger__line"></div>
+	    </div>
 	</div>
 
-	<div class="n-content">
+	<div class="n-content n-contentActive">
 		<div class="n-content__crumbs">
 			<ul>
 				<li class="n-btn-rev"><a href="#">Вернуться в раздел "Медиа"</a></li>
@@ -450,5 +508,5 @@
 <script src="js/vendor/es6-promise.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/map.js"></script>
-<script src="js/vision.js"></script>
+<script src="js/cookie.js"></script>
 </html>

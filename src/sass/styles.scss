@@ -20,6 +20,8 @@ body {
 
 
 
+
+
 .page {
   //min-height: 100%;
   //position: relative;
@@ -29,6 +31,7 @@ body {
   flex-direction: column;
   min-height: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 h1 {
@@ -258,8 +261,21 @@ h5 {
     vertical-align: middle;
     cursor: pointer;
     text-align: right;
-  }
 
+    &:hover {
+      path {
+        fill: #fff;
+      }
+
+      rect {
+        fill: #fff;
+      }
+
+      circle {
+        fill: #fff;
+      }
+    }
+  }
 }
 
 .n-main {
@@ -776,11 +792,11 @@ body {
     padding-top: 20px;
     position: fixed;
     bottom: 0;
-    left: 0;
     padding-left: 50px;
     background: #1C1F21;
     width: 15%;
     min-width: 200px;
+    left: -15%;
 
     @media all and (max-width: $mobile) {
       position: static;
@@ -1392,14 +1408,14 @@ body {
       display: block;
 
       @media all and (max-width: $mobile) {
-        max-height: 240px;
+        max-height: 230px;
         overflow: hidden;
         @include transition($value: all, $time: 0.55s, $function: linear);
       }
     }
 
     .n-full {
-      max-height: 1000px;
+      max-height: 100%;
     }
 
     &__btn {
@@ -1500,8 +1516,8 @@ body {
         }
 
         .n-detail__slider__pic {
-          left: -25%;
-          right: -25%;
+          //left: -25%;
+          //right: -25%;
         }
 
         a {
@@ -3508,6 +3524,10 @@ body {
   clear: both;
 }
 
+.swiper-slide {
+  position: static;
+}
+
 .n-item {
   float: left;
   position: relative;
@@ -3598,6 +3618,43 @@ body {
       opacity: 0;
       z-index: 1;
       @include transition($value: all, $time: 0.55s, $function: linear);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 20;
+
+    &:after {
+      display: block;
+      content: '';
+      height: 2px;
+      width: 100%;
+      background: #fff;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      height: 2px;
+      width: 100%;
+      background: #fff;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      right: 0;
     }
   }
 
@@ -3708,7 +3765,7 @@ body {
     z-index: 2;
 
     @media all and(max-width: $mobile) {
-      bottom: 55px;
+      bottom: 35px;
       left: 6%;
     }
 
@@ -4873,7 +4930,7 @@ body {
     width: 70%;
     padding-top: 70%;
     top: 7%;
-    left: 17%;
+    left: 15%;
   }
 
   &__sub {
@@ -5061,7 +5118,7 @@ body {
   }
 }
 
-.n-date {
+.n-date, .n-date-mob {
 
   .n-item__inside {
     padding: 6% 8%;
@@ -5079,6 +5136,93 @@ body {
     .n-item__inside__pic {
       transform: none;
     }
+  }
+
+  @media all and (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.n-date-mob {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0,0,0,0.5);
+  overflow: auto;
+  opacity: 0;
+  @include transition();
+
+  .n-item__container {
+    height: 750px;
+  }
+
+  @media all and (max-width: $mobile) {
+    display: none;
+
+    .n-events li a {
+      padding: 15px 16px;
+    }
+
+    .empty-event span {
+      padding: 15px 16px;
+    }
+
+    .n-item__inside {
+      padding: 6% 4%;
+    }
+
+    .n-events li span {
+      font-size: 16px;
+    }
+
+    .n-events li i {
+      font-size: 14px;
+    }
+
+    .empty-event span {
+      font-size: 16px;
+    }
+
+    .n-item__date i {
+      font-size: 42px;
+    }
+
+    .n-item__date span {
+      font-size: 18px;
+    }
+
+    .ui-datepicker .ui-datepicker-title {
+      font-size: 16px;
+    }
+
+    .ui-widget-content .ui-state-default {
+      font-size: 16px;
+    }
+
+    .ui-state-default.ui-state-hover:after, .ui-state-default.ui-state-active:after {
+      width: 36px;
+      height: 36px;
+    }
+
+    .picker {
+      height: 270px;
+    }
+
+    .n-events, .empty-event {
+      bottom: 280px;
+    }
+
+    .n-item__inside {
+      padding: 20px;
+    }
+  }
+
+  &--visible {
+    opacity: 1;
   }
 }
 
@@ -6383,6 +6527,10 @@ body {
     z-index: 0;
   }
 
+  &--left {
+    margin-left: 62px;
+  }
+
   &__container {
     padding: 0px 50px;
     display: table;
@@ -6512,7 +6660,6 @@ body {
     font-family: $pt75;
     color: #fff;
     overflow: hidden;
-    padding: 15px 28px;
 
     @media all and (max-width: $max) {
       font-size: 1.0vw;
@@ -6520,6 +6667,12 @@ body {
 
     @media all and (max-width: $min) {
       font-size: 1.7vw;
+    }
+
+    a {
+      display: block;
+      overflow: hidden;
+      padding: 15px 28px;
     }
 
     &:hover {
@@ -6729,6 +6882,10 @@ body {
 
 .n-sideActive {
   left: 0;
+
+  .n-sidebar__icons {
+    left: 0;
+  }
 }
 
 .fixtop {
@@ -6895,6 +7052,14 @@ body {
 }
 
 #datepicker {
+  .event-holder {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+#datepicker-mob {
   .event-holder {
     width: 0;
     height: 0;
@@ -7147,6 +7312,7 @@ body {
   strong {
     font-style: normal;
     font-family: Scada-Bold;
+    font-weight: normal;
   }
 }
 
@@ -7411,6 +7577,10 @@ body {
   .n-item__inside {
     overflow: hidden;
   }
+}
+
+.ymaps-2-1-45-map {
+  width: 100% !important;
 }
 
 
