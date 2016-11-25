@@ -9,6 +9,7 @@ div {
 
 html {
   height: 100%;
+  overflow: auto !important;
 }
 
 body {
@@ -5771,6 +5772,12 @@ body {
       background: #785AA2;
     }
 
+    ul {
+      @media all and (max-width: $mobile) {
+        padding: 0px 20px;
+      }
+    }
+
     .n-container {
       @media all and (max-width: $mobile) {
         position: relative;
@@ -6073,7 +6080,7 @@ body {
   }//header
 
   &__dates {
-    padding-top: 150px;
+    padding-top: 100px;
     width: 95%;
 
     @media all and (max-width: $mid) {
@@ -7533,7 +7540,7 @@ body {
 
 .bileter_dialog {
   @media all and (max-width: $mobile) {
-    width: 95%;
+    width: 90%;
     padding: 10px;
   }
 }

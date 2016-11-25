@@ -64,7 +64,8 @@ div {
   box-sizing: border-box; }
 
 html {
-  height: 100%; }
+  height: 100%;
+  overflow: auto !important; }
 
 body {
   background: #1C1F21;
@@ -4311,6 +4312,9 @@ h5 {
         overflow: hidden;
         background: #785AA2; } }
     @media all and (max-width: 830px) {
+      .n-poster__top ul {
+        padding: 0px 20px; } }
+    @media all and (max-width: 830px) {
       .n-poster__top .n-container {
         position: relative; } }
     .n-poster__top__bg {
@@ -4537,7 +4541,7 @@ h5 {
       .n-poster__header ul li:last-child:after {
         display: none; }
   .n-poster__dates {
-    padding-top: 150px;
+    padding-top: 100px;
     width: 95%; }
     @media all and (max-width: 1366px) {
       .n-poster__dates {
@@ -5581,7 +5585,7 @@ h5 {
 
 @media all and (max-width: 830px) {
   .bileter_dialog {
-    width: 95%;
+    width: 90%;
     padding: 10px; } }
 
 @media all and (max-width: 830px) {
