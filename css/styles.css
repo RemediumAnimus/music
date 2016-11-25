@@ -4875,7 +4875,9 @@ h5 {
   left: 0;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
-          flex: 0 0 auto; }
+          flex: 0 0 auto;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
   @media all and (max-width: 1366px) {
     .n-footer {
       margin-left: 200px; } }

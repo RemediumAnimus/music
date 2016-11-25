@@ -714,8 +714,9 @@ $(document).ready(function(){
     function sliderEvents() {
         $('.n-events li').each(function(index){
             $(this).hover(function(){
-                dateSlider.slideTo(index);
-                dateSliderMob.slideTo(index);
+                console.log(index);
+                dateSlider.slideTo(index - 1);
+                dateSliderMob.slideTo(index - 1);
             });
         });
     };

@@ -6524,6 +6524,7 @@ body {
   right: 0;
   left: 0;
   flex: 0 0 auto;
+  flex-shrink: 0;
 
   @media all and (max-width: $mid) {
     margin-left: 200px;
