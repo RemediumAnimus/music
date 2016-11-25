@@ -45,15 +45,24 @@
 	<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
 	<script>
 		var translateArray = {
-			monthNames: [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
+			monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
 			dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
 			dayNamesMin: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
-			mapInfo : '197198, г. Санкт-Петербург Александровский парк, д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская"'
+			mapInfo : '197198, г. Санкт-Петербург Александровский парк, д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская"',
+			tClose: 'Закрыть (Esc)', // Alt text on close button
+			tLoading: 'Загрузка...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+			tPrev: 'Предыдущее (Стрелка влево)', // Alt text on left arrow
+			tNext: 'Следущее (Стрелка вправо)', // Alt text on right arrow
+			tCounter: '%curr% из %total%', // Markup for "1 of 7" counter
+			tError: '<a href="%url%">Изображение</a> не может быть загружено.', // Error message when image could not be loaded
+			ajax: {
+				tError: '<a href="%url%">Изображение</a> не может быть загружено.' // Error message when ajax request failed
+			}
 		}
 	</script>
 </head>
 
-<body class="english">
+<body>
 <div id="medium-indicator"></div>
 <div id="min-indicator"></div>
 <div id="mobile-indicator"></div>
@@ -268,7 +277,7 @@
 	                </a>
 	                <div class="n-sidebar__icons">
 	                    <ul>
-	                        <li><a href="#">
+	                        <li><a href="https://vk.com/musichall_spb">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -288,7 +297,7 @@
 									</g>
 								</svg>
 	                        </a></li>
-	                        <li><a href="#">
+	                        <li><a href="https://www.facebook.com/musichallspb/">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -303,7 +312,7 @@
 									</g>
 								</svg>
 	                        </a></li>
-	                        <li><a href="#">
+	                        <li><a href="https://www.instagram.com/musichallspb_official/">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -727,9 +736,10 @@
 </body>
 
 <!-- Scripts -->
+<script src="js/vendor/jquery.touchSwipe.min.js"></script>
 <script src="js/vendor/packery.pkgd.min.js"></script>
 <script src="js/vendor/swiper/swiper.jquery.min.js"></script>
-<script src="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 <script src="js/vendor/tweenmax/TweenMax.min.js"></script>
 <script src="js/vendor/tabby/tabby.min.js"></script>
 <script src="js/vendor/scrollbar/jquery.scrollbar.min.js"></script>

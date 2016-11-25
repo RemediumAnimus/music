@@ -45,15 +45,24 @@
 	<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
 	<script>
 		var translateArray = {
-			monthNames: [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
+			monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
 			dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
 			dayNamesMin: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
-			mapInfo : '197198, г. Санкт-Петербург Александровский парк, д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская"'
+			mapInfo : '197198, г. Санкт-Петербург Александровский парк, д. 4, «Театр «Мюзик-Холл» Станция метро "Горьковская"',
+			tClose: 'Закрыть (Esc)', // Alt text on close button
+			tLoading: 'Загрузка...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+			tPrev: 'Предыдущее (Стрелка влево)', // Alt text on left arrow
+			tNext: 'Следущее (Стрелка вправо)', // Alt text on right arrow
+			tCounter: '%curr% из %total%', // Markup for "1 of 7" counter
+			tError: '<a href="%url%">Изображение</a> не может быть загружено.', // Error message when image could not be loaded
+			ajax: {
+				tError: '<a href="%url%">Изображение</a> не может быть загружено.' // Error message when ajax request failed
+			}
 		}
 	</script>
 </head>
 
-<body class="english">
+<body>
 <div id="medium-indicator"></div>
 <div id="min-indicator"></div>
 <div id="mobile-indicator"></div>
@@ -268,7 +277,7 @@
 	                </a>
 	                <div class="n-sidebar__icons">
 	                    <ul>
-	                        <li><a href="#">
+	                        <li><a href="https://vk.com/musichall_spb">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -288,7 +297,7 @@
 									</g>
 								</svg>
 	                        </a></li>
-	                        <li><a href="#">
+	                        <li><a href="https://www.facebook.com/musichallspb/">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -303,7 +312,7 @@
 									</g>
 								</svg>
 	                        </a></li>
-	                        <li><a href="#">
+	                        <li><a href="https://www.instagram.com/musichallspb_official/">
 	                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                                 viewBox="0 0 41.668 38.334" enable-background="new 0 0 41.668 38.334" xml:space="preserve">
 									<g>
@@ -539,38 +548,16 @@
 							Подробнее
 						</div>
 						<div class="n-detail__icons">
-							<ul>
-								<li class="vk">
-									<a href="#">
-										<svg height="45" preserveAspectRatio="xMidYMid" viewBox="0 0 512 512" width="45" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-											<circle fill="#fff" class="cls-1" cx="256" cy="256" r="256"></circle>
-											<path fill="#4c75a3" class="cls-2" d="M256.000,512.000 C114.615,512.000 0.000,397.385 0.000,256.000 C0.000,114.615 114.615,0.000 256.000,0.000 C397.385,0.000 512.000,114.615 512.000,256.000 C512.000,397.385 397.385,512.000 256.000,512.000 ZM408.262,177.567 C403.684,173.703 386.026,173.857 368.512,173.953 C350.612,174.051 332.856,174.151 328.761,175.760 C324.960,177.254 316.396,197.876 305.273,219.138 C292.694,243.182 277.155,266.285 267.329,266.131 C254.595,265.932 257.541,226.412 258.294,197.449 C258.795,178.216 255.676,172.218 252.874,170.338 C246.074,165.776 227.578,161.301 227.578,161.301 C227.578,161.301 172.273,157.105 164.339,181.182 C174.857,182.563 193.040,179.199 186.021,253.479 C185.680,257.086 177.550,287.689 151.691,246.250 C145.303,236.013 120.484,174.187 111.941,173.953 C83.257,173.167 55.131,171.982 45.087,177.567 C35.934,182.658 57.476,225.400 93.872,282.398 C123.635,329.009 155.156,365.423 209.510,374.577 C219.663,375.592 246.438,376.804 254.681,372.769 C260.433,369.953 253.444,329.531 272.749,325.776 C281.429,324.088 314.410,367.757 326.954,372.769 C334.564,375.809 351.340,376.938 368.512,376.384 C387.089,375.784 408.036,378.005 410.069,365.539 C414.615,337.668 354.077,301.429 352.250,284.205 C350.940,271.850 374.394,249.074 386.580,231.790 C401.429,210.730 417.520,185.382 408.262,177.567 Z"></path>
-										</svg>
-									</a>
-								</li>
-								<li class="facebook">
-									<a href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="45px" height="45px" viewBox="0 0 49.652 49.652" style="enable-background:new 0 0 49.652 49.652;" xml:space="preserve">
-											<g>
-												<g>
-													<path d="M24.826,0C11.137,0,0,11.137,0,24.826c0,13.688,11.137,24.826,24.826,24.826c13.688,0,24.826-11.138,24.826-24.826    C49.652,11.137,38.516,0,24.826,0z M31,25.7h-4.039c0,6.453,0,14.396,0,14.396h-5.985c0,0,0-7.866,0-14.396h-2.845v-5.088h2.845    v-3.291c0-2.357,1.12-6.04,6.04-6.04l4.435,0.017v4.939c0,0-2.695,0-3.219,0c-0.524,0-1.269,0.262-1.269,1.386v2.99h4.56L31,25.7z    " fill="#006DF0"></path>
-												</g>
-											</g>
-											</svg>
-									</a>
-								</li>
-								<li class="tv">
-									<a href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="45px" height="45px" viewBox="0 0 49.652 49.652" style="enable-background:new 0 0 49.652 49.652;" xml:space="preserve">
-											<g>
-												<g>
-													<path d="M24.826,0C11.137,0,0,11.137,0,24.826c0,13.688,11.137,24.826,24.826,24.826c13.688,0,24.826-11.138,24.826-24.826    C49.652,11.137,38.516,0,24.826,0z M35.901,19.144c0.011,0.246,0.017,0.494,0.017,0.742c0,7.551-5.746,16.255-16.259,16.255    c-3.227,0-6.231-0.943-8.759-2.565c0.447,0.053,0.902,0.08,1.363,0.08c2.678,0,5.141-0.914,7.097-2.446    c-2.5-0.046-4.611-1.698-5.338-3.969c0.348,0.066,0.707,0.103,1.074,0.103c0.521,0,1.027-0.068,1.506-0.199    c-2.614-0.524-4.583-2.833-4.583-5.603c0-0.024,0-0.049,0.001-0.072c0.77,0.427,1.651,0.685,2.587,0.714    c-1.532-1.023-2.541-2.773-2.541-4.755c0-1.048,0.281-2.03,0.773-2.874c2.817,3.458,7.029,5.732,11.777,5.972    c-0.098-0.419-0.147-0.854-0.147-1.303c0-3.155,2.558-5.714,5.713-5.714c1.644,0,3.127,0.694,4.171,1.804    c1.303-0.256,2.523-0.73,3.63-1.387c-0.43,1.335-1.333,2.454-2.516,3.162c1.157-0.138,2.261-0.444,3.282-0.899    C37.987,17.334,37.018,18.341,35.901,19.144z" fill="#05c9ff"></path>
-												</g>
-											</g>
-											</svg>
-									</a>
-								</li>
-							</ul>
+							<script type="text/javascript">(function() {
+								if (window.pluso)if (typeof window.pluso.start == "function") return;
+								if (window.ifpluso==undefined) { window.ifpluso = 1;
+									var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+									s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+									s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+									var h=d[g]('body')[0];
+									h.appendChild(s);
+								}})();</script>
+							<div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="vkontakte,facebook,twitter"></div>
 						</div>
 					</div>
 				</div>
@@ -869,9 +856,10 @@
 </body>
 
 <!-- Scripts -->
+<script src="js/vendor/jquery.touchSwipe.min.js"></script>
 <script src="js/vendor/packery.pkgd.min.js"></script>
 <script src="js/vendor/swiper/swiper.jquery.min.js"></script>
-<script src="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 <script src="js/vendor/tweenmax/TweenMax.min.js"></script>
 <script src="js/vendor/tabby/tabby.min.js"></script>
 <script src="js/vendor/scrollbar/jquery.scrollbar.min.js"></script>

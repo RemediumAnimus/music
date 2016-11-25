@@ -52,7 +52,7 @@ $(document).ready(function() {
     });
 
     $('.n-menu__burger').on('click',function(){
-        eraseCookie('menu-visible');
+        eraseCookie('menu-hide');
     });
     $('.n-sidebar__close').on('click',function(){
         createCookie('menu-hide', "true");

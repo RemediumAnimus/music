@@ -838,7 +838,7 @@ body {
 }//sidebar
 
 .menu-active {
-  left: 0;
+  left: 0 !important;
 }
 
 .n-content {
@@ -1269,6 +1269,7 @@ body {
     @media all and (max-width: $mobile) {
       margin-bottom: 45px;
     }
+
   }
 
   .n-info {
@@ -2813,7 +2814,7 @@ body {
   }
 
   &__date {
-    padding-bottom: 70px;
+    padding-bottom: 40px;
 
     .ui-widget-content {
       width: 100%;
@@ -3555,12 +3556,10 @@ body {
 
   &:hover {
     .n-pic-container__sub {
-      transform: scale(2);
-      -webkit-transform: translateZ(0);
+      transform: scale(2) translateZ(0);
     }
     .n-item__inside__pic {
-      transform: scale(1.1);
-      -webkit-transform: translateZ(0);
+      transform: scale(1.1) translateZ(0);
     }
 
     .n-item__btn {
@@ -4006,6 +4005,10 @@ body {
         //top: -4px;
         width: 4vw;
         height: 4vw;
+      }
+
+      @media all and (max-width: $mobile) {
+        margin-top: -4px !important;
       }
     }
   }
@@ -5145,7 +5148,7 @@ body {
 
 .n-date-mob {
   position: fixed;
-  top: 80px;
+  top: 0px;
   left: 0;
   z-index: 100;
   width: 100%;
@@ -5158,6 +5161,7 @@ body {
 
   .n-item__container {
     height: 750px;
+    min-height: 700px;
   }
 
   @media all and (max-width: $mobile) {
@@ -6433,7 +6437,10 @@ body {
 .n-type {
   background: #F4F4F4;
   padding-bottom: 50px;
-  //min-height: 100%;
+
+  @media all and (max-width: $mobile) {
+    padding-bottom: 0;
+  }
 
   &__header {
     height: auto;
@@ -6878,10 +6885,18 @@ body {
   @media all and (max-width: $mid) {
     margin-left: 200px;
   }
+
+  @media all and (max-width: $mobile) {
+    margin-left: 0px;
+  }
 }
 
 .n-sideActive {
   left: 0;
+
+  @media all and (max-width: $mobile) {
+    left: -100%;
+  }
 
   .n-sidebar__icons {
     left: 0;
@@ -6890,7 +6905,7 @@ body {
 
 .fixtop {
   .n-pic-container {
-    top: 10% !important;
+    top: 4% !important;
   }
 }
 
@@ -6900,6 +6915,7 @@ body {
   background: #785AA2;
   padding: 15px 45px;
   border-radius: 5px;
+  cursor: pointer;
   @include transition($value: all, $time: 0.55s, $function: linear);
   
   &:hover {
@@ -7284,7 +7300,7 @@ body {
       content: '';
       position: absolute;
       left: 10px;
-      top: 5px;
+      top: 0px;
       width: 16px;
       height: 16px;
       background: #B8A9D3;
@@ -7336,7 +7352,7 @@ body {
     font-size: 18px;
     color: #666666;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 
     @media all and (max-width: $mobile) {
       font-size: 14px;
@@ -7583,6 +7599,30 @@ body {
   width: 100% !important;
 }
 
+.n-detail__slider {
+  .swiper-slide {
+    position: relative;
+  }
+}
+
+.pluso-more {
+  display: none !important;
+}
+
+.pluso {
+  a {
+    margin-right: 20px !important;
+  }
+}
+
+.n-center {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.n-color-white {
+  color: #fff;
+}
 
 
 

@@ -9,6 +9,7 @@ $(document).ready(function(){
     var counter = 1;
     var translate = translateArray; // global
     var months = translate.monthNames;
+    var magnificPopup;
 
     function bileter() {
         if ($('.bileter_init').length) {
@@ -770,7 +771,7 @@ $(document).ready(function(){
         $('#datepicker-mob td').each(function(index) {
             if ($(this).find('.ui-state-active').length) {
                 $('#sliderWrapMob').find('.n-item__date i').html($(this).find('.ui-state-active').html());
-                $('#sliderWrapMob').find('.n-item__date span').html($('#datepicker').find('.ui-datepicker-month').html());
+                $('#sliderWrapMob').find('.n-item__date span').html(months[$(this).data('month')]);
             }
             if (!$(this).find('.n-event').length) {
                 $(this).css({
@@ -1092,6 +1093,8 @@ $(document).ready(function(){
         showOtherMonths: true,
         autoClose: true,
         firstDay: 1,
+        changeMonth: true,
+        changeYear: true,
         onSelect: function(date, inst){
             inst.show();
         },
@@ -1108,7 +1111,6 @@ $(document).ready(function(){
             })
         }
     });
-
 
     $('#bigDate2').datepicker({
         monthNames: translate.monthNames,
@@ -1453,7 +1455,7 @@ $(document).ready(function(){
     function loadEventsBigDate(elem,events) {
         if (!elem.length) {return}
 
-        var source   = $("#template-BigDate").html();
+        var source   = $("#template-BigDate").html() || $("#template-BigDate-mob").html();
         var day = new Date().getDate();
         var month = new Date().getMonth();
 
@@ -1488,6 +1490,9 @@ $(document).ready(function(){
 
                 }
             };
+            if (!$(this).hasClass('ui-datepicker-other-month')) {
+                $('#n-next-month').html(months[$(this).data('month')+1] || months[0]);
+            }
         });
     };
 
@@ -1599,6 +1604,40 @@ $(document).ready(function(){
         });
     });
 
+    $('#n-next-month').click(function(){
+        TweenMax.to($('#bigDate'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                $('.ui-datepicker-next').click();
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+        TweenMax.to($('#bigDate2'),0.5, {
+            css: {
+                "opacity": "0"
+            },
+            onComplete: function(){
+                getDate();
+                setTimeout(function(){
+                    TweenMax.to($('#bigDate2'),0.5, {
+                        css: {
+                            "opacity": "1"
+                        },
+                    })
+                },200);
+            }
+        });
+    });
+
     getDate();
 
     function tabbyDetect() {
@@ -1649,6 +1688,7 @@ $(document).ready(function(){
                 $('.n-menu').removeClass('n-menu--active');
                 $('.n-footer').addClass('n-footer--left');
             }
+            $('.n-date-mob').hide();
         }
         console.log(readCookie('menu-visible'));
     });
@@ -1665,18 +1705,18 @@ $(document).ready(function(){
 
     //попап
     $.extend(true, $.magnificPopup.defaults, {
-        tClose: 'Закрыть (Esc)', // Alt text on close button
-        tLoading: 'Загрузка...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+        tClose: translate.tClose, // Alt text on close button
+        tLoading: translate.tLoading, // Text that is displayed during loading. Can contain %curr% and %total% keys
         gallery: {
-            tPrev: 'Предыдущее (Стрелка влево)', // Alt text on left arrow
-            tNext: 'Следущее (Стрелка вправо)', // Alt text on right arrow
-            tCounter: '%curr% из %total%' // Markup for "1 of 7" counter
+            tPrev: translate.tPrev, // Alt text on left arrow
+            tNext: translate.tNext, // Alt text on right arrow
+            tCounter: translate.tCounter // Markup for "1 of 7" counter
         },
         image: {
-            tError: '<a href="%url%">The image</a> could not be loaded.' // Error message when image could not be loaded
+            tError: translate.tError // Error message when image could not be loaded
         },
         ajax: {
-            tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
+            tError: translate.ajax.tError // Error message when ajax request failed
         }
     });
 
@@ -1688,8 +1728,21 @@ $(document).ready(function(){
         removalDelay: 500,
         callbacks: {
             beforeOpen: function() {
-                //this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-                //this.st.mainClass = this.st.el.attr('data-effect');
+                setTimeout(function() {
+                    /* Swipe para a esquerda - Próximo */
+                    $(".mfp-container").swipe( {
+                        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+                            console.log("swipe right");
+                            magnificPopup.next();
+                        },
+
+                        /* Swipe para a direita - Anterior */
+                        swipeRight:function(event, direction, distance, duration, fingerCount) {
+                            console.log("swipe left");
+                            magnificPopup.prev();
+                        },
+                    });
+                }, 500);
             },
             change: function() {
                 if (this.isOpen) {
@@ -1701,6 +1754,8 @@ $(document).ready(function(){
             }
         },
     });
+
+    magnificPopup = $.magnificPopup.instance;
 
     (function(){
         var startFrom = parseInt($('.js-load').data('start-from'));
