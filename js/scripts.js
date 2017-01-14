@@ -10,6 +10,7 @@ $(document).ready(function(){
     var translate = translateArray; // global
     var months = translate.monthNames;
     var magnificPopup;
+    var apiSrc = $('body').find('*[data-api-src]');
 
     function bileter() {
         if ($('.bileter_init').length) {
@@ -31,12 +32,6 @@ $(document).ready(function(){
     function isMobileWidth() {
         return $('#mobile-indicator').is(':visible');
     }
-
-    function isEnglish() {
-        return $('body').hasClass('english');
-    }
-
-    console.log(isEnglish());
 
     //адаптация блоков на главной
     function normalize() {
@@ -414,7 +409,17 @@ $(document).ready(function(){
             }
         });
 
-    }
+    };
+
+    function checkFixedMenu() {
+        if ($('.n-menu').hasClass('n-menu--active')) {
+            $('.n-fixed').css({'left':"15%"})
+        } else {
+            $('.n-fixed').css({'left':"102px"})
+        }
+    };
+
+    checkFixedMenu();
 
     $('.n-menu__burger').click(function(){
         animateForward();
@@ -682,6 +687,15 @@ $(document).ready(function(){
         },
         close: function(){
             $(this).parent().find('.ui-menu').removeClass('select-active');
+        },
+        change:function(event, ui){
+            var categories = getMobileCategories();
+            var attr1 = $('#holl2').data('sort');
+            var attr2 = $('#actions2').data('sort');
+            var value1 = getSortVal($('#holl2'));
+            var value2 = getSortVal($('#actions2'));
+            sort(categories, attr1, attr2, value1, value2, $('#bigDate2'));
+            bileter();
         }
     });
 
@@ -712,11 +726,19 @@ $(document).ready(function(){
     });
 
     function sliderEvents() {
-        $('.n-events li').each(function(index){
+        $('#n-events-mob li').each(function(index){
             $(this).hover(function(){
-                console.log(index);
-                dateSlider.slideTo(index - 1);
-                dateSliderMob.slideTo(index - 1);
+                if (dateSliderMob) {
+                    dateSliderMob.slideTo(index);
+                }
+            });
+        });
+
+        $('#n-events li').each(function(index){
+            $(this).hover(function(){
+                if (dateSlider) {
+                    dateSlider.slideTo(index);
+                }
             });
         });
     };
@@ -860,6 +882,13 @@ $(document).ready(function(){
         values.length > 1 ? values = values.split(',') : values = [values];
         return values;
     }
+
+    function getMobileCategories() {
+        var values = $('#tabSelect2').val();
+        values.length > 1 ? values = values.split(',') : values = [values];
+        return values;
+    }
+
 
     function getSortVal($elem) {
         return $elem.val();
@@ -1146,7 +1175,7 @@ $(document).ready(function(){
 
 
     //колбэк для нормальной обработки событий в datepicker. После смены даты календарь занового перестраивается, все события слетают
-     function eventInit(){
+    function eventInit(){
         $('#bigDate2 td').click(function(e){
             if(!isMediumWidth()) {return}
 
@@ -1229,16 +1258,16 @@ $(document).ready(function(){
             $(this).find('a').eq(0).addClass('ui-state-active');
         });
 
-         $('#datepicker-mob td').click(function(e){
-             if (!$(this).find('.n-event').length) {
-                 e.preventDefault();
-                 return;
-             }
-             $('#datepicker-mob td').each(function(e){
-                 $(this).find('a').eq(0).removeClass('ui-state-active');
-             });
-             $(this).find('a').eq(0).addClass('ui-state-active');
-         });
+        $('#datepicker-mob td').click(function(e){
+            if (!$(this).find('.n-event').length) {
+                e.preventDefault();
+                return;
+            }
+            $('#datepicker-mob td').each(function(e){
+                $(this).find('a').eq(0).removeClass('ui-state-active');
+            });
+            $(this).find('a').eq(0).addClass('ui-state-active');
+        });
 
         $('.n-declarations__date *').click(function(){
             if ($(this).is('[href]')) {
@@ -1327,6 +1356,7 @@ $(document).ready(function(){
             var resolve, reject, promise = new Promise(function (a, b) {
                 resolve = a;
                 reject = b;
+                counter++;
             });
 
             return {
@@ -1412,24 +1442,22 @@ $(document).ready(function(){
     }(window));
 
     function Deck(node, preloader, index) {
-        var data = node.style.backgroundImage.slice(4, -1).replace(/"/g, "");;
+        var data = node.style.backgroundImage.slice(4, -1).replace(/"/g, "");
 
         preloader.queue(data)
             .then(function () {
-                //console.log('Deck ' + index + ' loaded.');
                 node.classList.add('loaded');
                 var percentComplete = (counter * 70 / decksLength) + 30;
-                //console.log(percentComplete + "%");
                 $('.n-preloader__val').stop().animate({
-                    'width': percentComplete + "%"
+                    'width': Math.round(percentComplete) + "%"
                 });
-                if (counter == decksLength) {
+                if (counter >= decksLength) {
                     $('.n-preloader__val').animate({
                         'opacity': 0
                     });
                     $('.n-event').removeClass('hide');
                 }
-                counter++;
+
             })
             .catch(console.error.bind(console));
     }
@@ -1637,6 +1665,8 @@ $(document).ready(function(){
                 },200);
             }
         });
+
+        $(window).scrollTop(0);
     });
 
     getDate();
@@ -1649,6 +1679,11 @@ $(document).ready(function(){
 
     tabbyDetect();
     $(window).on('resize',tabbyDetect);
+
+    $('.zoom').each(function(){
+        $(this).zoom({ on:'click' });
+    });
+
 
     function changePos() {
         if(!$('.n-fixed').length) {return}

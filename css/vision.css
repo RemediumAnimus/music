@@ -1,4 +1,4 @@
-@media all and (min-width: 1366px) {
+@media all and (min-width: 1200px) {
   .large-fs .x3--news .n-item__name .n-item__name__header {
     font-size: 1.1vw; }
   .large-fs .x3--news .n-item__subdate span {
@@ -28,7 +28,7 @@
     font-size: 1.1vw;
     width: 70%; }
   .large-fs .n-item .ui-state-default, .large-fs .n-item .ui-widget-content .ui-state-default {
-    font-size: 1.2vw; }
+    font-size: 1.1vw; }
   .large-fs .n-item .ui-state-default.ui-state-hover:after, .large-fs .n-item .ui-state-default.ui-state-active:after {
     left: -1px; }
   .large-fs .n-content__bottom__header {
@@ -93,7 +93,7 @@
   .large-fs .n-content__map__sidebar {
     padding: 30px 45px; } }
 
-@media all and (min-width: 1366px) {
+@media all and (min-width: 1200px) {
   .kern_large * {
     letter-spacing: 2px; }
   .kern_large .n-item__btn span {

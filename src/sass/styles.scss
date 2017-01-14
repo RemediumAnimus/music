@@ -38,14 +38,14 @@ body {
 h1 {
   text-transform: uppercase;
   font-family: $pt75;
-  font-size: 55px;
+  font-size: 35px;
 
   @media all and (max-width: $mid) {
-    font-size: 45px;
+    font-size: 35px;
   }
 
   @media all and (max-width: $mobile) {
-    font-size: 36px;
+    font-size: 26px;
   }
 }
 
@@ -210,7 +210,7 @@ h5 {
       @include transition($value: all, $time: 0.55s, $function: linear);
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-header__burger__line {
         background: #fff;
       }
@@ -250,6 +250,10 @@ h5 {
     vertical-align: middle;
     text-align: center;
 
+    a {
+      display: block;
+    }
+
     img {
       width: 120px;
       display: block;
@@ -263,7 +267,7 @@ h5 {
     cursor: pointer;
     text-align: right;
 
-    &:hover {
+    &:hover, &:focus {
       path {
         fill: #fff;
       }
@@ -357,7 +361,7 @@ h5 {
       @include transition($value: all, $time: 0.15s, $function: linear);
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-menu__burger__line {
         background: #fff;
       }
@@ -379,7 +383,7 @@ body {
 .n-7D59B3 {
   background: #7D59B3 !important;
 
-  &:hover {
+  &:hover, &:focus {
     background: darken(#7D59B3,10%) !important;
   }
 
@@ -396,7 +400,7 @@ body {
     font-size: 10px !important;
   }
 
-  &:hover {
+  &:hover, &:focus {
     background: darken(#BF4C5D,10%) !important;
   }
 }
@@ -552,7 +556,7 @@ body {
       @include transition($value: all, $time: 0.55s, $function: linear);
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-sidebar__close__circle {
         border: 2px solid #fff;
       }
@@ -630,7 +634,7 @@ body {
     color: #7B7B7C;
     @include transition($value: all, $time: 0.55s, $function: linear);
 
-    &:hover {
+    &:hover, &:focus {
       color: #fff;
       background: #26292E;
     }
@@ -686,7 +690,7 @@ body {
     color: #7B7B7C;
     @include transition($value: all, $time: 0.55s, $function: linear);
 
-    &:hover {
+    &:hover, &:focus {
       color: #fff;
       background: #2A2F33;
     }
@@ -701,7 +705,7 @@ body {
     height: 34px;
     background: url(../img/back.png) -34px 0px;
 
-    &:hover {
+    &:hover, &:focus {
       background: url(../img/back.png) 0px 0px;
     }
   }
@@ -732,14 +736,14 @@ body {
     @include transition($value: all, $time: 0.55s, $function: linear);
 
     @media all and (max-width: $mid) {
-      font-size: 1.3vw;
+      font-size: 1.5vw;
     }
 
     @media all and (max-width: $mobile) {
       font-size: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       color: #fff;
     }
 
@@ -753,19 +757,32 @@ body {
       top: -20px;
       left: 0;
     }
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      width: 27px;
+      height: 27px;
+      margin-right: 12px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
   &__vision {
     color: #7B7B7C;
-    font-size: 0.8vw;
+    font-size: 1.1vw;
     position: relative;
     cursor: pointer;
     display: table;
     width: 100%;
     @include transition($value: all, $time: 0.55s, $function: linear);
 
-    @media all and (max-width: $mid) {
-      font-size: 1.3vw;
+    @media all and (max-width: $min) {
+      font-size: 1.5vw;
       display: none;
     }
 
@@ -773,7 +790,7 @@ body {
       font-size: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       color: #fff;
     }
 
@@ -793,7 +810,7 @@ body {
     padding-top: 20px;
     position: fixed;
     bottom: 0;
-    padding-left: 50px;
+    padding-left: 35px;
     background: #1C1F21;
     width: 15%;
     min-width: 200px;
@@ -807,11 +824,11 @@ body {
 
     li {
       display: inline-block;
-      margin-right: 5%;
+      margin-right: 0%;
       margin-bottom: 10px;
-      width: 23.333%;
+      width: 22%;
 
-      &:hover {
+      &:hover, &:focus {
         path {
           fill: #fff;
         }
@@ -823,7 +840,7 @@ body {
 
       a {
         display: block;
-        margin-left: -17px;
+        //margin-left: -17px;
       }
     }
 
@@ -1187,13 +1204,13 @@ body {
 
   &__header {
     color: #1C1F21;
-    font-size: 55px;
+    font-size: 35px;
     text-transform: uppercase;
     font-family: $pt75;
     margin-bottom: 10px;
 
     @media all and (max-width: $min) {
-      font-size: 46px;
+      font-size: 26px;
     }
 
     @media all and (max-width: $mobile) {
@@ -1367,7 +1384,7 @@ body {
   }
 
   &__content {
-    padding: 105px 0px;
+    padding: 60px 0px;
     overflow: hidden;
 
     @media all and (max-width: $mobile) {
@@ -1450,7 +1467,7 @@ body {
     .n-slider__arrowR {
       cursor: pointer;
 
-      &:hover {
+      &:hover, &:focus {
         circle:first-child {
           stroke: #785AA2;
           fill: #785AA2;
@@ -1473,7 +1490,7 @@ body {
     .n-slider__arrowL {
       cursor: pointer;
 
-      &:hover {
+      &:hover, &:focus {
         circle:first-child {
           stroke: #785AA2;
           fill: #785AA2;
@@ -1503,7 +1520,7 @@ body {
         width: 90% !important;
       }
 
-      &:hover {
+      &:hover, &:focus {
         z-index: 22;
         transform: scale(1.05);
         overflow: visible;
@@ -1635,9 +1652,11 @@ body {
   &__icons {
     overflow: hidden;
     padding-top: 55px;
+    margin-bottom: 50px;
 
     @media all and (max-width: $mobile) {
       padding-top: 30px;
+      margin-bottom: 20px;
     }
 
     li {
@@ -1738,7 +1757,7 @@ body {
       font-size: 14px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       background: darken(#785AA2, 10%);
     }
   }
@@ -1808,7 +1827,7 @@ body {
         font-size: 15px;
 
         @media all and (max-width: $min) {
-          font-size: 12px;
+          font-size: 14px;
         }
       }
     }
@@ -2205,7 +2224,7 @@ body {
         text-transform: uppercase;
       }
 
-      &:hover {
+      &:hover, &:focus {
         background: darken(#785AA2,10%);
       }
     }
@@ -2336,7 +2355,7 @@ body {
         border: 1px solid #BABABA;
         border-radius: 50%;
 
-        &:hover {
+        &:hover, &:focus {
           border: 1px solid #fff;
           path {
             fill: #fff;
@@ -2356,7 +2375,7 @@ body {
         }
       }
 
-      &:hover {
+      &:hover, &:focus {
         path {
           fill: #fff;
         }
@@ -2385,7 +2404,7 @@ body {
         border: 1px solid #BABABA;
         border-radius: 50%;
 
-        &:hover {
+        &:hover, &:focus{
           border: 1px solid #fff;
           path {
             fill: #fff;
@@ -2401,7 +2420,7 @@ body {
         top: 8px;
       }
 
-      &:hover {
+      &:hover, &:focus {
         path {
           fill: #fff;
         }
@@ -2563,7 +2582,7 @@ body {
 
     .n-square {
       cursor: pointer;
-      &:hover {
+      &:hover, &:focus {
         circle {
           fill: #EFA0C6;
         }
@@ -2572,7 +2591,7 @@ body {
 
     .n-lines {
       cursor: pointer;
-      &:hover {
+      &:hover, &:focus {
         circle {
           fill: #EFA0C6;
         }
@@ -2909,7 +2928,7 @@ body {
             text-align: left;
             background: none;
 
-            &:hover {
+            &:hover, &:focus {
               text-decoration: underline;
               font-weight: normal;
             }
@@ -2919,12 +2938,12 @@ body {
         .n-event {
           margin: 0;
 
-          &:hover {
+          &:hover, &:focus{
             //display: none;
           }
         }
 
-        &:hover {
+        &:hover, &:focus {
           .ui-state-default {
             /*color: #fff;
             z-index: 2;*/
@@ -2951,6 +2970,7 @@ body {
           .event-btn {
             //opacity: 1;
             cursor: pointer;
+            animation: scales  2s infinite ease-in-out;
           }
 
           .event-holder {
@@ -3015,6 +3035,10 @@ body {
         margin-bottom: 14px;
         margin-top: 5px;
         line-height: 22px;
+
+        @media all and (max-width: 1470px) {
+          font-size: 14px;
+        }
       }
 
       b {
@@ -3126,10 +3150,11 @@ body {
       border-radius: 5px;
       color: #fff;
       opacity: 0;
+      border: 2px solid #fff;
       @include transition($value: all, $time: 0.55s, $function: linear);
 
-      &:hover {
-        border: 0;
+      &:hover, &:focus {
+        border: 2px solid #fff;
         background: darken(#7D59B3,10%);
       }
     }
@@ -3235,7 +3260,7 @@ body {
                 background: rgba(0,0,0,0.6);
               }
             }
-            &:hover {
+            &:hover, &:focus {
 
               .n-event__age {
                 opacity: 1;
@@ -3371,7 +3396,7 @@ body {
             }
           }
 
-          &:hover {
+          &:hover, &:focus {
             .n-event__bg {
               opacity: 0;
             }
@@ -3459,7 +3484,7 @@ body {
               text-align: left;
               background: none;
 
-              &:hover {
+              &:hover, &:focus {
                 text-decoration: underline;
               }
             }
@@ -3490,6 +3515,8 @@ body {
             position: absolute;
             right: 25px;
             top: 65px;
+            border: 2px solid #fff;
+            animation: scales  2s infinite ease-in-out;
 
             @media all and (max-width: $min) {
               font-size: 16px;
@@ -3502,7 +3529,7 @@ body {
             }
           }
 
-          &:hover {
+          &:hover, &:focus {
             .n-event__t {
               a {
                 color: #1C1C1C;
@@ -3555,7 +3582,7 @@ body {
     @include transition($value: all, $time: 0.55s, $function: linear);
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-pic-container__sub {
       transform: scale(2) translateZ(0);
     }
@@ -3721,7 +3748,9 @@ body {
     right: 35px;
     opacity: 1;
     z-index: 6;
+    border: 3px solid #fff;
     @include transition($value: all, $time: 0.55s, $function: linear);
+    animation: scales  2s infinite ease-in-out;
 
     @media all and(max-width: $mobile) {
       opacity: 1;
@@ -3734,7 +3763,7 @@ body {
       font-size: 16px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       background: darken(#C267A6,10%);
     }
   }
@@ -3770,7 +3799,7 @@ body {
     }
 
     &__header {
-      font-size: 2.8vw;
+      font-size: 2.6vw;
       text-transform: uppercase;
       font-family: $pt75;
       line-height: 1.2;
@@ -4000,6 +4029,7 @@ body {
 
       @media all and (max-width: $mid) {
         //top: -8px;
+        margin-top: -4%;
       }
 
       @media all and (max-width: $min) {
@@ -4258,7 +4288,7 @@ body {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-item__inside__cover {
         background: transparent;
         &:after {
@@ -4353,7 +4383,7 @@ body {
     }
 
     .n-item__name__header {
-      font-size: 1.2vw;
+      font-size: 1.0vw;
       line-height: 1.5;
 
       @media all and (max-width: $mobile) {
@@ -4427,7 +4457,7 @@ body {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-item__inside__cover {
         background: transparent !important;
         &:after {
@@ -4799,14 +4829,14 @@ body {
       color: #3EA6DB;
       font-size: 18px;
 
-      &:hover {
+      &:hover, &:focus {
         text-decoration: underline;
       }
     }
   }
 
   .n-item__name__header {
-    font-size: 2.8vw;
+    font-size: 2.6vw;
     text-transform: none;
     margin-bottom: 25px;
     display: block;
@@ -4816,12 +4846,12 @@ body {
       margin-bottom: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       text-decoration: none;
     }
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-item__contacts {
       max-height: 150px;
     }
@@ -4880,7 +4910,7 @@ body {
       color: #3EA6DB;
       font-size: 18px;
 
-      &:hover {
+      &:hover, &:focus {
         text-decoration: underline;
       }
     }
@@ -4897,12 +4927,12 @@ body {
       margin-bottom: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       text-decoration: none;
     }
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-item__contacts {
       max-height: 150px;
     }
@@ -4996,6 +5026,8 @@ body {
   a {
     display: inline-block;
     padding: 12px 32px 12px 60px;
+    position: relative;
+    z-index: 2;
   }
 
   &:after {
@@ -5011,7 +5043,7 @@ body {
     left: 20px;
   }
 
-  &:hover {
+  &:hover, &:focus {
     opacity: 1;
   }
 
@@ -5061,7 +5093,7 @@ body {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       g {
         opacity: 1;
       }
@@ -5102,7 +5134,7 @@ body {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       g {
         opacity: 1;
       }
@@ -5129,10 +5161,10 @@ body {
   }
 
   .n-item__inside__pic {
-    height: 65.5%;
+    height: 72.5%;
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-item__inside__cover {
       opacity: 0.3;
     }
@@ -5406,7 +5438,7 @@ body {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       .n-media__pic{
         transform: scale(1.1);
       }
@@ -5556,7 +5588,7 @@ body {
     }
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-media__inside{
       transform: scale(1.9);
     }
@@ -5710,7 +5742,7 @@ body {
     opacity: 0;
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-media__cover {
       opacity: 0.5;
     }
@@ -5740,7 +5772,7 @@ body {
     opacity: 0;
   }
 
-  &:hover {
+  &:hover, &:focus {
     .n-media__cover {
       opacity: 0.5;
     }
@@ -5825,6 +5857,8 @@ body {
       .n-btn {
         vertical-align: middle;
         margin-right: 40px;
+        animation: scales  2s infinite ease-in-out;
+        border: 2px solid #fff;
 
         @media all and (max-width: $mobile) {
           margin-right: 0;
@@ -5915,9 +5949,10 @@ body {
         @media all and (max-width: $mobile) {
           float: none;
           display: inline-block;
-          width: 55px;
-          height: 55px;
+          width: 75px;
+          height: 75px;
           margin-top: 15px;
+          margin-bottom: 30px;
         }
 
         span {
@@ -5931,26 +5966,49 @@ body {
           margin: auto;
           left: 40px;
           right: 60px;
+          text-align: center;
           @include transition($value: all, $time: 0.55s, $function: ease-in-out);
 
           @media all and (max-width: $mid) {
-            font-size: 14px;
+
           }
 
           @media all and (max-width: $mobile) {
-            font-size: 21px;
+            font-size: 14px;
+            opacity: 1;
+            left: 0;
+            top: -120px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
           }
 
           p {
             display: table;
             width: 100%;
             height: 100%;
+
+            @media all and (max-width: $mobile) {
+              display: block;
+              padding-top: 75px;
+              text-align: center;
+            }
           }
 
           i {
             font-style: normal;
             display: table-cell;
             vertical-align: middle;
+
+            @media all and (max-width: $mid) {
+              font-size: 14px;
+            }
+
+            @media all and (max-width: $mobile) {
+              display: inline-block;
+              width: 75px;
+              word-wrap: break-word;
+            }
           }
         }
 
@@ -5975,20 +6033,26 @@ body {
           }
 
           @media all and (max-width: $mobile) {
-            font-size: 21px;
+            font-size: 23px;
             line-height: 55px;
+            color: #fff;
             width: 55px;
             height: 55px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
           }
         }
 
-        &:hover {
-          width: 216px;
+        &:hover, &:focus {
+          width: 270px;
           border-radius: 40px;
           background: #fff;
 
           @media all and (max-width: $mid) {
-            width: 170px;
+            width: 270px;
           }
 
           b {
@@ -6001,7 +6065,7 @@ body {
           }
           
           @media all and (max-width: $mobile) {
-            width: 55px;
+            width: 75px;
             border-radius: 50%;
             background: inherit;
             
@@ -6010,7 +6074,7 @@ body {
             }
 
             span {
-              opacity: 0;
+              opacity: 1;
             }
           }
         }
@@ -6028,6 +6092,7 @@ body {
 
     @media all and (max-width: $mobile) {
       padding-top: 150px;
+      margin-bottom: 50px;
     }
 
     span {
@@ -6082,6 +6147,7 @@ body {
   &__dates {
     padding-top: 100px;
     width: 95%;
+    padding-bottom: 220px;
 
     @media all and (max-width: $mid) {
       width: 95%;
@@ -6147,6 +6213,10 @@ body {
     float: left;
     box-sizing: border-box;
     cursor: pointer;
+
+    &:hover > label {
+      border: 2px solid #5B378D;
+    }
 
     @media all and (max-width: $mobile) {
       width: 33.3333%;
@@ -6275,11 +6345,11 @@ body {
         }
 
         @media all and (max-width: $min) {
-          font-size: 12px;
+          font-size: 14px;
         }
 
         @media all and (max-width: $mobile) {
-          font-size: 12px;
+          font-size: 14px;
           padding: 0;
         }
       }
@@ -6290,6 +6360,10 @@ body {
       bottom: 0;
       left: 7.1%;
       display: none;
+
+      @media all and (max-width: $mid) {
+        left: 20px;
+      }
 
       @media all and (max-width: $mobile) {
         right: 20px;
@@ -6312,7 +6386,7 @@ body {
 
 .n-tables {
   overflow: hidden;
-  padding-bottom: 70px;
+  padding-bottom: 0px;
   @include transition($value: all, $time: 0.55s, $function: ease-in-out);
 
   @media all and (max-width: $mobile) {
@@ -6355,10 +6429,10 @@ body {
 
   &__header {
     color: #1C1C1C;
-    font-size: 36px;
+    font-size: 26px;
     font-family: $pt75;
     text-transform: uppercase;
-    padding-top: 85px;
+    padding-top: 45px;
     margin-bottom: 55px;
 
     @media all and (max-width: $mobile) {
@@ -6400,7 +6474,7 @@ body {
   &__row {
     display: table;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   &__cell {
@@ -6408,14 +6482,14 @@ body {
     width: 45%;
     font-size: 18px;
     color: #878787;
-    font-family: $roboto-l;
+    font-family: $scada-r;
 
     @media all and (max-width: $mid) {
       font-size: 15px;
     }
 
     @media all and (max-width: $mobile) {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     &:last-child {
@@ -6446,6 +6520,10 @@ body {
   padding-bottom: 50px;
 
   @media all and (max-width: $mobile) {
+    padding-bottom: 0;
+  }
+
+  &--map {
     padding-bottom: 0;
   }
 
@@ -6613,7 +6691,13 @@ body {
 }
 
 .n-sidebar .scroll-wrapper > .scroll-content {
-  padding-bottom: 100px;
+  padding-bottom: 150px;
+  overflow-x: hidden !important;
+  height: 90% !important;
+
+  @media all and (max-width: $mobile) {
+    height: auto !important;
+  }
 }
 
 .gm-style-iw {
@@ -6676,6 +6760,10 @@ body {
     color: #fff;
     overflow: hidden;
 
+    &:nth-child(n+5) {
+      display: none;
+    }
+
     @media all and (max-width: $max) {
       font-size: 1.0vw;
     }
@@ -6690,7 +6778,7 @@ body {
       padding: 15px 28px;
     }
 
-    &:hover {
+    &:hover, &:focus {
       border: 1px solid #fff;
       background: #fff;
       color: #1C1C1C;
@@ -6702,7 +6790,7 @@ body {
       width: 20%;
       font-size: 0.9vw;
       font-family: $scada-r;
-      padding-top: 5px;
+      padding-top: 2px;
 
       @media all and (max-width: $max) {
         //padding-top: 5px;
@@ -6719,6 +6807,21 @@ body {
     span {
       float: left;
       width: 80%;
+    }
+
+    b {
+      font-style: normal;
+      display: block;
+      clear: both;
+      font-size: 0.8vw;
+
+      @media all and (max-width: $min) {
+        font-size: 1.3vw;
+      }
+
+      @media all and (max-width: $mobile) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -6926,7 +7029,7 @@ body {
   cursor: pointer;
   @include transition($value: all, $time: 0.55s, $function: linear);
   
-  &:hover {
+  &:hover, &:focus {
     background: darken(#785AA2,10%);
   }
 
@@ -6990,6 +7093,10 @@ body {
     z-index: 3;
     padding: 0px 20px 20px 20px;
 
+    @media all and (max-width: 1470px) {
+      padding: 0px 10px 20px 10px;
+    }
+
     @media all and (max-width: $min) {
       padding: 0px 10px 20px 10px;
     }
@@ -6997,7 +7104,7 @@ body {
     &:nth-child(2) {
       //padding-top: 65px;
     }
-    &:hover {
+    &:hover, &:focus {
       .n-event__subBg {
         //opacity: 1;
       }
@@ -7255,7 +7362,7 @@ body {
     text-decoration: underline;
     color: #B8A9D3;
 
-    &:hover {
+    &:hover, &:focus {
       color: darken(#B8A9D3,30%);
     }
   }
@@ -7290,7 +7397,7 @@ body {
 
   li {
     padding-left: 50px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     font-size: 18px;
     color: #666666;
     position: relative;
@@ -7308,7 +7415,7 @@ body {
       content: '';
       position: absolute;
       left: 10px;
-      top: 0px;
+      top: 3px;
       width: 16px;
       height: 16px;
       background: #B8A9D3;
@@ -7356,7 +7463,7 @@ body {
 
   li {
     padding-left: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     font-size: 18px;
     color: #666666;
     position: relative;
@@ -7437,7 +7544,7 @@ body {
     @include transition($value: all, $time: 0.55s, $function: linear);
   }
 
-  &:hover {
+  &:hover, &:focus {
     &:after {
       opacity: 1;
     }
@@ -7538,10 +7645,33 @@ body {
   }
 }
 
+.bileter_overlay_mini {
+
+}
+
+.bileter_overlay {
+  //position: absolute;
+}
+
 .bileter_dialog {
+  margin-top: 90px;
   @media all and (max-width: $mobile) {
-    width: 90%;
+    width: 85%;
     padding: 10px;
+  }
+}
+
+.bileter_mini_afisha_buy {
+  color: #fff;
+}
+
+.bileter_close {
+  @media all and (max-width: $mobile) {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
   }
 }
 
@@ -7630,6 +7760,74 @@ body {
 
 .n-color-white {
   color: #fff;
+}
+
+.baeb_visamc {
+  background: #785AA2;
+  color: #fff;
+}
+
+.n-scale-map {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.zoomImg {
+  width: 200% !important;
+  height: 200% !important;
+}
+
+@-webkit-keyframes scales {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  0% {
+    transform: scale(1)
+  }
+}
+
+@-moz-keyframes scales {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  0% {
+    transform: scale(1)
+  }
+}
+
+@-o-keyframes scales {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  0% {
+    transform: scale(1)
+  }
+}
+
+@keyframes scales {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  0% {
+    transform: scale(1)
+  }
 }
 
 

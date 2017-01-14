@@ -14,6 +14,7 @@
         }, {suppressMapOpenBlock: true,minZoom: 3});
 
         myMap.behaviors.disable('scrollZoom');
+        myMap.behaviors.disable('drag');
 
         var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
             '<div class="popover top">' +

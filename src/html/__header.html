@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="css/reset.css" >
 
 	<script src="js/vendor/jquery.min.js"></script>
-	<script src="https://musichall.apit.bileter.ru/256fb39358d208374be6db23f8dc1f7f.js"></script>
-	<link rel="stylesheet" href="https://apit.bileter.ru/css/apit.css" type="text/css" media="all" />
+	<script src="http://musichall.apit.bileter.ru/256fb39358d208374be6db23f8dc1f7f.js"></script>
+	<link rel="stylesheet" href="http://apit.bileter.ru/css/apit.css" type="text/css" media="all" />
     <!-- Template styles -->
 	<link rel="stylesheet" href="js/vendor/swiper/swiper.min.css" >
 	<link rel="stylesheet" href="js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.css">
@@ -42,7 +42,7 @@
 	<meta name="msapplication-config" content="favicon/browserconfig.xml">
 
 	<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
-	<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru" type="text/javascript"></script>
 	<script>
 		var translateArray = {
 			monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
@@ -121,11 +121,11 @@
 				<div class="n-item__close"></div>
 				<ul class="n-events" id="n-events-mob">
 					<script id="template-events-mob" type="text/x-handlebars-template">
-						<li><a href="{{path}}"><i>{{time}}</i><span>{{events}}</span></a></li>
+						<li><a href="{{path}}"><b>{{holl}}</b><i>{{time}}</i><span>{{events}}</span></a></li>
 					</script>
 				</ul>
 				<div class="empty-event" data-pic="url(img/afisha_blank.jpg)">
-					<span>В этот день мероприятий нет</span>
+					<span></span>
 				</div>
 				<div class="picker" data-json-url="events.json">
 					<div id="datepicker-mob"></div>

@@ -89,13 +89,13 @@ body {
 h1 {
   text-transform: uppercase;
   font-family: "PTF75F";
-  font-size: 55px; }
+  font-size: 35px; }
   @media all and (max-width: 1366px) {
     h1 {
-      font-size: 45px; } }
+      font-size: 35px; } }
   @media all and (max-width: 830px) {
     h1 {
-      font-size: 36px; } }
+      font-size: 26px; } }
 
 h2 {
   text-transform: uppercase;
@@ -227,11 +227,11 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-  .n-header__burger:hover .n-header__burger__line {
+  .n-header__burger:hover .n-header__burger__line, .n-header__burger:focus .n-header__burger__line {
     background: #fff; }
-  .n-header__burger:hover .n-header__burger__container:after {
+  .n-header__burger:hover .n-header__burger__container:after, .n-header__burger:focus .n-header__burger__container:after {
     background: #fff; }
-  .n-header__burger:hover .n-header__burger__container:before {
+  .n-header__burger:hover .n-header__burger__container:before, .n-header__burger:focus .n-header__burger__container:before {
     background: #fff; }
   .n-header__burger--active .n-header__burger__line {
     left: -10px;
@@ -249,6 +249,8 @@ h5 {
   display: table-cell;
   vertical-align: middle;
   text-align: center; }
+  .n-header__logo a {
+    display: block; }
   .n-header__logo img {
     width: 120px;
     display: block;
@@ -259,11 +261,11 @@ h5 {
   vertical-align: middle;
   cursor: pointer;
   text-align: right; }
-  .n-header__date:hover path {
+  .n-header__date:hover path, .n-header__date:focus path {
     fill: #fff; }
-  .n-header__date:hover rect {
+  .n-header__date:hover rect, .n-header__date:focus rect {
     fill: #fff; }
-  .n-header__date:hover circle {
+  .n-header__date:hover circle, .n-header__date:focus circle {
     fill: #fff; }
 
 .n-main {
@@ -339,16 +341,16 @@ h5 {
       transition: all 0.15s linear;
       -webkit-transition: all 0.15s linear;
       -moz-transition: all 0.15s linear; }
-    .n-menu__burger:hover .n-menu__burger__line {
+    .n-menu__burger:hover .n-menu__burger__line, .n-menu__burger:focus .n-menu__burger__line {
       background: #fff; }
-    .n-menu__burger:hover:after {
+    .n-menu__burger:hover:after, .n-menu__burger:focus:after {
       background: #fff; }
-    .n-menu__burger:hover:before {
+    .n-menu__burger:hover:before, .n-menu__burger:focus:before {
       background: #fff; }
 
 .n-7D59B3 {
   background: #7D59B3 !important; }
-  .n-7D59B3:hover {
+  .n-7D59B3:hover, .n-7D59B3:focus {
     background: #644495 !important; }
   @media all and (max-width: 1600px) {
     .n-7D59B3 {
@@ -360,7 +362,7 @@ h5 {
   @media all and (max-width: 1600px) {
     .n-BF4C5D {
       font-size: 10px !important; } }
-  .n-BF4C5D:hover {
+  .n-BF4C5D:hover, .n-BF4C5D:focus {
     background: #9f3948 !important; }
 
 .hidden {
@@ -495,11 +497,11 @@ h5 {
       transition: all 0.55s linear;
       -webkit-transition: all 0.55s linear;
       -moz-transition: all 0.55s linear; }
-    .n-sidebar__close:hover .n-sidebar__close__circle {
+    .n-sidebar__close:hover .n-sidebar__close__circle, .n-sidebar__close:focus .n-sidebar__close__circle {
       border: 2px solid #fff; }
-    .n-sidebar__close:hover:after {
+    .n-sidebar__close:hover:after, .n-sidebar__close:focus:after {
       background: #fff; }
-    .n-sidebar__close:hover:before {
+    .n-sidebar__close:hover:before, .n-sidebar__close:focus:before {
       background: #fff; }
   .n-sidebar__bottom {
     /*position: absolute;
@@ -551,7 +553,7 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-    .n-sidebar__item:hover {
+    .n-sidebar__item:hover, .n-sidebar__item:focus {
       color: #fff;
       background: #26292E; }
     .n-sidebar__item p {
@@ -587,7 +589,7 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-    .n-sidebar__subitem:hover {
+    .n-sidebar__subitem:hover, .n-sidebar__subitem:focus {
       color: #fff;
       background: #2A2F33; }
   .n-sidebar__back {
@@ -598,7 +600,7 @@ h5 {
     width: 32px;
     height: 34px;
     background: url(../img/back.png) -34px 0px; }
-    .n-sidebar__back:hover {
+    .n-sidebar__back:hover, .n-sidebar__back:focus {
       background: url(../img/back.png) 0px 0px; }
   .n-sidebar__sublist {
     position: absolute;
@@ -624,11 +626,11 @@ h5 {
     -moz-transition: all 0.55s linear; }
     @media all and (max-width: 1366px) {
       .n-sidebar__version {
-        font-size: 1.3vw; } }
+        font-size: 1.5vw; } }
     @media all and (max-width: 830px) {
       .n-sidebar__version {
         font-size: 20px; } }
-    .n-sidebar__version:hover {
+    .n-sidebar__version:hover, .n-sidebar__version:focus {
       color: #fff; }
     .n-sidebar__version:before {
       display: block;
@@ -639,9 +641,18 @@ h5 {
       position: absolute;
       top: -20px;
       left: 0; }
+    .n-sidebar__version img {
+      display: inline-block;
+      vertical-align: middle;
+      width: 27px;
+      height: 27px;
+      margin-right: 12px; }
+    .n-sidebar__version span {
+      display: inline-block;
+      vertical-align: middle; }
   .n-sidebar__vision {
     color: #7B7B7C;
-    font-size: 0.8vw;
+    font-size: 1.1vw;
     position: relative;
     cursor: pointer;
     display: table;
@@ -649,14 +660,14 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-    @media all and (max-width: 1366px) {
+    @media all and (max-width: 1200px) {
       .n-sidebar__vision {
-        font-size: 1.3vw;
+        font-size: 1.5vw;
         display: none; } }
     @media all and (max-width: 830px) {
       .n-sidebar__vision {
         font-size: 20px; } }
-    .n-sidebar__vision:hover {
+    .n-sidebar__vision:hover, .n-sidebar__vision:focus {
       color: #fff; }
     .n-sidebar__vision span {
       display: table-cell;
@@ -669,7 +680,7 @@ h5 {
     padding-top: 20px;
     position: fixed;
     bottom: 0;
-    padding-left: 50px;
+    padding-left: 35px;
     background: #1C1F21;
     width: 15%;
     min-width: 200px;
@@ -681,16 +692,15 @@ h5 {
         padding-left: 0; } }
     .n-sidebar__icons li {
       display: inline-block;
-      margin-right: 5%;
+      margin-right: 0%;
       margin-bottom: 10px;
-      width: 23.333%; }
-      .n-sidebar__icons li:hover path {
+      width: 22%; }
+      .n-sidebar__icons li:hover path, .n-sidebar__icons li:focus path {
         fill: #fff; }
       .n-sidebar__icons li:last-child {
         margin-right: 0; }
       .n-sidebar__icons li a {
-        display: block;
-        margin-left: -17px; }
+        display: block; }
     .n-sidebar__icons svg {
       width: 100%;
       height: 38px; }
@@ -948,13 +958,13 @@ h5 {
       padding: 30px 0px; } }
   .n-news__header {
     color: #1C1F21;
-    font-size: 55px;
+    font-size: 35px;
     text-transform: uppercase;
     font-family: "PTF75F";
     margin-bottom: 10px; }
     @media all and (max-width: 1200px) {
       .n-news__header {
-        font-size: 46px; } }
+        font-size: 26px; } }
     @media all and (max-width: 830px) {
       .n-news__header {
         font-size: 22px;
@@ -1074,7 +1084,7 @@ h5 {
         .n-detail__name span {
           font-size: 14px; } }
   .n-detail__content {
-    padding: 105px 0px;
+    padding: 60px 0px;
     overflow: hidden; }
     @media all and (max-width: 830px) {
       .n-detail__content {
@@ -1135,24 +1145,24 @@ h5 {
       width: 100%; }
     .n-detail__slider .n-slider__arrowR {
       cursor: pointer; }
-      .n-detail__slider .n-slider__arrowR:hover circle:first-child {
+      .n-detail__slider .n-slider__arrowR:hover circle:first-child, .n-detail__slider .n-slider__arrowR:focus circle:first-child {
         stroke: #785AA2;
         fill: #785AA2; }
-      .n-detail__slider .n-slider__arrowR:hover path:first-child + path {
+      .n-detail__slider .n-slider__arrowR:hover path:first-child + path, .n-detail__slider .n-slider__arrowR:focus path:first-child + path {
         fill: #fff; }
-      .n-detail__slider .n-slider__arrowR:hover path:first-child + path + path {
+      .n-detail__slider .n-slider__arrowR:hover path:first-child + path + path, .n-detail__slider .n-slider__arrowR:focus path:first-child + path + path {
         fill: #fff; }
       @media all and (max-width: 830px) {
         .n-detail__slider .n-slider__arrowR {
           display: none; } }
     .n-detail__slider .n-slider__arrowL {
       cursor: pointer; }
-      .n-detail__slider .n-slider__arrowL:hover circle:first-child {
+      .n-detail__slider .n-slider__arrowL:hover circle:first-child, .n-detail__slider .n-slider__arrowL:focus circle:first-child {
         stroke: #785AA2;
         fill: #785AA2; }
-      .n-detail__slider .n-slider__arrowL:hover path:first-child + path {
+      .n-detail__slider .n-slider__arrowL:hover path:first-child + path, .n-detail__slider .n-slider__arrowL:focus path:first-child + path {
         fill: #fff; }
-      .n-detail__slider .n-slider__arrowL:hover path:first-child + path + path {
+      .n-detail__slider .n-slider__arrowL:hover path:first-child + path + path, .n-detail__slider .n-slider__arrowL:focus path:first-child + path + path {
         fill: #fff; }
       @media all and (max-width: 830px) {
         .n-detail__slider .n-slider__arrowL {
@@ -1167,23 +1177,23 @@ h5 {
       @media all and (max-width: 830px) {
         .n-detail__slider__item {
           width: 90% !important; } }
-      .n-detail__slider__item:hover {
+      .n-detail__slider__item:hover, .n-detail__slider__item:focus {
         z-index: 22;
         -webkit-transform: scale(1.05);
                 transform: scale(1.05);
         overflow: visible; }
-        .n-detail__slider__item:hover:after {
+        .n-detail__slider__item:hover:after, .n-detail__slider__item:focus:after {
           opacity: 0 !important; }
-        .n-detail__slider__item:hover:before {
+        .n-detail__slider__item:hover:before, .n-detail__slider__item:focus:before {
           opacity: 1 !important;
           background: url(../img/play.png) -123px 0px !important; }
-        .n-detail__slider__item:hover a {
+        .n-detail__slider__item:hover a, .n-detail__slider__item:focus a {
           opacity: 0; }
         @media all and (max-width: 830px) {
-          .n-detail__slider__item:hover {
+          .n-detail__slider__item:hover, .n-detail__slider__item:focus {
             -webkit-transform: none;
                     transform: none; }
-            .n-detail__slider__item:hover .n-detail__slider__pic {
+            .n-detail__slider__item:hover .n-detail__slider__pic, .n-detail__slider__item:focus .n-detail__slider__pic {
               left: 0;
               right: 0; } }
     .n-detail__slider .n-pic:after {
@@ -1267,10 +1277,12 @@ h5 {
       font-size: 18px; }
   .n-detail__icons {
     overflow: hidden;
-    padding-top: 55px; }
+    padding-top: 55px;
+    margin-bottom: 50px; }
     @media all and (max-width: 830px) {
       .n-detail__icons {
-        padding-top: 30px; } }
+        padding-top: 30px;
+        margin-bottom: 20px; } }
     .n-detail__icons li {
       float: left;
       margin-right: 20px; }
@@ -1345,7 +1357,7 @@ h5 {
     @media all and (max-width: 830px) {
       .n-tickets__btn {
         font-size: 14px; } }
-    .n-tickets__btn:hover {
+    .n-tickets__btn:hover, .n-tickets__btn:focus {
       background: #604881; }
   @media all and (max-width: 830px) {
     .n-tickets__check {
@@ -1398,7 +1410,7 @@ h5 {
       font-size: 15px; }
       @media all and (max-width: 1200px) {
         .n-tickets__check label span {
-          font-size: 12px; } }
+          font-size: 14px; } }
   .n-tickets ul {
     margin-bottom: 20px;
     padding-left: 20px; }
@@ -1716,7 +1728,7 @@ h5 {
           width: 100%;
           font-size: 14px;
           text-transform: uppercase; } }
-      .n-form__submit input:hover {
+      .n-form__submit input:hover, .n-form__submit input:focus {
         background: #604881; }
   .n-form__bottom {
     padding-top: 20px; }
@@ -1823,9 +1835,9 @@ h5 {
                   transform: rotate(-90deg);
           border: 1px solid #BABABA;
           border-radius: 50%; }
-          .n-declarations__month__arrL:hover {
+          .n-declarations__month__arrL:hover, .n-declarations__month__arrL:focus {
             border: 1px solid #fff; }
-            .n-declarations__month__arrL:hover path {
+            .n-declarations__month__arrL:hover path, .n-declarations__month__arrL:focus path {
               fill: #fff; } }
       .n-declarations__month__arrL svg {
         position: absolute;
@@ -1836,7 +1848,7 @@ h5 {
         @media all and (max-width: 830px) {
           .n-declarations__month__arrL svg {
             bottom: 9px; } }
-      .n-declarations__month__arrL:hover path {
+      .n-declarations__month__arrL:hover path, .n-declarations__month__arrL:focus path {
         fill: #fff; }
     .n-declarations__month__arrR {
       position: absolute;
@@ -1861,9 +1873,9 @@ h5 {
                   transform: rotate(90deg);
           border: 1px solid #BABABA;
           border-radius: 50%; }
-          .n-declarations__month__arrR:hover {
+          .n-declarations__month__arrR:hover, .n-declarations__month__arrR:focus {
             border: 1px solid #fff; }
-            .n-declarations__month__arrR:hover path {
+            .n-declarations__month__arrR:hover path, .n-declarations__month__arrR:focus path {
               fill: #fff; } }
       .n-declarations__month__arrR svg {
         position: absolute;
@@ -1871,7 +1883,7 @@ h5 {
         right: 0;
         margin: auto;
         top: 8px; }
-      .n-declarations__month__arrR:hover path {
+      .n-declarations__month__arrR:hover path, .n-declarations__month__arrR:focus path {
         fill: #fff; }
   .n-declarations__header {
     background: #2e3192;
@@ -1978,13 +1990,13 @@ h5 {
         margin-right: 0; }
     .n-declarations__checks .n-square {
       cursor: pointer; }
-      .n-declarations__checks .n-square:hover circle {
+      .n-declarations__checks .n-square:hover circle, .n-declarations__checks .n-square:focus circle {
         fill: #EFA0C6; }
     .n-declarations__checks .n-lines {
       cursor: pointer; }
-      .n-declarations__checks .n-lines:hover circle {
+      .n-declarations__checks .n-lines:hover circle, .n-declarations__checks .n-lines:focus circle {
         fill: #EFA0C6; }
-      .n-declarations__checks .n-lines:hover path {
+      .n-declarations__checks .n-lines:hover path, .n-declarations__checks .n-lines:focus path {
         fill: #EFA0C6; }
     .n-declarations__checks .active circle {
       fill: #EFA0C6; }
@@ -2261,28 +2273,30 @@ h5 {
             border: 0;
             text-align: left;
             background: none; }
-            .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover {
+            .n-declarations__date .ui-datepicker-calendar td .n-event__t a:hover, .n-declarations__date .ui-datepicker-calendar td .n-event__t a:focus {
               text-decoration: underline;
               font-weight: normal; }
         .n-declarations__date .ui-datepicker-calendar td .n-event {
           margin: 0; }
-        .n-declarations__date .ui-datepicker-calendar td:hover .ui-state-default {
+        .n-declarations__date .ui-datepicker-calendar td:hover .ui-state-default, .n-declarations__date .ui-datepicker-calendar td:focus .ui-state-default {
           /*color: #fff;
             z-index: 2;*/ }
-        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__bg {
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__bg, .n-declarations__date .ui-datepicker-calendar td:focus .n-event__bg {
           /*opacity: 1;
             background: #785AA2;
             background-position: center center;
             background-size: cover;*/ }
-        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cover {
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cover, .n-declarations__date .ui-datepicker-calendar td:focus .n-event__cover {
           background: rgba(0, 0, 0, 0.4); }
-        .n-declarations__date .ui-datepicker-calendar td:hover b {
+        .n-declarations__date .ui-datepicker-calendar td:hover b, .n-declarations__date .ui-datepicker-calendar td:focus b {
           color: #fff; }
-        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cont {
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__cont, .n-declarations__date .ui-datepicker-calendar td:focus .n-event__cont {
           color: #fff; }
-        .n-declarations__date .ui-datepicker-calendar td:hover .event-btn {
-          cursor: pointer; }
-        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__t a {
+        .n-declarations__date .ui-datepicker-calendar td:hover .event-btn, .n-declarations__date .ui-datepicker-calendar td:focus .event-btn {
+          cursor: pointer;
+          -webkit-animation: scales  2s infinite ease-in-out;
+                  animation: scales  2s infinite ease-in-out; }
+        .n-declarations__date .ui-datepicker-calendar td:hover .n-event__t a, .n-declarations__date .ui-datepicker-calendar td:focus .n-event__t a {
           color: #fff; }
         .n-declarations__date .ui-datepicker-calendar td .calHover {
           color: #fff;
@@ -2321,6 +2335,9 @@ h5 {
         margin-bottom: 14px;
         margin-top: 5px;
         line-height: 22px; }
+        @media all and (max-width: 1470px) {
+          .n-declarations__date .n-event i {
+            font-size: 14px; } }
       .n-declarations__date .n-event b {
         font-weight: normal;
         display: block;
@@ -2398,11 +2415,12 @@ h5 {
       border-radius: 5px;
       color: #fff;
       opacity: 0;
+      border: 2px solid #fff;
       transition: all 0.55s linear;
       -webkit-transition: all 0.55s linear;
       -moz-transition: all 0.55s linear; }
-      .n-declarations__date .event-btn:hover {
-        border: 0;
+      .n-declarations__date .event-btn:hover, .n-declarations__date .event-btn:focus {
+        border: 2px solid #fff;
         background: #644495; }
     .n-declarations__date--list .ui-datepicker-other-month {
       display: none !important; }
@@ -2483,42 +2501,42 @@ h5 {
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.6); }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__age {
           opacity: 1; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__age, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__age {
               opacity: 0.5; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__subBg {
           opacity: 1; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__subBg, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__subBg {
               opacity: 0; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__cont {
           color: #fff; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__cont, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__cont {
               color: #1C1C1C; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .event-btn {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .event-btn, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .event-btn {
           opacity: 1; }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__t a {
           color: #fff; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__t a, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__t a {
               color: #1C1C1C; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__b {
           color: #BABABA; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__b, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__b {
               color: #878787; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__type {
           color: #BABABA; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover .n-event__type, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus .n-event__type {
               color: #878787; } }
-        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after {
+        .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus b:after {
           color: #BABABA; }
           @media all and (max-width: 830px) {
-            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after {
+            .n-declarations__date--list .ui-datepicker-calendar td .n-event:hover b:after, .n-declarations__date--list .ui-datepicker-calendar td .n-event:focus b:after {
               color: #878787; } }
         .n-declarations__date--list .ui-datepicker-calendar td .n-event__cont {
           padding: 10px 5px 50px 5px; }
@@ -2573,12 +2591,12 @@ h5 {
             .n-declarations__date--list .ui-datepicker-calendar td b:after {
               font-size: 10px;
               top: -30px; } }
-      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__bg {
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__bg, .n-declarations__date--list .ui-datepicker-calendar td:focus .n-event__bg {
         opacity: 0; }
-      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cover {
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cover, .n-declarations__date--list .ui-datepicker-calendar td:focus .n-event__cover {
         opacity: 0.3;
         display: none; }
-      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cont {
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__cont, .n-declarations__date--list .ui-datepicker-calendar td:focus .n-event__cont {
         color: #1C1C1C; }
       .n-declarations__date--list .ui-datepicker-calendar td .n-event__type {
         display: block;
@@ -2637,7 +2655,7 @@ h5 {
           border: 0;
           text-align: left;
           background: none; }
-          .n-declarations__date--list .ui-datepicker-calendar td .n-event__t a:hover {
+          .n-declarations__date--list .ui-datepicker-calendar td .n-event__t a:hover, .n-declarations__date--list .ui-datepicker-calendar td .n-event__t a:focus {
             text-decoration: underline; }
       .n-declarations__date--list .ui-datepicker-calendar td .n-event__b {
         display: block;
@@ -2660,7 +2678,10 @@ h5 {
         padding: 17px 30px;
         position: absolute;
         right: 25px;
-        top: 65px; }
+        top: 65px;
+        border: 2px solid #fff;
+        -webkit-animation: scales  2s infinite ease-in-out;
+                animation: scales  2s infinite ease-in-out; }
         @media all and (max-width: 1200px) {
           .n-declarations__date--list .ui-datepicker-calendar td .event-btn {
             font-size: 16px;
@@ -2669,7 +2690,7 @@ h5 {
           .n-declarations__date--list .ui-datepicker-calendar td .event-btn {
             position: static;
             font-size: 14px; } }
-      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__t a {
+      .n-declarations__date--list .ui-datepicker-calendar td:hover .n-event__t a, .n-declarations__date--list .ui-datepicker-calendar td:focus .n-event__t a {
         color: #1C1C1C; }
     .n-declarations__date--list .n-event {
       background-size: cover; }
@@ -2703,13 +2724,13 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-  .n-item:hover .n-pic-container__sub {
+  .n-item:hover .n-pic-container__sub, .n-item:focus .n-pic-container__sub {
     -webkit-transform: scale(2) translateZ(0);
             transform: scale(2) translateZ(0); }
-  .n-item:hover .n-item__inside__pic {
+  .n-item:hover .n-item__inside__pic, .n-item:focus .n-item__inside__pic {
     -webkit-transform: scale(1.1) translateZ(0);
             transform: scale(1.1) translateZ(0); }
-  .n-item:hover .n-item__btn {
+  .n-item:hover .n-item__btn, .n-item:focus .n-item__btn {
     opacity: 1; }
   .n-item__container {
     position: absolute;
@@ -2839,9 +2860,12 @@ h5 {
     right: 35px;
     opacity: 1;
     z-index: 6;
+    border: 3px solid #fff;
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
-    -moz-transition: all 0.55s linear; }
+    -moz-transition: all 0.55s linear;
+    -webkit-animation: scales  2s infinite ease-in-out;
+            animation: scales  2s infinite ease-in-out; }
     @media all and (max-width: 830px) {
       .n-item__btn {
         opacity: 1;
@@ -2851,7 +2875,7 @@ h5 {
     @media all and (max-width: 830px) {
       .n-item__btn {
         font-size: 16px; } }
-    .n-item__btn:hover {
+    .n-item__btn:hover, .n-item__btn:focus {
       background: #b0468f; }
   .n-item__count {
     font-family: "Scada-Bold";
@@ -2879,7 +2903,7 @@ h5 {
         bottom: 35px;
         left: 6%; } }
     .n-item__name__header {
-      font-size: 2.8vw;
+      font-size: 2.6vw;
       text-transform: uppercase;
       font-family: "PTF75F";
       line-height: 1.2;
@@ -3040,6 +3064,9 @@ h5 {
       z-index: -1;
       border: 2px solid #fff;
       margin-top: -8%; }
+      @media all and (max-width: 1366px) {
+        .n-item .ui-state-default.ui-state-hover:after, .n-item .ui-state-default.ui-state-active:after {
+          margin-top: -4%; } }
       @media all and (max-width: 1200px) {
         .n-item .ui-state-default.ui-state-hover:after, .n-item .ui-state-default.ui-state-active:after {
           width: 4vw;
@@ -3220,9 +3247,9 @@ h5 {
       transition: all 0.55s linear;
       -webkit-transition: all 0.55s linear;
       -moz-transition: all 0.55s linear; }
-  .x2--news:hover .n-item__inside__cover {
+  .x2--news:hover .n-item__inside__cover, .x2--news:focus .n-item__inside__cover {
     background: transparent; }
-    .x2--news:hover .n-item__inside__cover:after {
+    .x2--news:hover .n-item__inside__cover:after, .x2--news:focus .n-item__inside__cover:after {
       opacity: 0.3; }
   .x2--news .n-item__header {
     font-size: 32px;
@@ -3285,7 +3312,7 @@ h5 {
       .x3 .n-item__name {
         left: 6%; } }
     .x3 .n-item__name .n-item__name__header {
-      font-size: 1.2vw;
+      font-size: 1.0vw;
       line-height: 1.5; }
       @media all and (max-width: 830px) {
         .x3 .n-item__name .n-item__name__header {
@@ -3335,9 +3362,9 @@ h5 {
       transition: all 0.55s linear;
       -webkit-transition: all 0.55s linear;
       -moz-transition: all 0.55s linear; }
-  .x3--news:hover .n-item__inside__cover {
+  .x3--news:hover .n-item__inside__cover, .x3--news:focus .n-item__inside__cover {
     background: transparent !important; }
-    .x3--news:hover .n-item__inside__cover:after {
+    .x3--news:hover .n-item__inside__cover:after, .x3--news:focus .n-item__inside__cover:after {
       opacity: 0.3; }
   .x3--news .n-item__header {
     font-size: 32px;
@@ -3596,10 +3623,10 @@ h5 {
       display: block;
       color: #3EA6DB;
       font-size: 18px; }
-      .x6 .n-item__contacts a:hover {
+      .x6 .n-item__contacts a:hover, .x6 .n-item__contacts a:focus {
         text-decoration: underline; }
   .x6 .n-item__name__header {
-    font-size: 2.8vw;
+    font-size: 2.6vw;
     text-transform: none;
     margin-bottom: 25px;
     display: block; }
@@ -3607,9 +3634,9 @@ h5 {
       .x6 .n-item__name__header {
         font-size: 28px;
         margin-bottom: 20px; } }
-    .x6 .n-item__name__header:hover {
+    .x6 .n-item__name__header:hover, .x6 .n-item__name__header:focus {
       text-decoration: none; }
-  .x6:hover .n-item__contacts {
+  .x6:hover .n-item__contacts, .x6:focus .n-item__contacts {
     max-height: 150px; }
 
 .x7 {
@@ -3655,7 +3682,7 @@ h5 {
       display: block;
       color: #3EA6DB;
       font-size: 18px; }
-      .x7 .n-item__contacts a:hover {
+      .x7 .n-item__contacts a:hover, .x7 .n-item__contacts a:focus {
         text-decoration: underline; }
   .x7 .n-item__name .n-item__name__header {
     font-size: 1.8vw;
@@ -3666,9 +3693,9 @@ h5 {
       .x7 .n-item__name .n-item__name__header {
         font-size: 28px;
         margin-bottom: 20px; } }
-    .x7 .n-item__name .n-item__name__header:hover {
+    .x7 .n-item__name .n-item__name__header:hover, .x7 .n-item__name .n-item__name__header:focus {
       text-decoration: none; }
-  .x7:hover .n-item__contacts {
+  .x7:hover .n-item__contacts, .x7:focus .n-item__contacts {
     max-height: 150px; }
 
 .n-pic-container {
@@ -3744,7 +3771,9 @@ h5 {
   -moz-transition: all 0.55s linear; }
   .n-btn-rev a {
     display: inline-block;
-    padding: 12px 32px 12px 60px; }
+    padding: 12px 32px 12px 60px;
+    position: relative;
+    z-index: 2; }
   .n-btn-rev:after {
     display: block;
     content: '';
@@ -3756,7 +3785,7 @@ h5 {
     bottom: 0;
     margin: auto;
     left: 20px; }
-  .n-btn-rev:hover {
+  .n-btn-rev:hover, .n-btn-rev:focus {
     opacity: 1; }
   @media all and (max-width: 830px) {
     .n-btn-rev {
@@ -3790,14 +3819,14 @@ h5 {
         .n-slider__arrowL svg {
           width: 100%;
           height: 100%; } }
-    .n-slider__arrowL:hover g {
+    .n-slider__arrowL:hover g, .n-slider__arrowL:focus g {
       opacity: 1; }
-    .n-slider__arrowL:hover circle:first-child {
+    .n-slider__arrowL:hover circle:first-child, .n-slider__arrowL:focus circle:first-child {
       stroke: #785AA2;
       fill: #785AA2; }
-    .n-slider__arrowL:hover path:first-child + path {
+    .n-slider__arrowL:hover path:first-child + path, .n-slider__arrowL:focus path:first-child + path {
       fill: #fff; }
-    .n-slider__arrowL:hover path:first-child + path + path {
+    .n-slider__arrowL:hover path:first-child + path + path, .n-slider__arrowL:focus path:first-child + path + path {
       fill: #fff; }
   .n-slider__arrowR {
     position: absolute;
@@ -3818,26 +3847,26 @@ h5 {
         .n-slider__arrowR svg {
           width: 100%;
           height: 100%; } }
-    .n-slider__arrowR:hover g {
+    .n-slider__arrowR:hover g, .n-slider__arrowR:focus g {
       opacity: 1; }
-    .n-slider__arrowR:hover circle:first-child {
+    .n-slider__arrowR:hover circle:first-child, .n-slider__arrowR:focus circle:first-child {
       stroke: #785AA2;
       fill: #785AA2; }
-    .n-slider__arrowR:hover path:first-child + path {
+    .n-slider__arrowR:hover path:first-child + path, .n-slider__arrowR:focus path:first-child + path {
       fill: #fff; }
-    .n-slider__arrowR:hover path:first-child + path + path {
+    .n-slider__arrowR:hover path:first-child + path + path, .n-slider__arrowR:focus path:first-child + path + path {
       fill: #fff; }
 
 .n-date .n-item__inside, .n-date-mob .n-item__inside {
   padding: 6% 8%; }
 
 .n-date .n-item__inside__pic, .n-date-mob .n-item__inside__pic {
-  height: 65.5%; }
+  height: 72.5%; }
 
-.n-date:hover .n-item__inside__cover, .n-date-mob:hover .n-item__inside__cover {
+.n-date:hover .n-item__inside__cover, .n-date:focus .n-item__inside__cover, .n-date-mob:hover .n-item__inside__cover, .n-date-mob:focus .n-item__inside__cover {
   opacity: 0.3; }
 
-.n-date:hover .n-item__inside__pic, .n-date-mob:hover .n-item__inside__pic {
+.n-date:hover .n-item__inside__pic, .n-date:focus .n-item__inside__pic, .n-date-mob:hover .n-item__inside__pic, .n-date-mob:focus .n-item__inside__pic {
   -webkit-transform: none;
           transform: none; }
 
@@ -4034,13 +4063,13 @@ h5 {
       @media all and (max-width: 830px) {
         .n-media--news .n-media__name b {
           font-size: 14px; } }
-  .n-media--news:hover .n-media__pic {
+  .n-media--news:hover .n-media__pic, .n-media--news:focus .n-media__pic {
     -webkit-transform: scale(1.1);
             transform: scale(1.1); }
-  .n-media--news:hover .n-media__inside {
+  .n-media--news:hover .n-media__inside, .n-media--news:focus .n-media__inside {
     -webkit-transform: none !important;
             transform: none !important; }
-  .n-media--news:hover .n-media__cover {
+  .n-media--news:hover .n-media__cover, .n-media--news:focus .n-media__cover {
     opacity: 0.7; }
   .n-media--news .n-media__pic:after {
     border-radius: 0; }
@@ -4157,10 +4186,10 @@ h5 {
     @media all and (max-width: 830px) {
       .n-media__name {
         font-size: 24px !important; } }
-  .n-media:hover .n-media__inside {
+  .n-media:hover .n-media__inside, .n-media:focus .n-media__inside {
     -webkit-transform: scale(1.9);
             transform: scale(1.9); }
-  .n-media:hover .n-media__cover {
+  .n-media:hover .n-media__cover, .n-media:focus .n-media__cover {
     opacity: 0; }
 
 .n-media--news.z2 .n-media__cover {
@@ -4272,7 +4301,7 @@ h5 {
   .z1 .n-media__cover {
     background: #000;
     opacity: 0; }
-  .z1:hover .n-media__cover {
+  .z1:hover .n-media__cover, .z1:focus .n-media__cover {
     opacity: 0.5; }
 
 .z2 {
@@ -4290,7 +4319,7 @@ h5 {
   .z2 .n-media__cover {
     background: #000;
     opacity: 0; }
-  .z2:hover .n-media__cover {
+  .z2:hover .n-media__cover, .z2:focus .n-media__cover {
     opacity: 0.5; }
 
 .n-poster {
@@ -4350,7 +4379,10 @@ h5 {
           padding: 0; } }
       .n-poster__top .n-btn-container .n-btn {
         vertical-align: middle;
-        margin-right: 40px; }
+        margin-right: 40px;
+        -webkit-animation: scales  2s infinite ease-in-out;
+                animation: scales  2s infinite ease-in-out;
+        border: 2px solid #fff; }
         @media all and (max-width: 830px) {
           .n-poster__top .n-btn-container .n-btn {
             margin-right: 0;
@@ -4420,9 +4452,10 @@ h5 {
           .n-poster__side ul li {
             float: none;
             display: inline-block;
-            width: 55px;
-            height: 55px;
-            margin-top: 15px; } }
+            width: 75px;
+            height: 75px;
+            margin-top: 15px;
+            margin-bottom: 30px; } }
         .n-poster__side ul li span {
           color: #1C1C1C;
           font-size: 18px;
@@ -4434,23 +4467,40 @@ h5 {
           margin: auto;
           left: 40px;
           right: 60px;
+          text-align: center;
           transition: all 0.55s ease-in-out;
           -webkit-transition: all 0.55s ease-in-out;
           -moz-transition: all 0.55s ease-in-out; }
-          @media all and (max-width: 1366px) {
-            .n-poster__side ul li span {
-              font-size: 14px; } }
           @media all and (max-width: 830px) {
             .n-poster__side ul li span {
-              font-size: 21px; } }
+              font-size: 14px;
+              opacity: 1;
+              left: 0;
+              top: -120px;
+              color: #fff;
+              text-align: center;
+              width: 100%; } }
           .n-poster__side ul li span p {
             display: table;
             width: 100%;
             height: 100%; }
+            @media all and (max-width: 830px) {
+              .n-poster__side ul li span p {
+                display: block;
+                padding-top: 75px;
+                text-align: center; } }
           .n-poster__side ul li span i {
             font-style: normal;
             display: table-cell;
             vertical-align: middle; }
+            @media all and (max-width: 1366px) {
+              .n-poster__side ul li span i {
+                font-size: 14px; } }
+            @media all and (max-width: 830px) {
+              .n-poster__side ul li span i {
+                display: inline-block;
+                width: 75px;
+                word-wrap: break-word; } }
         .n-poster__side ul li b {
           font-size: 24px;
           color: #BABABA;
@@ -4473,31 +4523,37 @@ h5 {
               height: 45px; } }
           @media all and (max-width: 830px) {
             .n-poster__side ul li b {
-              font-size: 21px;
+              font-size: 23px;
               line-height: 55px;
+              color: #fff;
               width: 55px;
-              height: 55px; } }
-        .n-poster__side ul li:hover {
-          width: 216px;
+              height: 55px;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              margin: auto; } }
+        .n-poster__side ul li:hover, .n-poster__side ul li:focus {
+          width: 270px;
           border-radius: 40px;
           background: #fff; }
           @media all and (max-width: 1366px) {
-            .n-poster__side ul li:hover {
-              width: 170px; } }
-          .n-poster__side ul li:hover b {
+            .n-poster__side ul li:hover, .n-poster__side ul li:focus {
+              width: 270px; } }
+          .n-poster__side ul li:hover b, .n-poster__side ul li:focus b {
             color: #1C1C1C;
             display: inline-block; }
-          .n-poster__side ul li:hover span {
+          .n-poster__side ul li:hover span, .n-poster__side ul li:focus span {
             opacity: 1; }
           @media all and (max-width: 830px) {
-            .n-poster__side ul li:hover {
-              width: 55px;
+            .n-poster__side ul li:hover, .n-poster__side ul li:focus {
+              width: 75px;
               border-radius: 50%;
               background: inherit; }
-              .n-poster__side ul li:hover b {
+              .n-poster__side ul li:hover b, .n-poster__side ul li:focus b {
                 color: inherit; }
-              .n-poster__side ul li:hover span {
-                opacity: 0; } }
+              .n-poster__side ul li:hover span, .n-poster__side ul li:focus span {
+                opacity: 1; } }
   .n-poster__header {
     padding-top: 150px;
     position: relative; }
@@ -4506,7 +4562,8 @@ h5 {
         padding-top: 80px; } }
     @media all and (max-width: 830px) {
       .n-poster__header {
-        padding-top: 150px; } }
+        padding-top: 150px;
+        margin-bottom: 50px; } }
     .n-poster__header span {
       font-family: "PTF75F";
       font-size: 72px;
@@ -4542,7 +4599,8 @@ h5 {
         display: none; }
   .n-poster__dates {
     padding-top: 100px;
-    width: 95%; }
+    width: 95%;
+    padding-bottom: 220px; }
     @media all and (max-width: 1366px) {
       .n-poster__dates {
         width: 95%;
@@ -4596,6 +4654,8 @@ h5 {
     float: left;
     box-sizing: border-box;
     cursor: pointer; }
+    .n-poster__date:hover > label {
+      border: 2px solid #5B378D; }
     @media all and (max-width: 830px) {
       .n-poster__date {
         width: 33.3333%;
@@ -4691,16 +4751,19 @@ h5 {
             font-size: 16px; } }
         @media all and (max-width: 1200px) {
           .n-poster__date__r b {
-            font-size: 12px; } }
+            font-size: 14px; } }
         @media all and (max-width: 830px) {
           .n-poster__date__r b {
-            font-size: 12px;
+            font-size: 14px;
             padding: 0; } }
     .n-poster__date .n-btn-container {
       position: absolute;
       bottom: 0;
       left: 7.1%;
       display: none; }
+      @media all and (max-width: 1366px) {
+        .n-poster__date .n-btn-container {
+          left: 20px; } }
       @media all and (max-width: 830px) {
         .n-poster__date .n-btn-container {
           right: 20px;
@@ -4716,7 +4779,7 @@ h5 {
 
 .n-tables {
   overflow: hidden;
-  padding-bottom: 70px;
+  padding-bottom: 0px;
   transition: all 0.55s ease-in-out;
   -webkit-transition: all 0.55s ease-in-out;
   -moz-transition: all 0.55s ease-in-out; }
@@ -4750,10 +4813,10 @@ h5 {
       padding: 0px 10px; } }
   .n-table__header {
     color: #1C1C1C;
-    font-size: 36px;
+    font-size: 26px;
     font-family: "PTF75F";
     text-transform: uppercase;
-    padding-top: 85px;
+    padding-top: 45px;
     margin-bottom: 55px; }
     @media all and (max-width: 830px) {
       .n-table__header {
@@ -4790,19 +4853,19 @@ h5 {
   .n-table__row {
     display: table;
     width: 100%;
-    margin-bottom: 30px; }
+    margin-bottom: 20px; }
   .n-table__cell {
     display: table-cell;
     width: 45%;
     font-size: 18px;
     color: #878787;
-    font-family: "roboto-light"; }
+    font-family: "Scada-Regular"; }
     @media all and (max-width: 1366px) {
       .n-table__cell {
         font-size: 15px; } }
     @media all and (max-width: 830px) {
       .n-table__cell {
-        font-size: 12px; } }
+        font-size: 14px; } }
     .n-table__cell:last-child {
       width: 55%;
       color: #666666; }
@@ -4823,6 +4886,8 @@ h5 {
   @media all and (max-width: 830px) {
     .n-type {
       padding-bottom: 0; } }
+  .n-type--map {
+    padding-bottom: 0; }
   .n-type__header {
     height: auto;
     position: relative;
@@ -4940,7 +5005,12 @@ h5 {
     color: #878787; }
 
 .n-sidebar .scroll-wrapper > .scroll-content {
-  padding-bottom: 100px; }
+  padding-bottom: 150px;
+  overflow-x: hidden !important;
+  height: 90% !important; }
+  @media all and (max-width: 830px) {
+    .n-sidebar .scroll-wrapper > .scroll-content {
+      height: auto !important; } }
 
 .gm-style-iw {
   position: relative !important;
@@ -4993,6 +5063,8 @@ h5 {
     font-family: "PTF75F";
     color: #fff;
     overflow: hidden; }
+    .n-events li:nth-child(n+5) {
+      display: none; }
     @media all and (max-width: 1600px) {
       .n-events li {
         font-size: 1.0vw; } }
@@ -5003,7 +5075,7 @@ h5 {
       display: block;
       overflow: hidden;
       padding: 15px 28px; }
-    .n-events li:hover {
+    .n-events li:hover, .n-events li:focus {
       border: 1px solid #fff;
       background: #fff;
       color: #1C1C1C; }
@@ -5013,13 +5085,24 @@ h5 {
       width: 20%;
       font-size: 0.9vw;
       font-family: "Scada-Regular";
-      padding-top: 5px; }
+      padding-top: 2px; }
       @media all and (max-width: 1200px) {
         .n-events li i {
           font-size: 1.3vw; } }
     .n-events li span {
       float: left;
       width: 80%; }
+    .n-events li b {
+      font-style: normal;
+      display: block;
+      clear: both;
+      font-size: 0.8vw; }
+      @media all and (max-width: 1200px) {
+        .n-events li b {
+          font-size: 1.3vw; } }
+      @media all and (max-width: 830px) {
+        .n-events li b {
+          font-size: 14px; } }
 
 .empty-event {
   position: absolute;
@@ -5174,7 +5257,7 @@ h5 {
   transition: all 0.55s linear;
   -webkit-transition: all 0.55s linear;
   -moz-transition: all 0.55s linear; }
-  .n-btn:hover {
+  .n-btn:hover, .n-btn:focus {
     background: #604881; }
   @media all and (max-width: 830px) {
     .n-btn {
@@ -5221,10 +5304,13 @@ h5 {
   position: relative;
   z-index: 3;
   padding: 0px 20px 20px 20px; }
+  @media all and (max-width: 1470px) {
+    #bigDate .n-event {
+      padding: 0px 10px 20px 10px; } }
   @media all and (max-width: 1200px) {
     #bigDate .n-event {
       padding: 0px 10px 20px 10px; } }
-  #bigDate .n-event:hover .event-btn {
+  #bigDate .n-event:hover .event-btn, #bigDate .n-event:focus .event-btn {
     visibility: visible;
     opacity: 1; }
 
@@ -5376,7 +5462,7 @@ h5 {
 .n-info a {
   text-decoration: underline;
   color: #B8A9D3; }
-  .n-info a:hover {
+  .n-info a:hover, .n-info a:focus {
     color: #674d96; }
 
 .n-info p {
@@ -5400,7 +5486,7 @@ h5 {
 
 .n-info li {
   padding-left: 50px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   font-size: 18px;
   color: #666666;
   position: relative; }
@@ -5414,7 +5500,7 @@ h5 {
     content: '';
     position: absolute;
     left: 10px;
-    top: 0px;
+    top: 3px;
     width: 16px;
     height: 16px;
     background: #B8A9D3;
@@ -5450,7 +5536,7 @@ h5 {
 
 .n-info--fl li {
   padding-left: 30px;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   font-size: 18px;
   color: #666666;
   position: relative;
@@ -5510,7 +5596,7 @@ h5 {
     transition: all 0.55s linear;
     -webkit-transition: all 0.55s linear;
     -moz-transition: all 0.55s linear; }
-  .n-gal-item:hover:after {
+  .n-gal-item:hover:after, .n-gal-item:focus:after {
     opacity: 1; }
   .n-gal-item a {
     display: block;
@@ -5583,10 +5669,23 @@ h5 {
 #map2 .infoWindow__right {
   display: none; }
 
+.bileter_dialog {
+  margin-top: 90px; }
+  @media all and (max-width: 830px) {
+    .bileter_dialog {
+      width: 85%;
+      padding: 10px; } }
+
+.bileter_mini_afisha_buy {
+  color: #fff; }
+
 @media all and (max-width: 830px) {
-  .bileter_dialog {
-    width: 90%;
-    padding: 10px; } }
+  .bileter_close {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100; } }
 
 @media all and (max-width: 830px) {
   .bileter_afisha_event_buy {
@@ -5646,3 +5745,41 @@ h5 {
 
 .n-color-white {
   color: #fff; }
+
+.baeb_visamc {
+  background: #785AA2;
+  color: #fff; }
+
+.n-scale-map {
+  position: relative;
+  display: block;
+  overflow: hidden; }
+  .n-scale-map img {
+    display: block;
+    width: 100%; }
+
+.zoomImg {
+  width: 200% !important;
+  height: 200% !important; }
+
+@-webkit-keyframes scales {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes scales {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }

@@ -1,7 +1,7 @@
 @import "variables";
 
 .large-fs {
-  @media all and (min-width: $mid) {
+  @media all and (min-width: $min) {
     .x3--news .n-item__name .n-item__name__header {
       font-size: 1.1vw;
     }
@@ -55,7 +55,7 @@
     }
 
     .n-item .ui-state-default, .n-item .ui-widget-content .ui-state-default {
-      font-size: 1.2vw;
+      font-size: 1.1vw;
     }
 
     .n-item .ui-state-default.ui-state-hover:after, .n-item .ui-state-default.ui-state-active:after {
@@ -186,7 +186,7 @@
 }
 
 .kern_large {
-  @media all and (min-width: $mid) {
+  @media all and (min-width: $min) {
     * {
       letter-spacing: 2px;
     }

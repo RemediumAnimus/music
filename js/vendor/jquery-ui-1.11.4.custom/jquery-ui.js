@@ -9594,9 +9594,6 @@ $.extend(Datepicker.prototype, {
 				}
 			};
 			$(this).bind(this.getAttribute("data-event"), handler[this.getAttribute("data-handler")]);
-			/*$(this).on('click',function(e){
-				console.log(e.target);
-			})*/
 		});
 	},
 
